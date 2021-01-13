@@ -17,6 +17,7 @@ Make it prettier
   - [ ] create mock data file
   - [x] API docs: http://www.omdbapi.com/
   - [ ] create helper functions
+  - [ ] learn async / await
     - [ ] add movie to nomination list
       - [ ] assign ID to movie in nom list
       - [ ] create component
