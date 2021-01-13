@@ -35,7 +35,9 @@ const { nomTitles, nomYears, remove } = props;
             <th>Year</th>
           </tr>
         </thead>
-        {nomListItems}
+        <tbody>
+          {nomListItems}
+        </tbody>
       </table>      
     </div>
   );
