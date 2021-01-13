@@ -22,14 +22,12 @@ async function getMovies (searchTerm, pagesToReturn) {
       movies = movies.concat(currentMovies.data.Search);
     }
     // movies will be a promise ONCE it's returned. right now though, I can use it to set the current search results
-    console.log(movies);
   } catch (error) {
     console.error(error);
   }
 }
 // add movie to search result list
 
-getMovies('guard', 1);
 
 // add movie to nomination list
 

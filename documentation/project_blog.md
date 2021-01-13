@@ -10,5 +10,7 @@ DAY 1
 DAY 2
 - realized that async/await isn't really used to return values and need to set values i want using functions inside async/await block
 - ran into an odd thing where some years have a dash '-' after the year; looking forward to using some regex to trim those
-
-
+- decided on tables to layout search results and nominations
+- what's better: a) removing a nominated movie entirely from search results? or b) disabling a button? I think removing it entirely might be better
+- thinking i'll try to brand it with shopify colours/fonts
+- fixing broken windows as I go... little errors about keys required and React DOM element nesting rules annoy me. I've been fixing them as I go (<tr> cannot be a child of <table>)
