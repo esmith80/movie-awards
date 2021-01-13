@@ -25,3 +25,14 @@ button {
   
 }
 
+input {
+  padding: 15px 32px;
+  margin: 5px;
+  width: 50%;
+
+}
+
+table.search {
+  text-align: left;
+}
+
