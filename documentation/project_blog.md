@@ -7,3 +7,8 @@ DAY 1
 - excited to use an API and get it working quickly
 
 
+DAY 2
+- realized that async/await isn't really used to return values and need to set values i want using functions inside async/await block
+- ran into an odd thing where some years have a dash '-' after the year; looking forward to using some regex to trim those
+
+
