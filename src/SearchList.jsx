@@ -15,14 +15,14 @@ function SearchList(props) {
       key={i}
       title={movieTitles[i]}
       year={movieYears[i]}
-      nominate={nominate} // invoked or anon function or what?
+      nominate={nominate}
       />);    
     }
     
     return (
       <div>
         <h1>SEARCH RESULTS</h1>
-        <table>
+        <table className='search' >
           <thead>
             <tr>
               <th>Title</th>
