@@ -14,3 +14,4 @@ DAY 2
 - what's better: a) removing a nominated movie entirely from search results? or b) disabling a button? I think removing it entirely might be better
 - thinking i'll try to brand it with shopify colours/fonts
 - fixing broken windows as I go... little errors about keys required and React DOM element nesting rules annoy me. I've been fixing them as I go (<tr> cannot be a child of <table>)
+- i've decided to use github pull requests as a workflow (just to show I'm aware of that workflow)
