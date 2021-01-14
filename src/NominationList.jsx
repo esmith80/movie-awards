@@ -3,7 +3,7 @@ import { NominationListItem } from './NominationListItem';
 
 function NominationList (props) {
 
-const { nomTitles, nomYears, remove } = props;
+const { remove, nominees } = props;
     
   // how am i maintaining the list of titles and years?
   // if the nominate button is clicked in search results, it needs to take that populate that listItem info in the nominees list
@@ -13,13 +13,14 @@ const { nomTitles, nomYears, remove } = props;
   // -- only then, work on removing from other side 
 
   const nomListItems = [];
-  for(let i = 0; i < nomTitles.length; i++) {
+  for(let i = 0; i < nominees.length; i++) {
     // make an arry of nomListItems
     nomListItems.push(
       <NominationListItem
         key={i}
-        title={nomTitles[i]}
-        year={nomYears[i]}
+        imdbID={nominees[i].imdbID}
+        title={nominees[i].Title}
+        year={nominees[i].Year}
         remove={remove}
       />);    
     }

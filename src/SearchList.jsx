@@ -4,21 +4,23 @@ import { SearchListItem } from './SearchListItem';
 
 function SearchList(props) {
 
-  const { movieTitles, movieYears, nominate } = props;
+  const { nominate, movies } = props;
+
   
   // what are we trying return here?
   const searchListItems = [];
-  for(let i = 0; i < movieTitles.length; i++) {
+  for(let i = 0; i < movies.length; i++) {
     // make an arry of SearchListItems
     searchListItems.push(
       <SearchListItem 
       key={i}
-      title={movieTitles[i]}
-      year={movieYears[i]}
+      id={movies[i].imdbID}
+      title={movies[i].Title}
+      year={movies[i].Year}
       nominate={nominate}
       />);    
     }
-    
+    // @TODO remove the header (title and year) unless there are search results (or remove it all together??)
     return (
       <div>
         <h1>SEARCH RESULTS</h1>

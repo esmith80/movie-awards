@@ -29,12 +29,12 @@ Make it prettier
   - [x] read API docs
   - [x] what do i need from API?
   - [ ] 
-- [ ] refresh on how to begin creating react app (use npm or start from scratch?)
-- [ ] make component hierarchy
-- [ ] create react app
+- [x] refresh on how to begin creating react app (use npm or start from scratch?)
+- [x] make component hierarchy
+- [x] create react app
 - [ ] determine where state is kept
 - [ ] draw app interface
-- [ ] read API docs
+- [x] read API docs
 - [ ] Components
   - [ ] app
   - [ ] search bar
