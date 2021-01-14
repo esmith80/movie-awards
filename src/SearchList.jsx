@@ -14,10 +14,12 @@ function SearchList(props) {
     searchListItems.push(
       <SearchListItem 
       key={i}
+      //@TODO these props sometime error out on searches for 'short circuit' and 'shawshank', tries to run when undefined
       id={movies[i].imdbID}
       title={movies[i].Title}
       year={movies[i].Year}
       nominate={nominate}
+      nominee={movies[i].nominee}
       />);    
     }
     // @TODO remove the header (title and year) unless there are search results (or remove it all together??)

@@ -3,8 +3,7 @@ import { React, useState } from 'react';
 
 export const SearchListItem = (props) => {
   
-  const [toggle, setToggle] = useState(false);
-  const [buttonText, setButtonText] = useState('Nominate');
+  // const [buttonText, setButtonText] = useState('Nominate');
   
   return (
     <>
@@ -15,11 +14,11 @@ export const SearchListItem = (props) => {
         <td>
           <button 
             onClick={() => {
-              setToggle(!toggle);
-              setButtonText('🏆' );
+              // setButtonText('🏆' );
               props.nominate(props.title, props.year, props.id);
-              }}
-            disabled={toggle}>{buttonText}
+            }}
+            // TODO once it is set to true, it stays disabled even after you
+            disabled={props.nominee}>{props.nominee ? '🏆' : 'Nominate'}
            </button>
           </td>
       </tr>

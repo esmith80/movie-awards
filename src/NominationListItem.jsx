@@ -6,7 +6,7 @@ export const NominationListItem = (props) => {
       <tr>
         <td>{props.title}</td>
         <td>{props.year}</td>
-        <td><button onClick={() => { props.remove() }}>Remove Nomination</button></td>
+        <td><button onClick={() => { props.remove(props.imdbID) }}>Remove Nomination</button></td>
       </tr>
     </>
   );
