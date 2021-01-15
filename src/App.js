@@ -70,7 +70,7 @@ function App() {
       const totalResults = response.data.totalResults;
       pagesToReturn = (pagesToReturn <= maxPages) ? pagesToReturn : maxPages;
       pagesToReturn = (pagesToReturn <= totalResults) ? pagesToReturn : totalResults;
-      
+      // TODO this variable might be confused with state variable
       let movies = [];
       for (let page = 1; page <= pagesToReturn; page++) {
         const currentMovies = await axios.get(`http://www.omdbapi.com/?s=${searchTerm}&type=movie&page=${page}&apikey=bbde90f3`);
@@ -103,15 +103,19 @@ function App() {
         <SearchBar
           getMovies={getMovies}
         />
-        <SearchList
+
+        {movies.length? 
+         <SearchList
           nominate={nominate}
           movies={movies}
           maxNomsReached={nominees.length === 5}
-        />
+        /> : null}
+
+        {nominees.length? 
         <NominationList
           remove={remove}
           nominees={nominees}
-        />
+        /> : null}
         
       </header>
     </div>

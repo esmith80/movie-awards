@@ -29,3 +29,5 @@ Day 3
 - also i'm thinking about usability... there should no point of confusion on how to proceed at any point (there should be a no search results message... and a reminder if someone clicks the nominate button when they've reached all 5)
 - another thing on usability - the API search doesn't do partial searches... this is annoying and it also doesn't return something with a white space (no fuzzy searching it seems?)
 - not too much time on this today... only about 2 hrs... thinking about the layout and options as to where to store the nominees list... i could pin it to the top corner of the page as it is being built out and when its done, display a single div that says 'youre done, here are your nominees - see you at the Shoppies' so it's very clear the process is finished... i could also give them an option to return to the nomination lists
+Day 4
+- have basic functionality up and running but layout is next major consideration. TODOs are getting each section laid out appropriately spaced and also returning a message that says 'no search results'

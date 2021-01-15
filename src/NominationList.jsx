@@ -29,9 +29,15 @@ const { remove, nominees } = props;
 
 
   return (
-    <div>
-      <h1>MY NOMINEES</h1>
-      <table>
+    <div className='nom-container'>
+      <h2>My Nominations</h2>
+      <table className='nominees'>
+      <thead>           
+        <tr>
+          <th>Title</th>
+          <th>Year</th>
+        </tr>
+          </thead>
         <tbody>
           {nomListItems}
         </tbody>
