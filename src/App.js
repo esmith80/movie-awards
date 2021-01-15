@@ -3,6 +3,7 @@ import './App.css';
 import SearchList from './SearchList';
 import NominationList from './NominationList';
 import SearchBar from './SearchBar';
+import Banner from './Banner';
 const axios = require('axios');
 
 function App() {
@@ -13,10 +14,11 @@ function App() {
   // create state for nominees list
   const [nominees, setNominees] = useState([]);
   
+
   const nominate = (Title, Year, imdbID) => {
     // copy/move info from the search results to nominees table
 
-    // @TODO validation to prevent adding same movie twice (either disable button or remove from the search list altogether)    
+    // TODO validation to prevent adding same movie twice (either disable button or remove from the search list altogether)    
     // could make an animation so button goes to a CHECKMARK icon that says "nominated" or an icon that looks like an award statue
     // toggle that is used between search and noms
     const nominee = {
@@ -33,6 +35,8 @@ function App() {
       }
     }
     
+    // TODO it may be easier to get the number of nominees each time here from the length and pass that single piece of state down where it's needed... there are 
+    // a lot of things that could be hidden if the nominees are full like clearing the search results, displaying the list of nominees clearly at that point
   }
 
   const remove = (idRemove) => {
@@ -61,6 +65,7 @@ function App() {
     const maxPages = 5;
     try {
       // get the number of returned results first so we can see how many pages we can break it into
+      // TODO Hide API KEY
       const response = await axios.get(`http://www.omdbapi.com/?s=${searchTerm}&type=movie&apikey=bbde90f3`);
       const totalResults = response.data.totalResults;
       pagesToReturn = (pagesToReturn <= maxPages) ? pagesToReturn : maxPages;
@@ -75,6 +80,7 @@ function App() {
       // if it is not, set the toggle to false, if it is set it to true
       // TODO refactor to use map?
       for(let movie of movies) {
+        // TODO setting nominee causes console error when no results returned sometimes
         movie.nominee = false;
         for(let nominee of nominees) {
           if(movie.imdbID === nominee.imdbID) {
@@ -91,12 +97,16 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        
+        {nominees.length === 5 ? <Banner /> : null }
+
         <SearchBar
           getMovies={getMovies}
         />
         <SearchList
           nominate={nominate}
           movies={movies}
+          maxNomsReached={nominees.length === 5}
         />
         <NominationList
           remove={remove}

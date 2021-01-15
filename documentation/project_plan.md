@@ -61,3 +61,4 @@ Make it prettier
 - [ ] use the html tags i read about recently to show plot if user clicks into title (details summary? what was that tag)
 - [ ] get info not asked for (plot summary, etc.)
 - [ ] make a funny search (plots that have the word "fart")
+- [ ] pagination for searches: https://www.w3schools.com/bootstrap/bootstrap_pagination.asp
