@@ -4,7 +4,7 @@ import { SearchListItem } from './SearchListItem';
 
 function SearchList(props) {
 
-  const { nominate, movies } = props;
+  const { nominate, movies, maxNomsReached } = props;
 
   
   // what are we trying return here?
@@ -20,12 +20,12 @@ function SearchList(props) {
       year={movies[i].Year}
       nominate={nominate}
       nominee={movies[i].nominee}
+      maxNomsReached={maxNomsReached}
       />);    
     }
     // @TODO remove the header (title and year) unless there are search results (or remove it all together??)
     return (
       <div>
-        <h1>SEARCH RESULTS</h1>
         <table className='search' >
           <thead>
             <tr>

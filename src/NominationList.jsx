@@ -12,6 +12,8 @@ const { remove, nominees } = props;
   // -- does button need to be its own component?
   // -- only then, work on removing from other side 
 
+  // TODO make this list not jump around as things are added? - LOW VALUE not worth effort
+
   const nomListItems = [];
   for(let i = 0; i < nominees.length; i++) {
     // make an arry of nomListItems
@@ -30,12 +32,6 @@ const { remove, nominees } = props;
     <div>
       <h1>MY NOMINEES</h1>
       <table>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Year</th>
-          </tr>
-        </thead>
         <tbody>
           {nomListItems}
         </tbody>

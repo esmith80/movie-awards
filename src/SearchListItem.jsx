@@ -18,7 +18,7 @@ export const SearchListItem = (props) => {
               props.nominate(props.title, props.year, props.id);
             }}
             // TODO once it is set to true, it stays disabled even after you
-            disabled={props.nominee}>{props.nominee ? '🏆' : 'Nominate'}
+            disabled={props.nominee || props.maxNomsReached}>{props.nominee ? '🏆' : 'Nominate'}
            </button>
           </td>
       </tr>

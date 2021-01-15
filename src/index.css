@@ -36,3 +36,14 @@ table.search {
   text-align: left;
 }
 
+/* TODO style banner */
+.banner {
+  background-color: #4CAF50;
+  position:fixed;
+  top:0;
+  width:80%;
+  height: 30%;
+  z-index:100;
+  text-align: center;
+}
+
