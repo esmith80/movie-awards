@@ -12,16 +12,23 @@ code {
     monospace;
 }
 
-button {
+.search-noms-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
 
+button {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
-    padding: 15px 32px;
+    width: calc(100px);
+    padding: 12px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: calc(8px + 1vmin);
   
 }
 
@@ -31,33 +38,40 @@ input {
   width: 50%;
 }
 
-
-table.search { 
-  text-align: left;
-  position: fixed;
-  top: 11%;
-  left: 5%;
-  width: 40%;
+tr {
+  height: 65px;
 }
 
-.nom-container {
-  position: fixed;
-  right: 10%;
-  top: 0;
-  border: 2;
-  width: 40%;
+table.search {
+  /* table-layout: fixed; */
+
+  text-align: left;
+  position: relative;
+  /* top and left have NO effect if position is not specified the position is static */
+  top:2%;
+  left: 2%;
+  /* width: 40%; */
 }
 
 table.nominees {
+  table-layout: fixed;
   text-align: left;
-  position: fixed;
-  top: 11%;
-  right: 5%;
-  width: 40%;
+  position: relative;
+  top: 2%;
+  right: 2%;
+  /* width: 10vw; */
 }
 
+/* .nom-container {
+  position: fixed;
+  right: 10%;
+  top: 0;
+  width: 40%;
+} */
+
+
 .searchbar {
-  position:fixed;
+  /* position:fixed; */
   top:0;
   left:3%;
   width:40%;
@@ -70,7 +84,7 @@ table.nominees {
 .banner {
   background-color: #4CAF50;
   position:fixed;
-  top:30%;
+  top:0;
   width:50%;
   height: 30%;
   z-index:100;

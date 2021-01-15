@@ -26,6 +26,7 @@ function SearchList(props) {
     // @TODO remove the header (title and year) unless there are search results (or remove it all together??)
     return (
       <div>
+      <h2>Search Results</h2>
         <table className='search' >
           <thead>
             <tr>

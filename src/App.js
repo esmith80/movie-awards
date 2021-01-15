@@ -97,6 +97,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <h1>Shoppies</h1>
         
         {nominees.length === 5 ? <Banner /> : null }
 
@@ -104,20 +105,24 @@ function App() {
           getMovies={getMovies}
         />
 
-        {movies.length? 
-         <SearchList
-          nominate={nominate}
-          movies={movies}
-          maxNomsReached={nominees.length === 5}
-        /> : null}
-
-        {nominees.length? 
-        <NominationList
-          remove={remove}
-          nominees={nominees}
-        /> : null}
         
       </header>
+
+      <div className='search-noms-container'>
+
+        {movies.length? 
+         <SearchList
+         nominate={nominate}
+         movies={movies}
+         maxNomsReached={nominees.length === 5}
+         /> : null}
+        
+        {nominees.length? 
+        <NominationList
+        remove={remove}
+        nominees={nominees}
+        /> : null}        
+      </div>
     </div>
   );
 }
