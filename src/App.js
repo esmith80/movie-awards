@@ -75,6 +75,7 @@ function App() {
       // if it is not, set the toggle to false, if it is set it to true
       // TODO refactor to use map?
       for(let movie of movies) {
+        // TODO setting nominee causes console error when no results returned sometimes
         movie.nominee = false;
         for(let nominee of nominees) {
           if(movie.imdbID === nominee.imdbID) {

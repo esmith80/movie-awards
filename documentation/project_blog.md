@@ -23,3 +23,7 @@ DAY 2
 - Getting strange behaviour as I pass down the shiny new object I have for props... when i search for some movies, it takes a very long time and some movies cause an error (title not found? when in fact the title does exist...)
 - during the refactor, saw a couple of ways to populate the nominees table now that i have all the omdb info... thought about doing axios call based on id for each entry in nominees table, but probably best to pass the data around locally if you've got it i'd think?
 - loving the errors that react throws, clear, concise, plain-speak
+
+Day 3
+- not much time to work today, just need to implement the banner for the core feature... I did get to think about it though. I think it would make sense to have a configurable global variable called 'maxNominations' ... if the nominations are equal to the max, they can't add any more movies... the logic would need to be used in the 'onClick' function, disabling all nomination buttons if the max is reached... a banner needs to be shown as well and i'm thinking the banner is always there (but hidden) and is set to display if the user reaches the max
+- also i'm thinking about usability... there should no point of confusion on how to proceed at any point (there should be a no search results message... and a reminder if someone clicks the nominate button when they've reached all 5)
