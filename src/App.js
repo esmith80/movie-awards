@@ -11,9 +11,18 @@ function App() {
   // create state for search results list
   const [movies, setMovies] = useState({});
   const [noResults, setNoResults] = useState(false);
+  const [lastSearchTerm, setLastSearchTerm] = useState('');
+
 
   // create state for nominees list
   const [nominees, setNominees] = useState([]);
+
+  // const handleTextChange = (str) => {
+      
+  //     setSearchText(str)
+  //   }
+
+  
 
 
   const nominate = (Title, Year, imdbID) => {
@@ -90,6 +99,7 @@ function App() {
         }
       }
       setMovies(movies);
+      setLastSearchTerm(searchTerm);
       setNoResults(!movies.length);
     } catch (error) {
       console.error(error);
@@ -117,7 +127,7 @@ function App() {
               nominate={nominate}
               movies={movies}
               maxNomsReached={nominees.length === 5}
-            /> : noResults? <div className='empty-search'> Sorry, we couldn't find that.</div> : <div className='empty-search'>Use the search bar above to find movies!</div>}
+            /> : noResults? <div className='empty-search'> Sorry, we couldn't find '{lastSearchTerm}'</div> : <div className='empty-search'>Use the search bar above to find movies!</div>}
 
           {nominees.length ?
             <NominationList
