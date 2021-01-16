@@ -15,7 +15,7 @@ const SearchBar = (props) => {
           name='search-text'
           value={searchText}
           onKeyUp={e => {
-            if(e.key === 'Enter' && searchText.trim().length) props.getMovies(searchText, 1)
+            if(e.key === 'Enter' && searchText.trim().length) props.getMovies(searchText+'*', 3)
           }}
           //@TODO BUG seems to be stale state search text is one behind 
           onChange={() => { setSearchText(document.getElementById('search-text').value)}
@@ -24,7 +24,7 @@ const SearchBar = (props) => {
         />
         <button onClick={() => { 
           if(searchText.trim().length) {
-          props.getMovies(searchText, 1)} 
+          props.getMovies(searchText+'*', 3)} 
         }}>Search</button>      
     </div>
   );

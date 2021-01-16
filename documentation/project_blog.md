@@ -40,3 +40,4 @@ Day 4
 -- give user a logical clear path away from "congrats you've selected nominations"
 -- table cells should never move (buttons should never move, always remain in same place)
 -- box shadow on buttons
+-- partial search
