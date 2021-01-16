@@ -4,7 +4,7 @@ const SearchBar = (props) => {
   const [searchText, setSearchText] = useState('');
   return (
     <div className='searchbar'>
-        <label>Search for movies to add to your nomination list</label>
+        <label>Find movies to nominate</label>
         <input
           placeholder='Type a movie title...'
           id='search-text'
