@@ -14,7 +14,6 @@ function SearchList(props) {
     searchListItems.push(
       <SearchListItem 
       key={i}
-      //@TODO these props sometime error out on searches for 'short circuit' and 'shawshank', tries to run when undefined
       id={movies[i].imdbID}
       title={movies[i].Title}
       year={movies[i].Year}
@@ -23,9 +22,9 @@ function SearchList(props) {
       maxNomsReached={maxNomsReached}
       />);    
     }
-    // @TODO remove the header (title and year) unless there are search results (or remove it all together??)
     return (
       <div>
+      <h2>Search Results</h2>
         <table className='search' >
           <thead>
             <tr>

@@ -3,8 +3,8 @@ import { React, useState } from 'react';
 const SearchBar = (props) => {
   const [searchText, setSearchText] = useState('');
   return (
-    <div>
-        <label>Search for movies to add to your nomination list</label>
+    <div className='searchbar'>
+        <label>Find movies to nominate</label>
         <input
           placeholder='Type a movie title...'
           id='search-text'

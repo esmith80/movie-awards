@@ -10,10 +10,11 @@ function App() {
   // @TODO even though this version of state managment is working, I want to see if I can use objects to make things more concise
   // create state for search results list
   const [movies, setMovies] = useState({});
-  
+  const [noResults, setNoResults] = useState(false);
+
   // create state for nominees list
   const [nominees, setNominees] = useState([]);
-  
+
 
   const nominate = (Title, Year, imdbID) => {
     // copy/move info from the search results to nominees table
@@ -28,13 +29,13 @@ function App() {
     };
     setNominees([...nominees, nominee]);
 
-    for(let movie of movies) {
-      if(movie.imdbID === imdbID) {
+    for (let movie of movies) {
+      if (movie.imdbID === imdbID) {
         movie.nominee = true;
         break;
       }
     }
-    
+
     // TODO it may be easier to get the number of nominees each time here from the length and pass that single piece of state down where it's needed... there are 
     // a lot of things that could be hidden if the nominees are full like clearing the search results, displaying the list of nominees clearly at that point
   }
@@ -42,20 +43,20 @@ function App() {
   const remove = (idRemove) => {
     // @TODO remove logic for noms and search list
     const newNomList = [];
-    for(let nominee of nominees) {
-      if(nominee.imdbID !== idRemove) {
+    for (let nominee of nominees) {
+      if (nominee.imdbID !== idRemove) {
         newNomList.push(nominee);
       }
     }
-    for(let movie of movies) {
-      if(movie.imdbID === idRemove) {
+    for (let movie of movies) {
+      if (movie.imdbID === idRemove) {
         movie.nominee = false;
         break;
       }
     }
     setNominees(newNomList);
   }
-      
+
   // get movies from database and set the results to searchResults
   async function getMovies(searchTerm, pagesToReturn) {
     // TODO trim the search string of white space
@@ -70,7 +71,7 @@ function App() {
       const totalResults = response.data.totalResults;
       pagesToReturn = (pagesToReturn <= maxPages) ? pagesToReturn : maxPages;
       pagesToReturn = (pagesToReturn <= totalResults) ? pagesToReturn : totalResults;
-      
+      // TODO this variable might be confused with state variable
       let movies = [];
       for (let page = 1; page <= pagesToReturn; page++) {
         const currentMovies = await axios.get(`http://www.omdbapi.com/?s=${searchTerm}&type=movie&page=${page}&apikey=bbde90f3`);
@@ -79,16 +80,17 @@ function App() {
       // add a toggle property to each movie to see if it is a nominee
       // if it is not, set the toggle to false, if it is set it to true
       // TODO refactor to use map?
-      for(let movie of movies) {
+      for (let movie of movies) {
         // TODO setting nominee causes console error when no results returned sometimes
         movie.nominee = false;
-        for(let nominee of nominees) {
-          if(movie.imdbID === nominee.imdbID) {
+        for (let nominee of nominees) {
+          if (movie.imdbID === nominee.imdbID) {
             movie.nominee = true;
           }
         }
       }
       setMovies(movies);
+      setNoResults(!movies.length);
     } catch (error) {
       console.error(error);
     }
@@ -97,23 +99,32 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        
-        {nominees.length === 5 ? <Banner /> : null }
+        <h1>Shoppies</h1>
+
+        {nominees.length === 5 ? <Banner /> : null}
 
         <SearchBar
           getMovies={getMovies}
         />
-        <SearchList
-          nominate={nominate}
-          movies={movies}
-          maxNomsReached={nominees.length === 5}
-        />
-        <NominationList
-          remove={remove}
-          nominees={nominees}
-        />
-        
+
+
       </header>
+
+        <div className='search-noms-container'>
+
+          {movies.length ?
+            <SearchList
+              nominate={nominate}
+              movies={movies}
+              maxNomsReached={nominees.length === 5}
+            /> : noResults? <div className='empty-search'> Sorry, we couldn't find that.</div> : <div className='empty-search'>Use the search bar above to find movies!</div>}
+
+          {nominees.length ?
+            <NominationList
+              remove={remove}
+              nominees={nominees}
+            /> : <div className='empty-noms'>You have not nominated any movies.</div>}
+        </div>
     </div>
   );
 }
