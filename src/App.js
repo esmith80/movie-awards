@@ -89,9 +89,11 @@ function App() {
       // add a toggle property to each movie to see if it is a nominee
       // if it is not, set the toggle to false, if it is set it to true
       // TODO refactor to use map?
+      console.log(movies.length)
       for (let movie of movies) {
-        // TODO setting nominee causes console error when no results returned sometimes
-        movie.nominee = false;
+        // TODO setting nominee causes console error and no results returned sometimes even though there should be results
+        console.log(movie);
+        if(movie) movie.nominee = false;
         for (let nominee of nominees) {
           if (movie.imdbID === nominee.imdbID) {
             movie.nominee = true;
@@ -99,7 +101,7 @@ function App() {
         }
       }
       setMovies(movies);
-      setLastSearchTerm(searchTerm);
+      setLastSearchTerm(searchTerm.replace('*', '').trim());
       setNoResults(!movies.length);
     } catch (error) {
       console.error(error);
@@ -127,7 +129,7 @@ function App() {
               nominate={nominate}
               movies={movies}
               maxNomsReached={nominees.length === 5}
-            /> : noResults? <div className='empty-search'> Sorry, we couldn't find '{lastSearchTerm}'</div> : <div className='empty-search'>Use the search bar above to find movies!</div>}
+            /> : noResults? <div className='empty-search'> Sorry, we could not find '{lastSearchTerm}'</div> : <div className='empty-search'>Use the search bar above to find movies!</div>}
 
           {nominees.length ?
             <NominationList

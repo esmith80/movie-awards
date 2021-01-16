@@ -11,6 +11,7 @@ function SearchList(props) {
   const searchListItems = [];
   for(let i = 0; i < movies.length; i++) {
     // make an arry of SearchListItems
+    if(movies[i]) {
     searchListItems.push(
       <SearchListItem 
       key={i}
@@ -21,7 +22,7 @@ function SearchList(props) {
       nominee={movies[i].nominee}
       maxNomsReached={maxNomsReached}
       />);    
-    }
+    }}
     return (
       <div>
       <h2>Search Results</h2>
