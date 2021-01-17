@@ -41,3 +41,20 @@ Day 4
 -- table cells should never move (buttons should never move, always remain in same place)
 -- box shadow on buttons
 - partial search is done... had a weird bug where i was getting an array every now and then that was 2 elements longer than the actual results as compared with a get request in the browser... very weird, couldn't trace it so had to put a band-aid on it
+
+Day 5
+- TODO
+- look at intern applicaiton and estimate how long it will take 1 hr
+- add storage for that user's noms (so if they navigate away they come back and noms are in place)
+- get background image for noms
+- adjust layout of noms with image in place
+- create a single div for a nom (don't use table?)
+- add image to search results
+- adjust layout (at biggest breakpoint) so everything is visible
+- adjust layout at smallest breakpoint so noms get pushed to top above search results (with a message that says 'search results down below')
+- add a reset button or clear noms button?
+- clean up code
+
+- deploy (2 hrs?)
+
+- write application

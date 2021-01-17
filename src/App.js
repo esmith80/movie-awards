@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import './App.css';
 import SearchList from './SearchList';
 import NominationList from './NominationList';
@@ -6,25 +6,31 @@ import SearchBar from './SearchBar';
 import Banner from './Banner';
 const axios = require('axios');
 
+
+
 function App() {
-  // @TODO even though this version of state managment is working, I want to see if I can use objects to make things more concise
-  // create state for search results list
+
+  // localStorage will hold user's nomination if they've visited website before
+  // go through each item in local storage. if the key is an imdbID, put it in the nominees array
+  
+  const localNoms = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
+    let nom = localStorage[key];
+    if (key.match(/tt\d{7}/g)) {
+      nom = JSON.parse(nom);
+      console.log('regex test worked');
+      localNoms.push(nom)
+    }
+  }
+
   const [movies, setMovies] = useState({});
   const [noResults, setNoResults] = useState(false);
   const [lastSearchTerm, setLastSearchTerm] = useState('');
 
 
-  // create state for nominees list
-  const [nominees, setNominees] = useState([]);
-
-  // const handleTextChange = (str) => {
-
-  //     setSearchText(str)
-  //   }
-
-
-
-
+  // create an array for initial population of nominees if user has previous nominees stored in their browser
+  const [nominees, setNominees] = useState(localNoms.length ? localNoms : []);
   const nominate = (Title, Year, imdbID, Poster) => {
     // copy/move info from the search results to nominees table
 
@@ -36,9 +42,13 @@ function App() {
       Year,
       imdbID,
       Poster
-
     };
     setNominees([...nominees, nominee]);
+
+    // TODO add locally stored nominees for user comes back to site
+    // storeLocalNoms(nominee);
+    localStorage.setItem(imdbID, JSON.stringify(nominee));
+
 
     for (let movie of movies) {
       if (movie.imdbID === imdbID) {
@@ -52,6 +62,16 @@ function App() {
   }
 
   const remove = (idRemove) => {
+
+    for (let i = 0; i < localStorage.length; i++) {
+      let key = localStorage.key(i);
+      let nom = localStorage[key];
+      if (nom.includes(idRemove)) {
+        localStorage.removeItem(key);
+        break;
+      }
+    }
+
     // @TODO remove logic for noms and search list
     const newNomList = [];
     for (let nominee of nominees) {
@@ -59,13 +79,14 @@ function App() {
         newNomList.push(nominee);
       }
     }
-    for (let movie of movies) {
-      if (movie.imdbID === idRemove) {
-        movie.nominee = false;
-        break;
+    if(movies.length) {
+      for (let movie of movies) {
+        if (movie.imdbID === idRemove) {
+          movie.nominee = false;
+          break;
+        }
       }
     }
-    console.log(newNomList);
     setNominees(newNomList);
   }
 
@@ -92,10 +113,9 @@ function App() {
       // add a toggle property to each movie to see if it is a nominee
       // if it is not, set the toggle to false, if it is set it to true
       // TODO refactor to use map?
-      console.log(movies.length)
+      // console.log(movies.length)
       for (let movie of movies) {
         // TODO setting nominee causes console error and no results returned sometimes even though there should be results
-        console.log(movie);
         if (movie) {
           movie.nominee = false;
           for (let nominee of nominees) {
@@ -118,18 +138,18 @@ function App() {
       <header className="App-header">
         <h1>Shoppies</h1>
         <img
-          className='shoppies-logo' 
-          src="https://cdn0.iconfinder.com/data/icons/social-line-transparent/50/Shopify-line-transparent-512.png" 
+          className='shoppies-logo'
+          src="https://cdn0.iconfinder.com/data/icons/social-line-transparent/50/Shopify-line-transparent-512.png"
           alt="shoppies-logo"
         />
-        
+
         <SearchBar getMovies={getMovies} />
         {nominees.length === 5 ?
           <Banner /> : null}
       </header>
 
       {nominees.length ?
-        <NominationList 
+        <NominationList
           className='nom-container'
           remove={remove}
           nominees={nominees}
@@ -138,7 +158,7 @@ function App() {
           Your nominations will appear here.
       </div>}
       {movies.length ?
-        <SearchList 
+        <SearchList
           className='search-container'
           nominate={nominate}
           movies={movies}
