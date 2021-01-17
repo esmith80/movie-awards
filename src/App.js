@@ -18,11 +18,11 @@ function App() {
   const [nominees, setNominees] = useState([]);
 
   // const handleTextChange = (str) => {
-      
+
   //     setSearchText(str)
   //   }
 
-  
+
 
 
   const nominate = (Title, Year, imdbID) => {
@@ -93,10 +93,12 @@ function App() {
       for (let movie of movies) {
         // TODO setting nominee causes console error and no results returned sometimes even though there should be results
         console.log(movie);
-        if(movie) movie.nominee = false;
-        for (let nominee of nominees) {
-          if (movie.imdbID === nominee.imdbID) {
-            movie.nominee = true;
+        if (movie) {
+          movie.nominee = false;
+          for (let nominee of nominees) {
+            if (movie.imdbID === nominee.imdbID) {
+              movie.nominee = true;
+            }
           }
         }
       }
@@ -112,35 +114,42 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Shoppies</h1>
-
-        {nominees.length === 5 ? <Banner /> : null}
-
-        <SearchBar
-          getMovies={getMovies}
+        <img
+          className='shoppies-logo' 
+          src="https://cdn0.iconfinder.com/data/icons/social-line-transparent/50/Shopify-line-transparent-512.png" 
+          alt="shoppies-logo"
         />
-
-
+        
+        <SearchBar getMovies={getMovies} />
+        {nominees.length === 5 ?
+          <Banner /> : null}
       </header>
 
-        <div className='search-noms-container'>
-
-          {movies.length ?
-            <SearchList
-              nominate={nominate}
-              movies={movies}
-              maxNomsReached={nominees.length === 5}
-            /> : noResults? <div className='empty-search'> Sorry, we could not find '{lastSearchTerm}'</div> : <div className='empty-search'>Use the search bar above to find movies!</div>}
-
-          {nominees.length ?
-            <NominationList
-              remove={remove}
-              nominees={nominees}
-            /> : <div className='empty-noms'>You have not nominated any movies.</div>}
-        </div>
+      {nominees.length ?
+        <NominationList 
+          className='nom-container'
+          remove={remove}
+          nominees={nominees}
+        /> :
+        <div className='nom-container'>
+          Your nominations will appear here.
+      </div>}
+      {movies.length ?
+        <SearchList 
+          className='search-container'
+          nominate={nominate}
+          movies={movies}
+          maxNomsReached={nominees.length === 5}
+        /> :
+        noResults ?
+          <div className='search-container'>
+            Sorry, we could not find '{lastSearchTerm}'
+        </div> :
+          <div className='search-container'>
+            Search above to find movies!
+        </div>}
     </div>
   );
 }
-
-
 
 export default App;

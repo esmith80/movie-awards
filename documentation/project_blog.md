@@ -40,4 +40,4 @@ Day 4
 -- give user a logical clear path away from "congrats you've selected nominations"
 -- table cells should never move (buttons should never move, always remain in same place)
 -- box shadow on buttons
--- partial search
+- partial search is done... had a weird bug where i was getting an array every now and then that was 2 elements longer than the actual results as compared with a get request in the browser... very weird, couldn't trace it so had to put a band-aid on it

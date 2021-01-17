@@ -24,10 +24,13 @@ function SearchList(props) {
       />);    
     }}
     return (
-      <div>
-      <h2>Search Results</h2>
-        <table className='search' >
+      <div className='search-container'>
+        <table>
+          
           <thead>
+            <tr>
+              <th>Search Results</th>
+            </tr>
             <tr>
               <th>Title</th>
               <th>Year</th>
