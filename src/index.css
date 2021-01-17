@@ -3,21 +3,21 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #606c83;
+  background-color: #282c34;
 }
 
 /* Huge 1250px and up */
 
-@media only screen and (min-width: 1250px) {  
+@media only screen and (min-width: 1252px) {  
   h1 {
     color: white;
-    background-color: rgb(13, 255, 0);
+    background-color: #282c34;
   }
   h2 {
     color: white;
   }
   button {
-    background-color: #4CAF50;
+    background-color: purple;
     border: none;
     color: white;
     width: calc(100px);
@@ -37,15 +37,19 @@ body {
   }  
   .nom-container {
     position: fixed;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     top: 23vh;
     right: 1vw;
-    height: 65%;
-    width: 40%;
+    
+    width: 55%;
     padding: 5px;  
     text-align: left;
     font-size: calc(10px + 2vmin);
     color: white;
-    background-color: blueviolet;
+    background-color: #282c34;
   }  
   .search-container {
     /* top and left have NO effect if position is not specified the position is static */
@@ -53,12 +57,12 @@ body {
     top: 23vh;
     left: 1vw;
     height: 100%;
-    width: 55%;
+    width: 40%;
     padding: 5px;
     text-align: left;
     font-size: calc(10px + 2vmin);
     color: white;
-    background-color: goldenrod;
+    background-color: #282c34;
   }
   .searchbar {
     position: relative;
@@ -68,7 +72,7 @@ body {
     height: 10%;
     width: 80%;
     text-align: center;
-    background-color: aqua;
+    background-color: #282c34;
   }
   .searchbar > button {
     background-color: purple;;
@@ -86,11 +90,32 @@ body {
   .shoppies-logo {
     display: none;
   }
+
+  .nom-item {
+    display:block;
+  }
+
+  .poster {
+    height: 27vh;
+    width: 18vh;
+    margin: 10px;
+  }
+  .nom-button {
+    background-color: purple;
+    border: none;
+    color: white;
+    width: calc(75px);
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: calc(5px + 1vmin);
+  }
 }
 
 /* Large up to 1249px */
 
-@media only screen and (max-width: 1249px) {
+@media only screen and (max-width: 1251px) {
   h1 {
     color: white;
     background-color: rgb(13, 255, 0);

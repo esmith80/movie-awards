@@ -25,7 +25,7 @@ function App() {
 
 
 
-  const nominate = (Title, Year, imdbID) => {
+  const nominate = (Title, Year, imdbID, Poster) => {
     // copy/move info from the search results to nominees table
 
     // TODO validation to prevent adding same movie twice (either disable button or remove from the search list altogether)    
@@ -34,7 +34,9 @@ function App() {
     const nominee = {
       Title,
       Year,
-      imdbID
+      imdbID,
+      Poster
+
     };
     setNominees([...nominees, nominee]);
 
@@ -63,6 +65,7 @@ function App() {
         break;
       }
     }
+    console.log(newNomList);
     setNominees(newNomList);
   }
 
@@ -72,7 +75,7 @@ function App() {
     // TODO add logic to return more than 1 page of results (IS this the right thing to do?)
     // TODO add message when no results are returned that says 'no results with the search text 'dkfjdfdf''
     // TODO add logic in search that either doesn't show a result already added to nominations OR returns it with a toggle that says 'nominated'
-    const maxPages = 5;
+    const maxPages = 10;
     try {
       // get the number of returned results first so we can see how many pages we can break it into
       // TODO Hide API KEY
