@@ -15,7 +15,7 @@ export const SearchListItem = (props) => {
           <button 
             onClick={() => {
               // setButtonText('🏆' );
-              props.nominate(props.title, props.year, props.id);
+              props.nominate(props.title, props.year, props.id, props.poster);
             }}
             // TODO once it is set to true, it stays disabled even after you
             disabled={props.nominee || props.maxNomsReached}>{props.nominee ? '🏆' : 'Nominate'}

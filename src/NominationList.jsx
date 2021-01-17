@@ -23,13 +23,15 @@ const { remove, nominees } = props;
         imdbID={nominees[i].imdbID}
         title={nominees[i].Title}
         year={nominees[i].Year}
+        poster={nominees[i].Poster}
         remove={remove}
       />);    
     }
 
   return (    
     <div className='nom-container'>
-      <table>
+      {nomListItems}
+      {/* <table>
       <thead>           
         <tr><th>My Nominations</th></tr>
         <tr>
@@ -40,7 +42,7 @@ const { remove, nominees } = props;
         <tbody>
           {nomListItems}
         </tbody>
-      </table>      
+      </table>       */}
     </div>
   );
 };

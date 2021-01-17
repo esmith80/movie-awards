@@ -18,6 +18,7 @@ function SearchList(props) {
       id={movies[i].imdbID}
       title={movies[i].Title}
       year={movies[i].Year}
+      poster={movies[i].Poster}
       nominate={nominate}
       nominee={movies[i].nominee}
       maxNomsReached={maxNomsReached}
@@ -29,7 +30,7 @@ function SearchList(props) {
           
           <thead>
             <tr>
-              <th>Search Results</th>
+              <th>Search Results ({searchListItems.length})</th>
             </tr>
             <tr>
               <th>Title</th>
