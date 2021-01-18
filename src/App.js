@@ -79,14 +79,14 @@ function App() {
     try {
       // TODO Hide API KEY
       // the API only returns 10 results at a time, so to get more results, I will call it several times (maximum 5 times, set as maxPages)
-      const response = await axios.get(`http://www.omdbapi.com/?s=${searchTerm}&type=movie&apikey=bbde90f3`);
+      const response = await axios.get(`https://www.omdbapi.com/?s=${searchTerm}&type=movie&apikey=bbde90f3`);
       const totalResults = response.data.totalResults;
       pagesToReturn = (pagesToReturn <= maxPages) ? pagesToReturn : maxPages;
       pagesToReturn = (pagesToReturn <= totalResults) ? pagesToReturn : totalResults;
 
       let movies = [];
       for (let page = 1; page <= pagesToReturn; page++) {
-        const currentMovies = await axios.get(`http://www.omdbapi.com/?s=${searchTerm}&type=movie&page=${page}&apikey=bbde90f3`);
+        const currentMovies = await axios.get(`https://www.omdbapi.com/?s=${searchTerm}&type=movie&page=${page}&apikey=bbde90f3`);
         movies = movies.concat(currentMovies.data.Search);
       }
       for (let movie of movies) {
