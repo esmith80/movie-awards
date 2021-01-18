@@ -1,7 +1,7 @@
 Author: Edward Smith
 Date: Jan 17th, 2021
 
-#The Shoppies are a ficticious awards show. This site allows a user to nominate 5 movies for a Shoppie.
+##The Shoppies are a ficticious awards show. This site allows a user to nominate 5 movies for a Shoppie.
 
 #Core functionality:
 - a user can search for movies
