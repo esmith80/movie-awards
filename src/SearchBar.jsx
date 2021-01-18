@@ -1,7 +1,5 @@
 import { React, useState } from 'react';
 
-
-
 const SearchBar = (props) => {
   
   const [searchText, setSearchText] = useState('');
@@ -17,10 +15,8 @@ const SearchBar = (props) => {
           onKeyUp={e => {
             if(e.key === 'Enter' && searchText.trim().length) props.getMovies(searchText+'*', 10)
           }}
-          //@TODO BUG seems to be stale state search text is one behind 
           onChange={() => { setSearchText(document.getElementById('search-text').value)}
-        }
-        
+        }        
         />
         <button onClick={() => { 
           if(searchText.trim().length) {
