@@ -4,6 +4,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #282c34;
+  /* background-image: url("./—Pngtree—golden stage podium in black_1159255.png"); */
+  
+
 }
 
 /* Huge 1250px and up */
@@ -42,14 +45,13 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     top: 23vh;
-    right: 1vw;
-    
+    right: 1vw;    
     width: 55%;
     padding: 5px;  
     text-align: left;
     font-size: calc(10px + 2vmin);
     color: white;
-    background-color: #282c34;
+    background-color: transparent;
   }  
   .search-container {
     /* top and left have NO effect if position is not specified the position is static */
@@ -62,7 +64,7 @@ body {
     text-align: left;
     font-size: calc(10px + 2vmin);
     color: white;
-    background-color: #282c34;
+    background-color: transparent;    
   }
   .searchbar {
     position: relative;
@@ -96,9 +98,9 @@ body {
   }
 
   .poster {
-    height: 27vh;
-    width: 18vh;
-    margin: 10px;
+    height: 21vh;
+    width: 14vh;
+    margin: 8px;
   }
   .nom-button {
     background-color: purple;
@@ -118,13 +120,13 @@ body {
 @media only screen and (max-width: 1251px) {
   h1 {
     color: white;
-    background-color: rgb(13, 255, 0);
+    background-color: #282c34;
   }
   h2 {
     color: white;
   }
   button {
-    background-color: #4CAF50;
+    background-color: purple;
     border: none;
     color: white;
     width: calc(100px);
@@ -144,15 +146,17 @@ body {
   }  
   .nom-container {
     position: fixed;
-    top: 27vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    top: 30vh;
     right: 1vw;
-    height: 65%;
-    width: 40%;
+    width: 55%;
     padding: 5px;  
     text-align: left;
     font-size: calc(4px + 2vmin);
     color: white;
-    background-color: blueviolet;
+    background-color: #282c34;
   }  
   .search-container {
     /* top and left have NO effect if position is not specified the position is static */
@@ -160,12 +164,12 @@ body {
     top: 27vh;
     left: 1vw;
     height: 100%;
-    width: 55%;
+    width: 40%;
     padding: 5px;
     text-align: left;
     font-size: calc(4px + 2vmin);
     color: white;
-    background-color: goldenrod;
+    background-color: #282c34;
   }
   .searchbar {
     position: relative;
@@ -175,7 +179,7 @@ body {
     height: 10%;
     width: 80%;
     text-align: center;
-    background-color: aqua;
+    background-color: #282c34;
   }
   .searchbar > button {
     background-color: purple;;
@@ -193,6 +197,23 @@ body {
   .shoppies-logo {
     display: none;
   }
+
+  .poster {
+    height: 18vh;
+    width: 12vh;
+    margin: 8px;
+  }
+  .nom-button {
+    background-color: purple;
+    border: none;
+    color: white;
+    width: calc(75px);
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: calc(5px + 1vmin);
+  }
 }
 
 /* Medium up to 1033 */
@@ -200,14 +221,14 @@ body {
 @media only screen and (max-width: 1033px) {
   h1 {
     color: white;
-    background-color: rgb(13, 255, 0);
+    background-color: #282c34;
     display: none;
   }
   h2 {
     color: white;
   }
   button {
-    background-color: #4CAF50;
+    background-color: purple;
     border: none;
     color: white;
     width: calc(100px);
@@ -227,7 +248,7 @@ body {
   }  
   .nom-container {
     position: fixed;
-    top: 14vh;
+    top: 30vh;
     right: 1vw;
     height: 65%;
     width: 40%;
@@ -235,7 +256,7 @@ body {
     text-align: left;
     font-size: calc(3px + 2vmin);
     color: white;
-    background-color: blueviolet;
+    background-color: #282c34;
   }  
   .search-container {
     /* top and left have NO effect if position is not specified the position is static */
@@ -248,7 +269,7 @@ body {
     text-align: left;
     font-size: calc(1px + 2vmin);
     color: white;
-    background-color: goldenrod;
+    background-color: #282c34;
   }
   .searchbar {
     position: relative;
@@ -258,7 +279,7 @@ body {
     height: 10%;
     width: 80%;    
     text-align: center;
-    background-color: aqua;
+    background-color: #282c34;
   }
   .searchbar > button {
     background-color: purple;;
@@ -291,14 +312,14 @@ body {
 @media only screen and (max-width: 731px) {
   h1 {
     color: white;
-    background-color: rgb(13, 255, 0);
+    background-color: #282c34;
     display: none;
   }
   h2 {
     color: white;
   }
   button {
-    background-color: #4CAF50;
+    background-color: purple;
     border: none;
     color: white;
     width: calc(100px);
@@ -317,16 +338,19 @@ body {
     height: 65px;
   }  
   .nom-container {
-    position: fixed;
-    top: 14vh;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    top: 30vh;
     right: 1vw;
-    height: 65%;
-    width: 40%;
+    height: 100%;
+    width: 55%;
     padding: 5px;  
     text-align: left;
     font-size: calc(3px + 2vmin);
     color: white;
-    background-color: blueviolet;
+    background-color: #282c34;
   }  
   .search-container {
     /* top and left have NO effect if position is not specified the position is static */
@@ -334,12 +358,12 @@ body {
     top: 14vh;
     left: 1vw;
     height: 100%;
-    width: 55%;
+    width: 40%;
     padding: 5px;
     text-align: left;
     font-size: calc(1px + 2vmin);
     color: white;
-    background-color: goldenrod;
+    background-color: #282c34;
   }
   .searchbar {
     position: relative;
@@ -349,7 +373,7 @@ body {
     height: 10%;
     width: 80%;    
     text-align: center;
-    background-color: aqua;
+    background-color: #282c34;
   }
   .searchbar > button {
     background-color: purple;;
@@ -374,5 +398,21 @@ body {
     left: 3vw;
     height: 120px;
     width: 120px;
+  }
+  .poster {
+    height: 15vh;
+    width: 10vh;
+    margin: 8px;
+  }
+  .nom-button {
+    background-color: purple;
+    border: none;
+    color: white;
+    width: calc(75px);
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: calc(5px + 1vmin);
   }
 }
