@@ -36,6 +36,7 @@ Any function inside a component, including event handlers and effects, â€œseesâ€
 
 DAY X + 8
 After a week, I finally got infinite scroll figured out.
+It had to do with the need to remove event listeners explicityly in React inside the useEffect hook
 
 
 
