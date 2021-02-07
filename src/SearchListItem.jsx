@@ -1,20 +1,20 @@
 import React from 'react';
 
-export const SearchListItem = (props) => {
-  
+export const SearchListItem = ({ id, nominate, nominee, maxNomsReached, poster, title, year }) => {
+
   return (
     <>
       <tr>
-        <td>{props.title}</td>
-        <td>{props.year}</td>
+        <td>{title}</td>
+        <td>{year}</td>
         <td>
-          <button 
+          <button
             onClick={() => {
-              props.nominate(props.title, props.year, props.id, props.poster);
+              nominate(title, year, id, poster);
             }}
-            disabled={props.nominee || props.maxNomsReached}>{props.nominee ? '🏆' : 'Nominate'}
-           </button>
-          </td>
+            disabled={nominee || maxNomsReached}>{nominee ? '🏆' : 'Nominate'}
+          </button>
+        </td>
       </tr>
     </>
   );

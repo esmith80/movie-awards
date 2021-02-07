@@ -1,46 +1,80 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SearchListItem } from './SearchListItem';
-
 
 function SearchList(props) {
 
-  const { nominate, movies, maxNomsReached } = props;
+  const { nominate, movies, maxNomsReached, lastSearchTerm, getMovies, handlePageChange, searchPage } = props;
 
-  
-  // what are we trying return here?
+  let scrolling = false;
+  let lastOffPagePx = 0;
+
+  function handleScroll() {
+    scrolling = true;
+    setInterval(() => {
+      if (scrolling) {
+        scrolling = false;
+        // pageHeight is entire height of the page (even if it's off screen)
+        const pageHeight = document.getElementById('root').scrollHeight;
+        console.log(pageHeight);
+        const offPagePxBelow = pageHeight - window.innerHeight - window.scrollY;
+        lastOffPagePx = offPagePxBelow;
+
+        // lastOffPagePx condition is so event only triggers when scrolling down
+        if (offPagePxBelow < 10 && offPagePxBelow <= lastOffPagePx) {
+          getMovies(lastSearchTerm + '*', searchPage + 1);
+          // TODO reset search page if movie results
+          handlePageChange(searchPage + 1);
+        }
+      }
+    }, 250);
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    // returning the cleanup function will ensure that next time this useEffect runs, the cleanup function from the previous render will already be available to remove the listener??
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    }
+  });
+
+
+  // TODO possible refactor - why build this each time, can't we just pass down an array?
   const searchListItems = [];
-  for(let i = 0; i < movies.length; i++) {
+  for (let i = 0; i < movies.length; i++) {
     // make an arry of SearchListItems
-    if(movies[i]) {
-    searchListItems.push(
-      <SearchListItem 
-      key={i}
-      id={movies[i].imdbID}
-      title={movies[i].Title}
-      year={movies[i].Year}
-      poster={movies[i].Poster}
-      nominate={nominate}
-      nominee={movies[i].nominee}
-      maxNomsReached={maxNomsReached}
-      />);    
-    }}
-    return (
-      <div className='search-container'>
-        <table>
-          
-          <thead>
-            <tr>
-              <th>Search Results ({searchListItems.length})</th>
-            </tr>
-            <tr>
-              <th>Title</th>
-              <th>Year</th>
-            </tr>
-          </thead>
-          <tbody>
-            {searchListItems}
-          </tbody>
-        </table>
+    if (movies[i]) {
+      searchListItems.push(
+        <SearchListItem
+          key={i}
+          id={movies[i].imdbID}
+          title={movies[i].Title}
+          year={movies[i].Year}
+          poster={movies[i].Poster}
+          nominate={nominate}
+          nominee={movies[i].nominee}
+          maxNomsReached={maxNomsReached}
+        />);
+    }
+  }
+  console.log('SEARCH LIST RENDER')
+
+  return (
+    <div className='search-container'>
+      <table>
+
+        <thead>
+          <tr>
+            <th>Search Results ({searchListItems.length})</th>
+          </tr>
+          <tr>
+            <th>Title</th>
+            <th>Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          {searchListItems}
+        </tbody>
+      </table>
     </div>
   );
 }

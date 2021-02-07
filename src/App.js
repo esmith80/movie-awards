@@ -1,10 +1,11 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState } from 'react';
 import './App.css';
 import SearchList from './SearchList';
 import NominationList from './NominationList';
 import SearchBar from './SearchBar';
 import Banner from './Banner';
 const axios = require('axios');
+
 
 function App() {
   // localStorage will hold user's nomination if they've visited website before
@@ -15,7 +16,6 @@ function App() {
     let nom = localStorage[key];
     if (key.match(/tt\d{7}/g)) {
       nom = JSON.parse(nom);
-      console.log('regex test worked');
       localNoms.push(nom)
     }
   }
@@ -24,6 +24,9 @@ function App() {
   const [noResults, setNoResults] = useState(false);
   const [lastSearchTerm, setLastSearchTerm] = useState('');
   const [nominees, setNominees] = useState(localNoms.length ? localNoms : []);
+  const [searchPage, setSearchPage] = useState(1);
+
+
 
   const nominate = (Title, Year, imdbID, Poster) => {
     const nominee = {
@@ -73,41 +76,50 @@ function App() {
   }
 
   // get movies from database and set the results to searchResults
-  async function getMovies(searchTerm, pagesToReturn) {
-    // TODO add logic to return more than 1 page of results (IS this the right thing to do?) Would a user actually WANT to see more than 50 results?
-    const maxPages = 5;
+  async function getMovies(searchTerm, pageToReturn) {
+    console.log('getMovies pageToReturn :', pageToReturn, 'searchPage: ', searchPage);
+    // the incoming pageToReturn informs us if the user has triggered a brand new search (even if the search is with the same search text as before)
+    if (pageToReturn === 1) {
+      setSearchPage(1);
+    }
     try {
       // TODO Hide API KEY
-      // the API only returns 10 results at a time, so to get more results, I will call it several times (maximum 5 times, set as maxPages)
-      const response = await axios.get(`https://www.omdbapi.com/?s=${searchTerm}&type=movie&apikey=bbde90f3`);
-      const totalResults = response.data.totalResults;
-      pagesToReturn = (pagesToReturn <= maxPages) ? pagesToReturn : maxPages;
-      pagesToReturn = (pagesToReturn <= totalResults) ? pagesToReturn : totalResults;
+      // the API only returns 10 results at a time
+      const response = await axios.get(`https://www.omdbapi.com/?s=${searchTerm}&type=movie&page=${pageToReturn}&apikey=bbde90f3`);
+      let searchResults = response.data.Search;
+      // total amount of results are known for a search term on the first query
+      const resultCount = response.data.totalResults;
+      console.log(resultCount);
 
-      let movies = [];
-      for (let page = 1; page <= pagesToReturn; page++) {
-        const currentMovies = await axios.get(`https://www.omdbapi.com/?s=${searchTerm}&type=movie&page=${page}&apikey=bbde90f3`);
-        movies = movies.concat(currentMovies.data.Search);
-      }
-      for (let movie of movies) {
+      for (let item of searchResults) {
         // TODO setting nominee causes console error and no results returned sometimes even though there should be results
-        if (movie) {
-          movie.nominee = false;
+        if (item) {
+          item.nominee = false;
           for (let nominee of nominees) {
-            if (movie.imdbID === nominee.imdbID) {
-              movie.nominee = true;
+            if (item.imdbID === nominee.imdbID) {
+              item.nominee = true;
             }
           }
         }
       }
-      setMovies(movies);
+      //TODO change this so that setMovies grabs a new page and appends it to the existing results
       setLastSearchTerm(searchTerm.replace('*', '').trim());
-      setNoResults(!movies.length);
+      if (pageToReturn === 1) {
+        setMovies(searchResults);
+
+      } else {
+        searchResults = movies.concat(searchResults);
+        setMovies(searchResults);
+      }
+      setNoResults(!searchResults.length);
     } catch (error) {
+      // TODO console error if search results not iterable; need message to user that they've reached the end of the results
       console.error(error);
     }
   }
 
+
+  console.log('APP RENDER')
   return (
     <div className="App">
       <header className="App-header">
@@ -118,7 +130,11 @@ function App() {
           alt="shoppies-logo"
         />
 
-        <SearchBar getMovies={getMovies} />
+        <SearchBar
+          getMovies={getMovies}
+          setMovies={setMovies}
+          searchPage={searchPage}
+          setSearchPage={setSearchPage} />
         {nominees.length === 5 ?
           <Banner /> : null}
       </header>
@@ -138,6 +154,13 @@ function App() {
           nominate={nominate}
           movies={movies}
           maxNomsReached={nominees.length === 5}
+          lastSearchTerm={lastSearchTerm}
+          getMovies={getMovies}
+          handlePageChange={(p) => {
+            console.log("SET SEARCH PAGE in handlePageChange");
+            setSearchPage(p);
+          }}
+          searchPage={searchPage}
         /> :
         noResults ?
           <div className='search-container'>
