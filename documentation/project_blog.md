@@ -1,3 +1,43 @@
+DAY X
+
+I've decided to tackle infinite-scroll first. To this, I need to refactor my code so that the API is not called multiple times unnecessarily. It should only be called if the user scrolls down the page. Each time it is called, it should show 10 more results (but this call should happen automatically based on the user's scrolling).
+
+So, to do this, I'll need to keep track of their position on the page, how many results have they scrolled past? How far down the page are they? I'll also need to keep the search results that are on the page to things that have actually had a full search executed for... not the type ahead stuff. That area of the page should only populate if the user hits Enter or hits the Search button. Therefore, this area of the page can be worked on independently of the planned type-ahead feature
+
+So this feature will be a mini-program with these inputs:
+- user scroll position
+- search term
+- array of search results passed (composed of the current list + one more page)
+
+this is a refactor of the getMovies function
+- now need to track page to return and listen for a scroll event past a certain point
+- if the scroll happens, call getMovies again with the new page to return
+- getMovies gets the movies and sets the movies but i will need two different search result containers: the regular results and the type-ahead results; i need two different pieces of state, the type ahead API call vs the search results API call 
+
+UNKNOWNS:
+- how to measure the distance scrolled? 
+- look at browser API to see what info can I get from scroll
+- where do you put the event listener? (well, how do you handle other events in react? - do you put the event handler in the searchresults area? or in App? 
+- 
+
+DAY X + 1
+visualViewport is useful on mobile, apparently, where you have other things like the OS keyboard taking up the screen, where you have the user pinching the screen to zoom in; these things change the viewport size
+console.log('window.visualViewport = ', window.visualViewport.height);
+it is an experimental technology, according to 
+
+Do i need a seperate event handler to listen for resizing the window?
+
+having a problem with how to track the last known position of the scrollY... i tried to do it with useState, but that
+causes a re-render every time it changes (I think) and so the entire event handler is being re-registered every time it changes;
+so i tried a global variable; but now there is no re-render and i have stale state with teh last search term
+
+I read from the React Docs: "Why am I seeing stale props or state inside my function?
+Any function inside a component, including event handlers and effects, “sees” the props and state from the render it was created in. "
+
+
+
+EVERYTHING BELOW THIS LINE IS FROM THE FIRST DAYS OF THE INITIAL PROJECT - mid-January 2021...
+----------------------------------------------------------------------------------------------
 DAY 1
 - I wanted to get up and running quickly, so I used create-react-app to easily get all the dependecies and whatnot installed.
 - when using logic to return all page results, I found myself asking "Is this the RIGHT thing to do?" and also "Is this the right way to do it?" when using that for loop

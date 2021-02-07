@@ -3,6 +3,8 @@ Date: Jan 29th, 2021
 
 This project is based on a ficticious movie awards show. This site allows a user to nominate 5 movies for and award. 
 
+The initial state of this project is represented with a live app here: https://esmith80.github.io/shopify-front/ so a comparison can be drawn between the initial state and the final version of this project.
+
 Core functionality:
 - a user can search for movies
 - a user can view a list of movies to nominate

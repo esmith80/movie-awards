@@ -6,13 +6,13 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "lodash-cli": "^4.17.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
   },
-  "homepage": "http://esmith80.github.io/shopify-front",
-
+  "homepage": "http://esmith80.github.io/movie-awards",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

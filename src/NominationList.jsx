@@ -1,12 +1,12 @@
 import React from 'react';
 import { NominationListItem } from './NominationListItem';
 
-function NominationList (props) {
+function NominationList(props) {
 
-const { remove, nominees } = props;   
+  const { remove, nominees } = props;
 
   const nomListItems = [];
-  for(let i = 0; i < nominees.length; i++) {
+  for (let i = 0; i < nominees.length; i++) {
     // make an arry of nomListItems
     nomListItems.push(
       <NominationListItem
@@ -16,12 +16,13 @@ const { remove, nominees } = props;
         year={nominees[i].Year}
         poster={nominees[i].Poster}
         remove={remove}
-      />);    
-    }
+      />);
+  }
+  // console.log('NOM LIST RENDER')
 
-  return (    
+  return (
     <div className='nom-container'>
-      {nomListItems}     
+      {nomListItems}
     </div>
   );
 };
