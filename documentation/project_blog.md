@@ -34,6 +34,9 @@ so i tried a global variable; but now there is no re-render and i have stale sta
 I read from the React Docs: "Why am I seeing stale props or state inside my function?
 Any function inside a component, including event handlers and effects, “sees” the props and state from the render it was created in. "
 
+DAY X + 8
+After a week, I finally got infinite scroll figured out.
+
 
 
 EVERYTHING BELOW THIS LINE IS FROM THE FIRST DAYS OF THE INITIAL PROJECT - mid-January 2021...
