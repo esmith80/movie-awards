@@ -38,6 +38,24 @@ DAY X + 8
 After a week, I finally got infinite scroll figured out.
 It had to do with the need to remove event listeners explicityly in React inside the useEffect hook
 
+FEB 10th, 2021 
+Getting around to implementing type-ahead...
+To do this, I need to track the last search text to compare it against the new search text to see if a search should be executed
+I have the state for searchText living in the SearchBar component but the last searched text living in App.js - App.js is using the lastSearchText in the getMovies function
+Work incrementally...
+1. get a search result to render based on input of first full word or first 4 characters or something (just name of movie) from the search bar downward 
+2. (start with only the first 10 results, name only, no controls in the searchBar results)
+3. only worry about the biggest screen size for now
+
+build a component called SearchBarResults
+build a component called SearchBarResultItem
+Pass data to these components from App (because that is where getMovies runs - the search may need to be run seperately from the search that is run for the main search area)
+worry about debouncing, restricting the call to the function later
+
+So to the the above steps... for a search result to render I need to create an area where searchBarResults can render (is that bunch of divs? how do i position that?)
+
+1. position a hard coded search result area that is hidden but displayed if the word 'star' is typed in the searchBar
+
 
 
 EVERYTHING BELOW THIS LINE IS FROM THE FIRST DAYS OF THE INITIAL PROJECT - mid-January 2021...

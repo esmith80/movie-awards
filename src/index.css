@@ -33,7 +33,7 @@ body {
   input {
     padding: 15px 32px;
     margin: 5px;
-    width: 50%;
+    width: 100%;
   }
   tr {
     height: 65px;
@@ -67,6 +67,9 @@ body {
     background-color: transparent;    
   }
   .searchbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     position: relative;
     top: 0;
     left: 1vh;
@@ -77,7 +80,30 @@ body {
     background-color: #282c34;
   }
   .searchbar > button {
-    background-color: purple;;
+    background-color: purple;
+    height: 50px;
+    margin-left: 15px;
+  }
+  .input-search-results-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+  .searchbar-results {
+    position: fixed;
+    z-index: 200;
+    background-color: azure;
+    color: black;
+    padding: 15px 32px;
+    margin: 5px;
+    margin-top: 0px;
+    top: 100px;
+    width: 36.5%;    
+  }
+  .searchbar-result-item {
+    text-align: left;
+    /* border-top-color:cadetblue;
+    border-top: solid; */
   }
   .banner {
     background-color: #81BF37;

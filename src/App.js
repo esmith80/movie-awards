@@ -4,6 +4,7 @@ import SearchList from './SearchList';
 import NominationList from './NominationList';
 import SearchBar from './SearchBar';
 import Banner from './Banner';
+import SearchBarResults from './SearchBarResults.jsx';
 const axios = require('axios');
 
 
@@ -102,9 +103,9 @@ function App() {
           }
         }
       }
-      //TODO change this so that setMovies grabs a new page and appends it to the existing results
       setLastSearchTerm(searchTerm.replace('*', '').trim());
       if (pageToReturn === 1) {
+        // TODO calling getMovies also sets the results in the search area - should getting the results and setting them be seperated as getting results can be used differently 
         setMovies(searchResults);
 
       } else {
@@ -135,6 +136,8 @@ function App() {
           setMovies={setMovies}
           searchPage={searchPage}
           setSearchPage={setSearchPage} />
+
+
         {nominees.length === 5 ?
           <Banner /> : null}
       </header>
