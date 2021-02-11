@@ -5,30 +5,44 @@ import SearchBarResultItem from './SearchBarResultItem';
 
 const SearchBarResults = ({ searchText }) => {
 
-  const [thResults, setThResults] = useState([]);
+  const [typeAheadResults, setTypeAheadResults] = useState([]);
+  const [searchJustRan, setSearchJustRan] = useState(false);
+
   // TODO trigger this request and get results before page renders?
 
-  const titles = [];
-  async function getTypeAheadResults() {
+  async function getTypeAheadResults(s) {
     // TODO Hide API KEY
     // the API only returns 10 results at a time
-    const response = await axios.get(`https://www.omdbapi.com/?s=star&type=movie&page=1&apikey=bbde90f3`);
+    const response = await axios.get(`https://www.omdbapi.com/?s=${s}*&type=movie&page=1&apikey=bbde90f3`);
     let searchResults = response.data.Search;
-    console.log(searchResults[0].Title)
-    for (const item of searchResults) {
-      titles.push(item.Title);
+    if (searchResults) {
+      const titles = [];
+      for (const item of searchResults) {
+        titles.push(item.Title);
+      }
+      setTypeAheadResults(titles);
     }
-
+  }
+  // TODO adjust this test code which only allows additional search if entire text is deleted
+  // search only runs again if the search terms is deleted entirely before something new is
+  // TODO need conditions to check 
+  // 1) when to run first search 
+  // 2) when to rerun search 
+  // 3) variable to track if current searchText returns a result
+  const searchLengths = [3, 6, 9, 12, 15, 18];
+  if (!searchJustRan && searchLengths.indexOf(searchText.length) > -1) {
+    getTypeAheadResults(searchText);
+    setSearchJustRan(true);
   }
 
-
-  const results = titles.map((title, index) => {
+  const results = typeAheadResults.map((title, index) => {
     return (
       <SearchBarResultItem
         key={index}
         title={title} />
     )
   });
+
 
   return (
     <div className='searchbar-results' >

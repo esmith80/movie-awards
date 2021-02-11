@@ -4,7 +4,6 @@ import SearchList from './SearchList';
 import NominationList from './NominationList';
 import SearchBar from './SearchBar';
 import Banner from './Banner';
-import SearchBarResults from './SearchBarResults.jsx';
 const axios = require('axios');
 
 
@@ -26,7 +25,6 @@ function App() {
   const [lastSearchTerm, setLastSearchTerm] = useState('');
   const [nominees, setNominees] = useState(localNoms.length ? localNoms : []);
   const [searchPage, setSearchPage] = useState(1);
-
 
 
   const nominate = (Title, Year, imdbID, Poster) => {
@@ -78,7 +76,6 @@ function App() {
 
   // get movies from database and set the results to searchResults
   async function getMovies(searchTerm, pageToReturn) {
-    console.log('getMovies pageToReturn :', pageToReturn, 'searchPage: ', searchPage);
     // the incoming pageToReturn informs us if the user has triggered a brand new search (even if the search is with the same search text as before)
     if (pageToReturn === 1) {
       setSearchPage(1);
@@ -88,9 +85,8 @@ function App() {
       // the API only returns 10 results at a time
       const response = await axios.get(`https://www.omdbapi.com/?s=${searchTerm}&type=movie&page=${pageToReturn}&apikey=bbde90f3`);
       let searchResults = response.data.Search;
-      // total amount of results are known for a search term on the first query
+      // TODO use the result count? total amount of results are known for a search term on the first query
       const resultCount = response.data.totalResults;
-      console.log(resultCount);
 
       for (let item of searchResults) {
         // TODO setting nominee causes console error and no results returned sometimes even though there should be results
@@ -160,7 +156,6 @@ function App() {
           lastSearchTerm={lastSearchTerm}
           getMovies={getMovies}
           handlePageChange={(p) => {
-            console.log("SET SEARCH PAGE in handlePageChange");
             setSearchPage(p);
           }}
           searchPage={searchPage}

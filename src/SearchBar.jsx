@@ -5,6 +5,7 @@ const SearchBar = ({ getMovies }) => {
 
   const [searchText, setSearchText] = useState('');
 
+
   return (
     <div className='searchbar'>
       <label className='searchlabel'>Find movies to nominate</label>
@@ -28,9 +29,10 @@ const SearchBar = ({ getMovies }) => {
           onChange={() => { setSearchText(document.getElementById('search-text').value) }
           }
         />
-        <SearchBarResults
+        {/* TODO don't display SearchBarResults at all if nothing is typed in, or if there is a new text IS USING a ternary with null OK? */}
+        {searchText ? <SearchBarResults
           searchText={searchText}
-        />
+        /> : null}
       </div>
       <button onClick={() => {
         if (searchText.trim().length) {

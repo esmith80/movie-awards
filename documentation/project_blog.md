@@ -1,3 +1,72 @@
+
+FEB 11th, 2021
+I spent most of yesterday morning on type-ahead CSS trying to get a search results area to neatly drop below the search input. Once that was done I set up more code in a seperate place in the app to do the call to the API to get results specifically for type-ahead. 
+I feel like I should only be calling the API once to get those first 10 results for both the typeahead and search result area. But the way I have the initial request to API, that function also processes results (puts movies into an array and sets the state of movies); that function could be broken out into the request part and seperately the functions to put the movies in arrays could be broken out... something for later...
+
+Right now, I need to look at type-ahead like a mini project with a set of requirements. From a user perspective...
+SEARCH INPUT box
+- after typing 3 characters and stop typing, a spinner appears for 1 second and results are shown based on 3 characters
+- if a user types more than 3 characters, a search may be executed every 1 second IF the text has changed since it was last looked at (1 second ago)
+- a search only executes every 1 second at a maximum and the first interval is started after there are 3 characters in the input field
+- if a user types backspace the search should not run again (as long as the last character typed was backspace sometime in the last 1 second, the interval should be put on pause?)
+
+So, it seems I need this running inside setInterval, checking for new text once per second. but i only want that setInterval running if the user types text. I only want it to keep running if the user types more text. if there is no text present in the search field, I don't want it to run at all.
+
+SET INTERVAL
+- SET INTERVAL is currently running thousands of times due to scrolling; is it OK for that to happen? 
+I added some console logs to watch the flow of code with the scroll event handler goes like this:
+1. Search component is rendered
+2. Event listener is created
+3. on the first scroll, the handleScroll event fires and setInterval begins executing at the interval
+4. on the second scroll, handleScroll fires again, and another setInterval loop begins - there are now 2 setInterval loops happening
+5. ... every new scroll movement adds a setInterval loop - the setInterval loop persists through renders EVEN though the component re-renders and the Event handler that triggered the setInterval function also is removed and added... the setInterval persists!!! 100% sure I tested with 2 second intervals and eyeballed it (was this the performance problem with BeatJuice?)
+6. When scroll reaches a point where it triggers a call to the API, which in turn updates the state of 'movies', which causes a rerender of APP and a rerender of SearchList, which removes the old event listener and adds a new event listener
+SOMETIMES APP re-renders and SearchList does not... why is this? 
+
+Type-ahead RESULTS area (seperate problem from the input box)
+- When I hover on a result for 1 second, that area gets bigger, reveals more information as well as a nomination button
+- OR the search results show 10 results with pictures, info etc.
+- OR clicking the text seen in a type-ahead runs the search so results are displayed in the search area
+----------------
+FEB 10th, 2021 
+Getting around to implementing type-ahead...
+To do this, I need to track the last search text to compare it against the new search text to see if a search should be executed
+I have the state for searchText living in the SearchBar component but the last searched text living in App.js - App.js is using the lastSearchText in the getMovies function
+Work incrementally...
+1. get a search result to render based on input of first full word or first 4 characters or something (just name of movie) from the search bar downward 
+2. (start with only the first 10 results, name only, no controls in the searchBar results)
+3. only worry about the biggest screen size for now
+
+build a component called SearchBarResults
+build a component called SearchBarResultItem
+Pass data to these components from App (because that is where getMovies runs - the search may need to be run seperately from the search that is run for the main search area)
+worry about debouncing, restricting the call to the function later
+
+So to the the above steps... for a search result to render I need to create an area where searchBarResults can render (is that bunch of divs? how do i position that?)
+
+1. position a hard coded search result area that is hidden but displayed if the word 'star' is typed in the searchBar
+
+---------------
+DAY X + 8
+After a week, I finally got infinite scroll figured out.
+It had to do with the need to remove event listeners explicityly in React inside the useEffect hook
+
+---------------
+DAY X + 1
+visualViewport is useful on mobile, apparently, where you have other things like the OS keyboard taking up the screen, where you have the user pinching the screen to zoom in; these things change the viewport size
+console.log('window.visualViewport = ', window.visualViewport.height);
+it is an experimental technology, according to 
+
+Do i need a seperate event handler to listen for resizing the window?
+
+having a problem with how to track the last known position of the scrollY... i tried to do it with useState, but that
+causes a re-render every time it changes (I think) and so the entire event handler is being re-registered every time it changes;
+so i tried a global variable; but now there is no re-render and i have stale state with teh last search term
+
+I read from the React Docs: "Why am I seeing stale props or state inside my function?
+Any function inside a component, including event handlers and effects, “sees” the props and state from the render it was created in. "
+
+-----------------
 DAY X
 
 I've decided to tackle infinite-scroll first. To this, I need to refactor my code so that the API is not called multiple times unnecessarily. It should only be called if the user scrolls down the page. Each time it is called, it should show 10 more results (but this call should happen automatically based on the user's scrolling).
@@ -18,46 +87,7 @@ UNKNOWNS:
 - how to measure the distance scrolled? 
 - look at browser API to see what info can I get from scroll
 - where do you put the event listener? (well, how do you handle other events in react? - do you put the event handler in the searchresults area? or in App? 
-- 
-
-DAY X + 1
-visualViewport is useful on mobile, apparently, where you have other things like the OS keyboard taking up the screen, where you have the user pinching the screen to zoom in; these things change the viewport size
-console.log('window.visualViewport = ', window.visualViewport.height);
-it is an experimental technology, according to 
-
-Do i need a seperate event handler to listen for resizing the window?
-
-having a problem with how to track the last known position of the scrollY... i tried to do it with useState, but that
-causes a re-render every time it changes (I think) and so the entire event handler is being re-registered every time it changes;
-so i tried a global variable; but now there is no re-render and i have stale state with teh last search term
-
-I read from the React Docs: "Why am I seeing stale props or state inside my function?
-Any function inside a component, including event handlers and effects, “sees” the props and state from the render it was created in. "
-
-DAY X + 8
-After a week, I finally got infinite scroll figured out.
-It had to do with the need to remove event listeners explicityly in React inside the useEffect hook
-
-FEB 10th, 2021 
-Getting around to implementing type-ahead...
-To do this, I need to track the last search text to compare it against the new search text to see if a search should be executed
-I have the state for searchText living in the SearchBar component but the last searched text living in App.js - App.js is using the lastSearchText in the getMovies function
-Work incrementally...
-1. get a search result to render based on input of first full word or first 4 characters or something (just name of movie) from the search bar downward 
-2. (start with only the first 10 results, name only, no controls in the searchBar results)
-3. only worry about the biggest screen size for now
-
-build a component called SearchBarResults
-build a component called SearchBarResultItem
-Pass data to these components from App (because that is where getMovies runs - the search may need to be run seperately from the search that is run for the main search area)
-worry about debouncing, restricting the call to the function later
-
-So to the the above steps... for a search result to render I need to create an area where searchBarResults can render (is that bunch of divs? how do i position that?)
-
-1. position a hard coded search result area that is hidden but displayed if the word 'star' is typed in the searchBar
-
-
-
+----------------------------------------------------------------------------------------------
 EVERYTHING BELOW THIS LINE IS FROM THE FIRST DAYS OF THE INITIAL PROJECT - mid-January 2021...
 ----------------------------------------------------------------------------------------------
 DAY 1

@@ -18,7 +18,6 @@ function NominationList(props) {
         remove={remove}
       />);
   }
-  // console.log('NOM LIST RENDER')
 
   return (
     <div className='nom-container'>
