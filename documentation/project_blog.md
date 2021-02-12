@@ -23,6 +23,8 @@ I added some console logs to watch the flow of code with the scroll event handle
 6. When scroll reaches a point where it triggers a call to the API, which in turn updates the state of 'movies', which causes a rerender of APP and a rerender of SearchList, which removes the old event listener and adds a new event listener
 SOMETIMES APP re-renders and SearchList does not... why is this? 
 
+I need a loop (set interval) for typeahead results. The loop should be initiated on text change
+
 Type-ahead RESULTS area (seperate problem from the input box)
 - When I hover on a result for 1 second, that area gets bigger, reveals more information as well as a nomination button
 - OR the search results show 10 results with pictures, info etc.

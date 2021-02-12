@@ -3,7 +3,7 @@ import axios from 'axios';
 import SearchBarResultItem from './SearchBarResultItem';
 
 
-const SearchBarResults = ({ searchText }) => {
+const SearchBarResults = ({ searchText }) => { // will this component automatically re render when searchText is changed?
 
   const [typeAheadResults, setTypeAheadResults] = useState([]);
   const [searchJustRan, setSearchJustRan] = useState(false);
@@ -34,6 +34,10 @@ const SearchBarResults = ({ searchText }) => {
     getTypeAheadResults(searchText);
     setSearchJustRan(true);
   }
+
+  // debounce: Grouping a sudden burst of events (like keystrokes) into a single one.
+  // how would you implment that? how would you group that burst? you track the 
+
 
   const results = typeAheadResults.map((title, index) => {
     return (
