@@ -1,4 +1,9 @@
 
+FEB 19, 2021
+
+adding packages to deploy this project today
+I haven't worked on the project in a week as I was so busy with other work
+
 FEB 11th, 2021
 I spent most of yesterday morning on type-ahead CSS trying to get a search results area to neatly drop below the search input. Once that was done I set up more code in a seperate place in the app to do the call to the API to get results specifically for type-ahead. 
 I feel like I should only be calling the API once to get those first 10 results for both the typeahead and search result area. But the way I have the initial request to API, that function also processes results (puts movies into an array and sets the state of movies); that function could be broken out into the request part and seperately the functions to put the movies in arrays could be broken out... something for later...
