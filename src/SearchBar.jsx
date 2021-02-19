@@ -30,9 +30,9 @@ const SearchBar = ({ getMovies }) => {
           }
         />
         {/* TODO don't display SearchBarResults at all if nothing is typed in, or if there is a new text IS USING a ternary with null OK? */}
-        {searchText ? <SearchBarResults
+        {/* {searchText ? <SearchBarResults
           searchText={searchText}
-        /> : null}
+        /> : null} */}
       </div>
       <button onClick={() => {
         if (searchText.trim().length) {
