@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import SearchBarResults from './SearchBarResults'
+// import SearchBarResults from './SearchBarResults'
 
 const SearchBar = ({ getMovies }) => {
 
