@@ -86,7 +86,7 @@ function App() {
       const response = await axios.get(`https://www.omdbapi.com/?s=${searchTerm}&type=movie&page=${pageToReturn}&apikey=bbde90f3`);
       let searchResults = response.data.Search;
       // TODO use the result count? total amount of results are known for a search term on the first query
-      const resultCount = response.data.totalResults;
+      // const resultCount = response.data.totalResults;
 
       for (let item of searchResults) {
         // TODO setting nominee causes console error and no results returned sometimes even though there should be results

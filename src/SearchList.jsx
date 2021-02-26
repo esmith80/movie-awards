@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import { SearchListItem } from './SearchListItem';
 
-function SearchList(props) {
-
-  const { nominate, movies, maxNomsReached, lastSearchTerm, getMovies, handlePageChange, searchPage } = props;
+function SearchList({ nominate, movies, maxNomsReached, lastSearchTerm, getMovies, handlePageChange, searchPage }) {
 
   let scrolling = false;
   let scrollLoop;
@@ -14,7 +12,6 @@ function SearchList(props) {
     // TODO have this code reviewed - is this the way to implement clearing the interval (included of logic of cancelling the event handler and also clearing it if a new one is to be set up?)
     if (scrollLoop) clearInterval(scrollLoop);
     scrollLoop = setInterval(() => {
-      console.log('inside setInterval - scrolling is: ', scrolling)
       if (scrolling) {
         scrolling = false;
         // pageHeight is entire height of the page (even if it's off screen)
@@ -35,12 +32,10 @@ function SearchList(props) {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    console.log('ADD scroll listener')
     // returning the cleanup function will ensure that next time this useEffect runs, the cleanup function from the previous render will already be available to remove the listener??
     return () => {
       window.removeEventListener('scroll', handleScroll);
       clearInterval(scrollLoop);
-      console.log('REMOVE Scroll listener')
     }
   });
 
