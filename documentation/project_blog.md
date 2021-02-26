@@ -1,3 +1,6 @@
+FEB 25, 2021
+deployed new release with type-ahead but still have warnings from react
+need to fix this eventually, but it is working
 
 FEB 19, 2021
 
