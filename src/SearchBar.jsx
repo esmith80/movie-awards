@@ -4,6 +4,7 @@ import SearchBarResults from './SearchBarResults'
 const SearchBar = ({ getMovies }) => {
 
   const [searchText, setSearchText] = useState('');
+  const [showTypeAhead, setShowTypeAhead] = useState(false);
 
 
   return (
@@ -17,9 +18,7 @@ const SearchBar = ({ getMovies }) => {
           name='search-text'
           value={searchText}
           //TODO the searches from Enter and Search button should only run if the text entered is new and has not been already displayed
-          //TODO a search should be triggered automatically if someone types 3 characters
           //TODO the search should return only a limited amount of results, i think... not infinite scroll? or maybe it could if the infinite scroll stayed in a fixed area
-          //TODO should be a debounce function that doesn't search with every new key type... only every 3 characters or every 1 second - whatever comes first 
           //TODO (only run if there is a new search term)
           onKeyUp={e => {
             if (e.key === 'Enter' && searchText.trim().length) {
@@ -28,10 +27,12 @@ const SearchBar = ({ getMovies }) => {
           }}
           onChange={() => { setSearchText(document.getElementById('search-text').value) }
           }
+          onBlur={() => setShowTypeAhead(false)}
+          onFocus={() => setShowTypeAhead(true)}
         />
         {/* TODO don't display SearchBarResults at all if nothing is typed in, or if there is a new text IS USING a ternary with null OK? */}
 
-        {searchText.trim().length > 2 ? <SearchBarResults
+        {searchText.trim().length > 2 && showTypeAhead ? <SearchBarResults
           searchText={searchText.trim()}
         /> : null}
 
