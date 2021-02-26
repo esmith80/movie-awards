@@ -120,11 +120,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Shoppies</h1>
+        <h1>Movie Awards</h1>
         <img
           className='shoppies-logo'
-          src="https://cdn0.iconfinder.com/data/icons/social-line-transparent/50/Shopify-line-transparent-512.png"
-          alt="shoppies-logo"
+          src="https://image.freepik.com/free-vector/popcorn-open-clapper-board-movie-reel-3d-glasses-tickets-illustration_185417-5.jpg"
+          alt="movie-awards-logo"
         />
 
         <SearchBar

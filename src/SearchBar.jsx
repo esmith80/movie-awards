@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import SearchBarResults from './SearchBarResults'
+// import SearchBarResults from './SearchBarResults'
 
 const SearchBar = ({ getMovies }) => {
 
@@ -30,9 +30,11 @@ const SearchBar = ({ getMovies }) => {
           }
         />
         {/* TODO don't display SearchBarResults at all if nothing is typed in, or if there is a new text IS USING a ternary with null OK? */}
+
         {searchText.trim().length > 2 ? <SearchBarResults
           searchText={searchText.trim()}
         /> : null}
+
       </div>
       <button onClick={() => {
         if (searchText.trim().length) {
