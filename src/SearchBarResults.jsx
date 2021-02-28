@@ -3,7 +3,7 @@ import axios from 'axios';
 import SearchBarResultItem from './SearchBarResultItem';
 
 
-function SearchBarResults({ searchText }) { // will this component automatically re render when searchText is changed?
+function SearchBarResults({ searchText, setSearchText, setShowTypeAhead, getMovies }) { // will this component automatically re render when searchText is changed?
 
   const [typeAheadResults, setTypeAheadResults] = useState([]);
 
@@ -59,15 +59,29 @@ function SearchBarResults({ searchText }) { // will this component automatically
     return (
       <SearchBarResultItem
         key={index}
-        title={title} />
+        title={title}
+        setSearchText={setSearchText} />
     )
   });
 
 
   return (
-    <div className='searchbar-results' >
-      {results}
-    </div>
+    <>
+      <div
+        className='searchbar-results'
+        onBlur={() => setShowTypeAhead(false)}
+      >
+        <div className='searchbar-result-item'
+          onClick={() => {
+            getMovies(searchText.trim(), 1);
+            setShowTypeAhead(false);
+
+          }}>
+          search for '<em>{searchText}</em>'
+        </div>
+        {results}
+      </div>
+    </>
   );
 };
 

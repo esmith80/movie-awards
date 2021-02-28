@@ -1,9 +1,7 @@
 import React from 'react';
 import { NominationListItem } from './NominationListItem';
 
-function NominationList(props) {
-
-  const { remove, nominees } = props;
+function NominationList({ remove, nominees }) {
 
   const nomListItems = [];
   for (let i = 0; i < nominees.length; i++) {

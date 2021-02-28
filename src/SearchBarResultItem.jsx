@@ -1,8 +1,9 @@
 import React from 'react';
 
-const SearchBarResultItem = ({ title }) => {
+const SearchBarResultItem = ({ title, setSearchText }) => {
   return (
-    <div className='searchbar-result-item'>
+    <div className='searchbar-result-item'
+      onClick={() => { if (!title.startsWith("no results for ")) setSearchText(title) }}>
       {title}
     </div>
   );

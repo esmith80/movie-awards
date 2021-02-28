@@ -1,3 +1,12 @@
+FEB 26, 2021
+found out that you can: 
+1) set up an onClick on a div that is supposed to update an input field (id=searchBarInput) with the text contained in that div
+2) set up on onBlur on an input field (id=SearchBarInput) that hides the div
+3) BUT the div disappears with onBlur and so the onClick event doesn't fire on the div because it has disappeared
+
+if there are two spaces between words or a minus sign (-) in the movie name and you click it, the text says 'no results'; the two spaces show in 
+the input field but not in typeahead results
+
 FEB 25, 2021
 deployed new release with type-ahead but still have warnings from react
 need to fix this eventually, but it is working

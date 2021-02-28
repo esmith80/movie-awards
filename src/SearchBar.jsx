@@ -6,7 +6,6 @@ const SearchBar = ({ getMovies }) => {
   const [searchText, setSearchText] = useState('');
   const [showTypeAhead, setShowTypeAhead] = useState(false);
 
-
   return (
     <div className='searchbar'>
       <label className='searchlabel'>Find movies to nominate</label>
@@ -27,13 +26,16 @@ const SearchBar = ({ getMovies }) => {
           }}
           onChange={() => { setSearchText(document.getElementById('search-text').value) }
           }
-          onBlur={() => setShowTypeAhead(false)}
+          // onBlur={() => setShowTypeAhead(false)}
           onFocus={() => setShowTypeAhead(true)}
         />
         {/* TODO don't display SearchBarResults at all if nothing is typed in, or if there is a new text IS USING a ternary with null OK? */}
 
         {searchText.trim().length > 2 && showTypeAhead ? <SearchBarResults
+          setSearchText={setSearchText}
           searchText={searchText.trim()}
+          setShowTypeAhead={setShowTypeAhead}
+          getMovies={getMovies}
         /> : null}
 
       </div>
