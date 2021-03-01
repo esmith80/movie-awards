@@ -17,4 +17,4 @@ const removeCharsAndSpaces = (string, disallowedChars) => {
 
 };
 
-module.exports = removeCharsAndSpaces;
+export default removeCharsAndSpaces;
