@@ -1,20 +1,19 @@
 Author: Edward Smith
 Date: Jan 29th, 2021
+Status: Under Construction
 
-This project is based on a ficticious movie awards show. This site allows a user to nominate 5 movies for and award. 
+This project is based on a ficticious movie awards show. This site allows a user to nominate up to 5 movies for an award. 
 
-The initial state of this project is represented with a live app here: https://esmith80.github.io/shopify-front/ so a comparison can be drawn between the initial state and the final version of this project.
+The app is live here: https://esmith80.github.io/movie-awards/
 
 Functionality:
 - a user can search for movies
 - a user can view a list of movies to nominate
-- a user may nominate movies for a Shoppie award
-- a user can nominate movies, close browser or shut down computer and nominations are saved
+- a user may nominate movies for an award
+- a user can close the browser or shut down their computer and nominations are saved (local storage)
 - starts-with search (search term has wildcard at end of by default)
-- type-ahead search results (clickable to search for title of movie)
+- clickable type-ahead search results (click a result to trigger search for title of movie)
 
 Under construction: 
-- Mobile layout. There are various things that don't look good on mobile right now (e.g. There are current issuess where the nominations area becomes cluttered at small screen sizes if 5 movies have been added to the nominations list)
-
-
-
+- Layout: There are various things that don't look good on mobile right now (e.g. the nominations area becomes cluttered at small screen sizes if 5 movies have been added to the nominations list). The Layout is being redone for a future release.
+- Styles: The dark theme with purple and green accents will be redone as well.
