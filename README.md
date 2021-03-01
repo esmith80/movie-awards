@@ -9,6 +9,7 @@ This project is based on a ficticious movie awards show. This site allows a user
 The app is live here: https://esmith80.github.io/movie-awards/
 
 Functionality:
+- uses the omdb API (http://www.omdbapi.com/) to get movie information
 - a user can search for movies
 - a user can view a list of movies to nominate
 - infinite scroll lets a user keep scrolling based on their initial search term
