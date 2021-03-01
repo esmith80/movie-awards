@@ -5,11 +5,23 @@ const SearchBar = ({ getMovies }) => {
 
   const [searchText, setSearchText] = useState('');
   const [showTypeAhead, setShowTypeAhead] = useState(false);
+  const [inTypeAhead, setInTypeAhead] = useState(false);
 
   return (
     <div className='searchbar'>
       <label className='searchlabel'>Find movies to nominate</label>
-      <div className='input-search-results-container'>
+      <div className='input-search-results-container'
+        onBlur={() => {
+          console.log('inTypeAhead is: ', inTypeAhead)
+          if (!inTypeAhead) setShowTypeAhead(false);
+          console.log('onBlur fired')
+        }} // if you hideTypeAhead onBlur the instant you leave the search input field, you lose the typeahead results and so you can't click on them
+        onFocus={() => {
+          setShowTypeAhead(true)
+          console.log('onFocus fired');
+        }}
+
+      >
         <input
           placeholder='Type a movie title...'
           id='search-text'
@@ -26,16 +38,14 @@ const SearchBar = ({ getMovies }) => {
           }}
           onChange={() => { setSearchText(document.getElementById('search-text').value) }
           }
-          // onBlur={() => setShowTypeAhead(false)}
-          onFocus={() => setShowTypeAhead(true)}
         />
         {/* TODO don't display SearchBarResults at all if nothing is typed in, or if there is a new text IS USING a ternary with null OK? */}
-
         {searchText.trim().length > 2 && showTypeAhead ? <SearchBarResults
           setSearchText={setSearchText}
           searchText={searchText.trim()}
           setShowTypeAhead={setShowTypeAhead}
           getMovies={getMovies}
+          setInTypeAhead={setInTypeAhead}
         /> : null}
 
       </div>

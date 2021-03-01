@@ -1,14 +1,17 @@
 import { React, useEffect, useState } from 'react';
 import axios from 'axios';
 import SearchBarResultItem from './SearchBarResultItem';
+import removeCharsAndSpaces from './helpers';
 
 
-function SearchBarResults({ searchText, setSearchText, setShowTypeAhead, getMovies }) { // will this component automatically re render when searchText is changed?
+function SearchBarResults({ searchText, setSearchText, setShowTypeAhead, getMovies, setInTypeAhead }) { // will this component automatically re render when searchText is changed?
 
   const [typeAheadResults, setTypeAheadResults] = useState([]);
 
 
   async function getTypeAheadResults(s) {
+    s = removeCharsAndSpaces(s, ['&', '-']);
+
     console.log('call API - searchText: ', searchText)
     // TODO Hide API KEY
     // the API only returns 10 results at a time
@@ -60,7 +63,12 @@ function SearchBarResults({ searchText, setSearchText, setShowTypeAhead, getMovi
       <SearchBarResultItem
         key={index}
         title={title}
-        setSearchText={setSearchText} />
+        setSearchText={setSearchText}
+        setInTypeAhead={setInTypeAhead}
+        setShowTypeAhead={setShowTypeAhead}
+        getMovies={getMovies}
+        searchText={searchText}
+      />
     )
   });
 
@@ -69,16 +77,15 @@ function SearchBarResults({ searchText, setSearchText, setShowTypeAhead, getMovi
     <>
       <div
         className='searchbar-results'
-        onBlur={() => setShowTypeAhead(false)}
+        onMouseEnter={() => {
+          console.log('onMouseEnter');
+          setInTypeAhead(true);
+        }}
+        onMouseLeave={() => {
+          console.log('onMouseLeave');
+          setInTypeAhead(false);
+        }}
       >
-        <div className='searchbar-result-item'
-          onClick={() => {
-            getMovies(searchText.trim(), 1);
-            setShowTypeAhead(false);
-
-          }}>
-          search for '<em>{searchText}</em>'
-        </div>
         {results}
       </div>
     </>
