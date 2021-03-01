@@ -1,8 +1,8 @@
-Author: Edward Smith
+**Author: Edward Smith**
 
-Date: Jan 29th, 2021
+**Date: Jan 29th, 2021**
 
-Status: Under Construction
+**Status: Under Construction**
 
 This project is based on a ficticious movie awards show. This site allows a user to nominate up to 5 movies for an award. 
 
