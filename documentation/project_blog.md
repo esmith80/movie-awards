@@ -1,3 +1,14 @@
+MARCH 1, 2021
+spent about 3 hours on CSS breakpoints and different browser window widths and heights
+there is undoubtedly a better way to do this, but i managed to align the type-ahead results 
+with the search bar - the nominations area needs to change its positioning based on 
+
+FEB 28, 2021
+adding typeahead with a result click was harder than i thought... it involved multiple events (onBlur, onMouseEnter, onMouseLeave) to manage the 
+state of the typeahead and when it should be shown... i ended up putting another piece of state 'inTypeAhead' to track if the user was in the 
+typeahead area... this in combination with onFocus and onBlur from the search input seemed to work... also debugged a little with limitations from the 
+API where certain characters don't allow you to search (+ sign and * and & sign were triggering odd results)yarn 
+
 FEB 26, 2021
 found out that you can: 
 1) set up an onClick on a div that is supposed to update an input field (id=searchBarInput) with the text contained in that div

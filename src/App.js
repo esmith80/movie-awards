@@ -168,8 +168,8 @@ function App() {
             Sorry, we could not find '{lastSearchTerm}'
         </div> :
           <div className='search-container'>
-            Search above to find movies!
-        </div>}
+
+          </div>}
     </div>
   );
 }
