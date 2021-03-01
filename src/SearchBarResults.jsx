@@ -1,14 +1,17 @@
 import { React, useEffect, useState } from 'react';
 import axios from 'axios';
 import SearchBarResultItem from './SearchBarResultItem';
+import removeCharsAndSpaces from './helpers';
 
 
-function SearchBarResults({ searchText }) { // will this component automatically re render when searchText is changed?
+function SearchBarResults({ searchText, setSearchText, setShowTypeAhead, getMovies, setInTypeAhead }) { // will this component automatically re render when searchText is changed?
 
   const [typeAheadResults, setTypeAheadResults] = useState([]);
 
 
   async function getTypeAheadResults(s) {
+    s = removeCharsAndSpaces(s, ['&', '-']);
+
     console.log('call API - searchText: ', searchText)
     // TODO Hide API KEY
     // the API only returns 10 results at a time
@@ -59,15 +62,33 @@ function SearchBarResults({ searchText }) { // will this component automatically
     return (
       <SearchBarResultItem
         key={index}
-        title={title} />
+        title={title}
+        setSearchText={setSearchText}
+        setInTypeAhead={setInTypeAhead}
+        setShowTypeAhead={setShowTypeAhead}
+        getMovies={getMovies}
+        searchText={searchText}
+      />
     )
   });
 
 
   return (
-    <div className='searchbar-results' >
-      {results}
-    </div>
+    <>
+      <div
+        className='searchbar-results'
+        onMouseEnter={() => {
+          console.log('onMouseEnter');
+          setInTypeAhead(true);
+        }}
+        onMouseLeave={() => {
+          console.log('onMouseLeave');
+          setInTypeAhead(false);
+        }}
+      >
+        {results}
+      </div>
+    </>
   );
 };
 

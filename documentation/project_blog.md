@@ -1,3 +1,23 @@
+MARCH 1, 2021
+spent about 3 hours on CSS breakpoints and different browser window widths and heights
+there is undoubtedly a better way to do this, but i managed to align the type-ahead results 
+with the search bar - the nominations area needs to change its positioning based on 
+
+FEB 28, 2021
+adding typeahead with a result click was harder than i thought... it involved multiple events (onBlur, onMouseEnter, onMouseLeave) to manage the 
+state of the typeahead and when it should be shown... i ended up putting another piece of state 'inTypeAhead' to track if the user was in the 
+typeahead area... this in combination with onFocus and onBlur from the search input seemed to work... also debugged a little with limitations from the 
+API where certain characters don't allow you to search (+ sign and * and & sign were triggering odd results)yarn 
+
+FEB 26, 2021
+found out that you can: 
+1) set up an onClick on a div that is supposed to update an input field (id=searchBarInput) with the text contained in that div
+2) set up on onBlur on an input field (id=SearchBarInput) that hides the div
+3) BUT the div disappears with onBlur and so the onClick event doesn't fire on the div because it has disappeared
+
+if there are two spaces between words or a minus sign (-) in the movie name and you click it, the text says 'no results'; the two spaces show in 
+the input field but not in typeahead results
+
 FEB 25, 2021
 deployed new release with type-ahead but still have warnings from react
 need to fix this eventually, but it is working

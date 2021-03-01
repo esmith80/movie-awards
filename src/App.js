@@ -4,6 +4,7 @@ import SearchList from './SearchList';
 import NominationList from './NominationList';
 import SearchBar from './SearchBar';
 import Banner from './Banner';
+import removeCharsAndSpaces from './helpers';
 const axios = require('axios');
 
 
@@ -76,6 +77,7 @@ function App() {
 
   // get movies from database and set the results to searchResults
   async function getMovies(searchTerm, pageToReturn) {
+    searchTerm = removeCharsAndSpaces(searchTerm, ['&', '-']);
     // the incoming pageToReturn informs us if the user has triggered a brand new search (even if the search is with the same search text as before)
     if (pageToReturn === 1) {
       setSearchPage(1);
@@ -88,6 +90,7 @@ function App() {
       // TODO use the result count? total amount of results are known for a search term on the first query
       // const resultCount = response.data.totalResults;
 
+      // TODO if no results, search results is not iterable
       for (let item of searchResults) {
         // TODO setting nominee causes console error and no results returned sometimes even though there should be results
         if (item) {
@@ -165,8 +168,8 @@ function App() {
             Sorry, we could not find '{lastSearchTerm}'
         </div> :
           <div className='search-container'>
-            Search above to find movies!
-        </div>}
+
+          </div>}
     </div>
   );
 }
