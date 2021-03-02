@@ -124,11 +124,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Movie Awards</h1>
-        <img
-          className='shoppies-logo'
+        {/* TODO logo may go here at one point */}
+        {/* <img
+          className='awards-logo'
           src="https://image.freepik.com/free-vector/popcorn-open-clapper-board-movie-reel-3d-glasses-tickets-illustration_185417-5.jpg"
           alt="movie-awards-logo"
-        />
+        /> */}
 
         <SearchBar
           getMovies={getMovies}
@@ -148,8 +149,7 @@ function App() {
           nominees={nominees}
         /> :
         <div className='nom-container'>
-          Your nominations will appear here.
-      </div>}
+        </div>}
       {movies.length ?
         <SearchList
           className='search-container'
