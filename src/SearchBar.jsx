@@ -9,7 +9,7 @@ const SearchBar = ({ getMovies }) => {
 
   return (
     <div className='searchbar'>
-      <label className='searchlabel'>Find movies to nominate</label>
+      {/* <label className='searchlabel'>Find movies to nominate</label> */}
       <div className='input-search-results-container'
         onBlur={() => {
           console.log('inTypeAhead is: ', inTypeAhead)
@@ -23,7 +23,7 @@ const SearchBar = ({ getMovies }) => {
 
       >
         <input
-          placeholder='Type a movie title...'
+          placeholder='Search for a movie to nominate...'
           id='search-text'
           type='search'
           name='search-text'

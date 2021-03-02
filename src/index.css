@@ -5,13 +5,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #282c34;
   /* background-image: url("./—Pngtree—golden stage podium in black_1159255.png"); */
-  
-
 }
 
-/* Huge 1880px and up */
+/* these rules apply to all sizes unless specified */
 
-@media only screen and (min-width: 1880px) {  
   h1 {
     color: white;
     background-color: #282c34;
@@ -94,6 +91,7 @@ body {
     position: fixed;
     z-index: 200;
     background-color: azure;
+    font-size: 18px;
     color: black;
     padding: 15px 32px;
     margin: 5px;
@@ -103,8 +101,6 @@ body {
   }
   .searchbar-result-item {
     text-align: left;
-    /* border-top-color:cadetblue;
-    border-top: solid; */
   }
   .banner {
     background-color: #81BF37;
@@ -116,7 +112,7 @@ body {
     text-align: center;
     margin-top: 1vh;
   }
-  .shoppies-logo {
+  .awards-logo {
     display: none;
   }
 
@@ -140,617 +136,94 @@ body {
     display: inline-block;
     font-size: calc(5px + 1vmin);
   }
-}
 
-/* Very Large up to 1879 - 
-TODO - Refactor there is a better way to do this... this only exists to adjust h1 sizing */
+
+/* Very Large screen  */
 @media only screen and (max-width: 1879px) {  
   h1 {
-    color: white;
-    background-color: #282c34;
     font-size: 48px;
-  }
-  h2 {
-    color: white;
-  }
-  button {
-    background-color: #81BF37;
-    border: none;
-    color: white;
-    width: calc(100px);
-    padding: 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: calc(8px + 1vmin);
-  }
-  input {
-    padding: 15px 32px;
-    margin: 5px;
-    width: 100%;
-  }
-  tr {
-    height: 65px;
   }  
-  .nom-container {
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    top: 23vh;
-    right: 1vw;    
-    width: 55%;
-    padding: 5px;  
-    text-align: left;
-    font-size: calc(10px + 2vmin);
-    color: white;
-    background-color: transparent;
-  }  
-  .search-container {
-    /* top and left have NO effect if position is not specified the position is static */
-    position: relative;
-    top: 23vh;
-    left: 1vw;
-    height: 100%;
-    width: 40%;
-    padding: 5px;
-    text-align: left;
-    font-size: calc(10px + 2vmin);
-    color: white;
-    background-color: transparent;    
-  }
-  .searchbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    position: relative;
-    top: 0;
-    left: 1vh;
-    right: 1vw;
-    height: 10%;
-    width: 80%;
-    text-align: center;
-    background-color: #282c34;
-  }
-  .searchbar > button {
-    background-color: purple;
-    height: 50px;
-    margin-left: 15px;
-  }
-  .input-search-results-container {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-  }
   .searchbar-results {
-    position: fixed;
-    z-index: 200;
-    background-color: azure;
-    color: black;
-    padding: 15px 30px;
-    margin: 5px;
-    margin-top: 0px;
+    padding: 15px 30px;    
     top: 88px;
-    width: 36.5%;    
-  }
-  .searchbar-result-item {
-    text-align: left;
-    /* border-top-color:cadetblue;
-    border-top: solid; */
-  }
-  .banner {
-    background-color: #81BF37;
-    top: 15vh;
-    width: 100%;
-    height: 7%;
-    font-size: medium;
-    color: #606c83;
-    text-align: center;
-    margin-top: 1vh;
-  }
-  .shoppies-logo {
-    display: none;
-  }
-
-  .nom-item {
-    display:block;
-  }
-
-  .poster {
-    height: 21vh;
-    width: 14vh;
-    margin: 8px;
-  }
-  .nom-button {
-    background-color: purple;
-    border: none;
-    color: white;
-    width: calc(75px);
-    padding: 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: calc(5px + 1vmin);
-  }
+  }  
 }
 
-/* up to 1551 */
-@media only screen and (max-width: 1551px) {  
+/* large screen */
+@media only screen and (max-width: 1566px) {  
   h1 {
-    color: white;
-    background-color: #282c34;
     font-size: 46px;
   }
-  h2 {
-    color: white;
-  }
-  button {
-    background-color: #81BF37;
-    border: none;
-    color: white;
-    width: calc(100px);
-    padding: 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: calc(8px + 1vmin);
-  }
-  input {
-    padding: 15px 32px;
-    margin: 5px;
-    width: 100%;
-  }
-  tr {
-    height: 65px;
-  }  
-  .nom-container {
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    top: 23vh;
-    right: 1vw;    
-    width: 55%;
-    padding: 5px;  
-    text-align: left;
-    font-size: calc(10px + 2vmin);
-    color: white;
-    background-color: transparent;
-  }  
-  .search-container {
-    /* top and left have NO effect if position is not specified the position is static */
-    position: relative;
-    top: 23vh;
-    left: 1vw;
-    height: 100%;
-    width: 40%;
-    padding: 5px;
-    text-align: left;
-    font-size: calc(10px + 2vmin);
-    color: white;
-    background-color: transparent;    
-  }
-  .searchbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    position: relative;
-    top: 0;
-    left: 1vh;
-    right: 1vw;
-    height: 10%;
-    width: 80%;
-    text-align: center;
-    background-color: #282c34;
-  }
-  .searchbar > button {
-    background-color: purple;
-    height: 50px;
-    margin-left: 15px;
-  }
-  .input-search-results-container {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-  }
-  .searchbar-results {
-    position: fixed;
-    z-index: 200;
-    background-color: azure;;
-    color: black;
-    padding: 15px 32px;
-    margin: 5px;
-    margin-top: 0px;
-    top: 88px;
-    width: 36.5%;    
-  }
-  .searchbar-result-item {
-    text-align: left;
-    /* border-top-color:cadetblue;
-    border-top: solid; */
-  }
-  .banner {
-    background-color: #81BF37;
-    top: 15vh;
-    width: 100%;
-    height: 7%;
-    font-size: medium;
-    color: #606c83;
-    text-align: center;
-    margin-top: 1vh;
-  }
-  .shoppies-logo {
-    display: none;
-  }
-
-  .nom-item {
-    display:block;
-  }
-
-  .poster {
-    height: 21vh;
-    width: 14vh;
-    margin: 8px;
-  }
-  .nom-button {
-    background-color: purple;
-    border: none;
-    color: white;
-    width: calc(75px);
-    padding: 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: calc(5px + 1vmin);
-  }
 }
 
-/* large */
+/* medium-large */
 @media only screen and (max-width: 1487px) {  
   h1 {
-    color: white;
-    background-color: #282c34;
     font-size: 36px;
   }
-  h2 {
-    color: white;
-  }
-  button {
-    background-color: #81BF37;
-    border: none;
-    color: white;
-    width: calc(100px);
-    padding: 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: calc(8px + 1vmin);
-  }
-  input {
-    padding: 15px 32px;
-    margin: 5px;
-    width: 100%;
-  }
-  tr {
-    height: 65px;
-  }  
-  .nom-container {
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    top: 23vh;
-    right: 1vw;    
-    width: 55%;
-    padding: 5px;  
-    text-align: left;
-    font-size: calc(10px + 2vmin);
-    color: white;
-    background-color: transparent;
-  }  
-  .search-container {
-    /* top and left have NO effect if position is not specified the position is static */
-    position: relative;
-    top: 23vh;
-    left: 1vw;
-    height: 100%;
-    width: 40%;
-    padding: 5px;
-    text-align: left;
-    font-size: calc(10px + 2vmin);
-    color: white;
-    background-color: transparent;    
-  }
-  .searchbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    position: relative;
-    top: 0;
-    left: 1vh;
-    right: 1vw;
-    height: 10%;
-    width: 80%;
-    text-align: center;
-    background-color: #282c34;
-  }
-  .searchbar > button {
-    background-color: purple;
-    height: 50px;
-    margin-left: 15px;
-  }
-  .input-search-results-container {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-  }
   .searchbar-results {
-    position: fixed;
-    z-index: 200;
-    background-color: azure;;
-    color: black;
     padding: 15px 23px;
-    margin: 5px;
-    margin-top: 0px;
     top: 71px;
-    width: 36.5%;    
-  }
-  .searchbar-result-item {
-    text-align: left;
-    /* border-top-color:cadetblue;
-    border-top: solid; */
-  }
-  .banner {
-    background-color: #81BF37;
-    top: 15vh;
-    width: 100%;
-    height: 7%;
-    font-size: medium;
-    color: #606c83;
-    text-align: center;
-    margin-top: 1vh;
-  }
-  .shoppies-logo {
-    display: none;
-  }
-
-  .nom-item {
-    display:block;
-  }
-
-  .poster {
-    height: 21vh;
-    width: 14vh;
-    margin: 8px;
-  }
-  .nom-button {
-    background-color: purple;
-    border: none;
-    color: white;
-    width: calc(75px);
-    padding: 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: calc(5px + 1vmin);
   }
 }
-/* Large */
 
+/* medium */
 @media only screen and (max-width: 1170px) {
-  h1 {
-    color: white;
-    background-color: #282c34;
-  }
-  h2 {
-    color: white;
-  }
-  button {
-    background-color: #81BF37;
-    border: none;
-    color: white;
-    width: calc(100px);
-    padding: 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: calc(8px + 1vmin);
-  }
-  input {
-    padding: 15px 32px;
-    margin: 5px;
-    width: 100%;
-  }
-  tr {
-    height: 65px;
-  }  
-  .nom-container {
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  .nom-container {    
     top: 30vh;
-    right: 1vw;
-    width: 55%;
-    padding: 5px;  
-    text-align: left;
     font-size: calc(4px + 2vmin);
-    color: white;
-    background-color: #282c34;
-  }  
-  .search-container {
+ }  
+ .search-container {
     /* top and left have NO effect if position is not specified the position is static */
-    position: relative;
     top: 27vh;
-    left: 1vw;
-    height: 100%;
-    width: 40%;
-    padding: 5px;
-    text-align: left;
-    font-size: calc(4px + 2vmin);
-    color: white;
-    background-color: #282c34;
   }
-  .searchbar {
-    position: relative;
-    top: 0;
-    left: 1vh;
-    right: 1vw;
-    height: 10%;
-    width: 80%;
-    text-align: center;
-    background-color: #282c34;
-  }
-
-  .searchbar-results {
-    position: fixed;
-    z-index: 200;
-    background-color: azure;
-    color: black;
+ .searchbar-results {
     padding: 15px 20px;
-    margin: 5px;
-    margin-top: 0px;
     top: 148px;
-    width: 36.5%;    
-  }
-
-  .searchbar > button {
-    background-color: purple;;
-  }
-  .banner {
-    background-color: #81BF37;
-    top: 15vh;
-    width: 100%;
-    height: 7%;
-    font-size: medium;
-    color: #606c83;
-    text-align: center;
-    margin-top: 1vh;
-  }
-  .shoppies-logo {
-    display: none;
-  }
-
+  }  
   .poster {
     height: 18vh;
     width: 12vh;
-    margin: 8px;
-  }
-  .nom-button {
-    background-color: purple;
-    border: none;
-    color: white;
-    width: calc(75px);
-    padding: 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: calc(5px + 1vmin);
-  }
+  }  
 }
 
 /* Medium */
-
 @media only screen and (max-width: 1033px) {
   h1 {
-    color: white;
-    background-color: #282c34;
-    display: none;
-  }
-  h2 {
-    color: white;
-  }
-  button {
-    background-color:#81BF37;
-    border: none;
-    color: white;
-    width: calc(100px);
-    padding: 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: calc(8px + 1vmin);
-  }
-  input {
-    padding: 15px 32px;
-    margin: 5px;
-    width: 100%;
-  }
-  tr {
-    height: 65px;
-  }  
+    font-size: 20px;
+  }     
   .nom-container {
-    position: fixed;
     top: 20vh;
-    right: 1vw;
     height: 65%;
     width: 50%;
-    padding: 5px;  
-    text-align: left;
     font-size: calc(3px + 2vmin);
-    color: white;
-    background-color: #282c34;
-  }  
+  }
   .search-container {
     /* top and left have NO effect if position is not specified the position is static */
-    position: relative;
-    top: 14vh;
-    left: 1vw;
-    height: 100%;
+    top: 14vh;    
     width: 45%;
-    padding: 5px;
-    text-align: left;
     font-size: calc(1px + 2vmin);
-    color: white;
-    background-color: #282c34;
   }
   .searchbar {
-    position: relative;
     top: 57px;
     left: 8vh;
-    right: 1vw;
-    height: 10%;
-    width: 80%;    
-    text-align: center;
-    background-color: #282c34;
   }
 
   .searchbar-results {
-    position: fixed;
-    z-index: 200;
-    background-color: azure;
-    color: black;
     font-size: 14px;
     padding: 5px 17px;
-    margin: 5px;
-    margin-top: 0px;
     top: 113px;
-    width: 36.5%;    
-  }
-
-  .searchbar > button {
-    background-color: purple;
-  }
+  }  
   .searchbar > label {
     font-size: medium;
   }
   .banner {
-    background-color: #81BF37;
-    top: 15vh;
-    width: 100%;
-    height: 7%;
-    font-size: medium;
-    color: #606c83;
-    text-align: center;
     margin-top: 8vh;
   }
-  .shoppies-logo {
+  .awards-logo {
+    display: inline;
     position: absolute;
     z-index: 100;
-    display: inline;
     top: 10px;
     left: 3vw;
     height: 150px;
@@ -759,85 +232,34 @@ TODO - Refactor there is a better way to do this... this only exists to adjust h
 }
 
 /* Medium-small */
-
 @media only screen and (max-width: 731px) {
+
   h1 {
-    color: white;
-    background-color: #282c34;
     display: none;
   }
-  h2 {
-    color: white;
-  }
+  
   button {
-    background-color: #81BF37;
-    border: none;
-    color: white;
     width: calc(70px);
-    padding: 3px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+    padding: 3px;    
     font-size: calc(4px + 2vmin);
   }
-  input {
-    padding: 15px 32px;
-    margin: 5px;
-    width: 100%;
-  }
-  tr {
-    height: 65px;
-  }  
+    
   .nom-container {
     position: absolute;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     top: 30vh;
-    right: 1vw;
     height: 100%;
     width: 40%;
-    padding: 5px;  
-    text-align: left;
-    font-size: calc(3px + 2vmin);
-    color: white;
-    background-color: #282c34;
   }  
   .search-container {
     /* top and left have NO effect if position is not specified the position is static */
-    position: relative;
-    top: 14vh;
-    left: 1vw;
-    height: 100%;
     width: 50%;
-    padding: 5px;
-    text-align: left;
     font-size: calc(4px + 2vmin);
-    color: white;
-    background-color: #282c34;
-  }
-  .searchbar {
-    position: relative;
-    top: 57px;
-    left: 8vh;
-    right: 1vw;
-    height: 10%;
-    width: 80%;    
-    text-align: center;
-    background-color: #282c34;
   }
 
   .searchbar-results {
-    position: fixed;
-    z-index: 200;
-    background-color: azure;
-    color: black;
     font-size: 14px;
     padding: 5px 8px;
-    margin: 5px;
-    margin-top: 0px;
     top: 113px;
-    width: 36.5%;    
   }
   .searchbar > button {
     background-color: purple;
@@ -847,15 +269,9 @@ TODO - Refactor there is a better way to do this... this only exists to adjust h
   .searchbar > label {
     display: none;
   }
-  .banner {
-    background-color: #81BF37;
-    top: 15vh;
+
+  .searchbar {
     width: 100%;
-    height: 7%;
-    font-size: medium;
-    color: #606c83;
-    text-align: center;
-    margin-top: 8vh;
   }
   
   .poster {
@@ -864,18 +280,12 @@ TODO - Refactor there is a better way to do this... this only exists to adjust h
     margin: 8px;
   }
   .nom-button {
-    background-color: purple;
-    border: none;
-    color: white;
     width: calc(60px);
     padding: 3px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
     font-size: calc(3px + 2vmin);
   }
 
-  .shoppies-logo {    
+  .awards-logo {    
     height: 120px;
     width: 120px;
   }
