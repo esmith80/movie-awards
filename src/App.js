@@ -122,26 +122,6 @@ function App() {
   console.log('APP RENDER')
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Movie Awards</h1>
-        {/* TODO logo may go here at one point */}
-        {/* <img
-          className='awards-logo'
-          src="https://image.freepik.com/free-vector/popcorn-open-clapper-board-movie-reel-3d-glasses-tickets-illustration_185417-5.jpg"
-          alt="movie-awards-logo"
-        /> */}
-
-        <SearchBar
-          getMovies={getMovies}
-          setMovies={setMovies}
-          searchPage={searchPage}
-          setSearchPage={setSearchPage} />
-
-
-        {nominees.length === 5 ?
-          <Banner /> : null}
-      </header>
-
       {nominees.length ?
         <NominationList
           className='nom-container'
@@ -150,9 +130,28 @@ function App() {
         /> :
         <div className='nom-container'>
         </div>}
+      <div className="noms-title-search-container">
+        {/* TODO logo may go here at one point */}
+        {/* <img
+          className='awards-logo'
+          src="https://image.freepik.com/free-vector/popcorn-open-clapper-board-movie-reel-3d-glasses-tickets-illustration_185417-5.jpg"
+          alt="movie-awards-logo"
+        /> */}
+
+        <h1 className="title">Movie Awards</h1>
+        <SearchBar
+          getMovies={getMovies}
+          setMovies={setMovies}
+          searchPage={searchPage}
+          setSearchPage={setSearchPage} />
+
+      </div>
+
+
+      {nominees.length === 5 ?
+        <Banner /> : null}
       {movies.length ?
         <SearchList
-          className='search-container'
           nominate={nominate}
           movies={movies}
           maxNomsReached={nominees.length === 5}
@@ -170,6 +169,7 @@ function App() {
           <div className='search-container'>
 
           </div>}
+
     </div>
   );
 }

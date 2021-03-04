@@ -10,7 +10,8 @@ const SearchBar = ({ getMovies }) => {
   return (
     <div className='searchbar'>
       {/* <label className='searchlabel'>Find movies to nominate</label> */}
-      <div className='input-search-results-container'
+      <div
+        className='input-search-results-container'
         onBlur={() => {
           console.log('inTypeAhead is: ', inTypeAhead)
           if (!inTypeAhead) setShowTypeAhead(false);
