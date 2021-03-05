@@ -34,6 +34,7 @@ const SearchBar = ({ getMovies }) => {
           //TODO (only run if there is a new search term)
           onKeyUp={e => {
             if (e.key === 'Enter' && searchText.trim().length) {
+              setShowTypeAhead(false);
               getMovies(searchText + '*', 1); // number 1 has to be used because if these buttons are being hit the user needs new results - not necessarily... if they hit it twice to start then they should get 2 pages?
             }
           }}

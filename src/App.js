@@ -87,6 +87,7 @@ function App() {
       // the API only returns 10 results at a time
       const response = await axios.get(`https://www.omdbapi.com/?s=${searchTerm}&type=movie&page=${pageToReturn}&apikey=bbde90f3`);
       let searchResults = response.data.Search;
+      console.log(searchResults);
       // TODO use the result count? total amount of results are known for a search term on the first query
       // const resultCount = response.data.totalResults;
 
@@ -121,56 +122,54 @@ function App() {
 
   console.log('APP RENDER')
   return (
-    <div className="App">
-      {nominees.length ?
-        <NominationList
-          className='nom-container'
-          remove={remove}
-          nominees={nominees}
-        /> :
-        <div className='nom-container'>
-        </div>}
-      <div className="noms-title-search-container">
-        {/* TODO logo may go here at one point */}
-        {/* <img
-          className='awards-logo'
-          src="https://image.freepik.com/free-vector/popcorn-open-clapper-board-movie-reel-3d-glasses-tickets-illustration_185417-5.jpg"
-          alt="movie-awards-logo"
-        /> */}
 
+    <div className="App">
+
+      <div className="noms-title-search-container">
         <h1 className="title">Movie Awards</h1>
         <SearchBar
           getMovies={getMovies}
           setMovies={setMovies}
           searchPage={searchPage}
           setSearchPage={setSearchPage} />
-
       </div>
 
+      {
+        nominees.length ?
+          <NominationList
+            className='nom-container'
+            remove={remove}
+            nominees={nominees}
+          /> :
+          <div className='nom-container'></div>
+      }
 
-      {nominees.length === 5 ?
-        <Banner /> : null}
-      {movies.length ?
-        <SearchList
-          nominate={nominate}
-          movies={movies}
-          maxNomsReached={nominees.length === 5}
-          lastSearchTerm={lastSearchTerm}
-          getMovies={getMovies}
-          handlePageChange={(p) => {
-            setSearchPage(p);
-          }}
-          searchPage={searchPage}
-        /> :
-        noResults ?
-          <div className='search-container'>
-            Sorry, we could not find '{lastSearchTerm}'
+      {
+        nominees.length === 5 ?
+          <Banner /> : null
+      }
+
+      {
+        movies.length ?
+          <SearchList
+            nominate={nominate}
+            movies={movies}
+            maxNomsReached={nominees.length === 5}
+            lastSearchTerm={lastSearchTerm}
+            getMovies={getMovies}
+            handlePageChange={(p) => {
+              setSearchPage(p);
+            }}
+            searchPage={searchPage}
+          /> :
+          noResults ?
+            <div className='search-container'>
+              Sorry, we could not find '{lastSearchTerm}'
         </div> :
-          <div className='search-container'>
+            <div className='search-container'></div>
+      }
 
-          </div>}
-
-    </div>
+    </div >
   );
 }
 

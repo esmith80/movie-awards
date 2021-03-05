@@ -1,3 +1,6 @@
+MARCH 3RD, 2021
+spent 2-3 hours re-doing the layout so the nominations are at the top and also changed the colour scheme
+
 MARCH 1, 2021
 spent about 3 hours on CSS breakpoints and different browser window widths and heights
 there is undoubtedly a better way to do this, but i managed to align the type-ahead results 

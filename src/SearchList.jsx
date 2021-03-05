@@ -61,11 +61,9 @@ function SearchList({ nominate, movies, maxNomsReached, lastSearchTerm, getMovie
 
   return (
     <div className='search-container'>
-      <table>
-        <tbody>
-          {searchListItems}
-        </tbody>
-      </table>
+
+      {searchListItems}
+
     </div>
   );
 }
