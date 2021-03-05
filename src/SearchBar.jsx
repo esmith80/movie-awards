@@ -22,6 +22,8 @@ const SearchBar = ({ getMovies }) => {
           console.log('onFocus fired');
         }}
 
+
+
       >
         <input
           placeholder='Search for a movie to nominate...'
@@ -35,6 +37,7 @@ const SearchBar = ({ getMovies }) => {
           onKeyUp={e => {
             if (e.key === 'Enter' && searchText.trim().length) {
               setShowTypeAhead(false);
+              window.scrollTo(0, 0);
               getMovies(searchText + '*', 1); // number 1 has to be used because if these buttons are being hit the user needs new results - not necessarily... if they hit it twice to start then they should get 2 pages?
             }
           }}
@@ -53,7 +56,8 @@ const SearchBar = ({ getMovies }) => {
       </div>
       <button onClick={() => {
         if (searchText.trim().length) {
-          getMovies(searchText.trim() + '*', 1)
+          window.scrollTo(0, 0);
+          getMovies(searchText.trim() + '*', 1);
         }
       }}>Search</button>
     </div>

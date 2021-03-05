@@ -2,6 +2,9 @@ import React from 'react';
 
 export const NominationListItem = ({ poster, remove, imdbID, title }) => {
 
+  //TODO make the movie bigger when hovered over
+  // const [mouseOver, setMouseOver] = useState(false);
+
   return (
     <>
       <div className='nom-item'>
