@@ -3,204 +3,259 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #282c34;
-  /* background-image: url("./—Pngtree—golden stage podium in black_1159255.png"); */
+  background-color: black;
+  background-image: url("./—Pngtree—golden stage podium in black_1159255.png");
+  background-attachment: fixed;
 }
 
 /* these rules apply to all sizes unless specified */
 
-  h1 {
-    color: white;
-    background-color: #282c34;
-    font-size: 58px;
-  }
-  h2 {
-    color: white;
-  }
-  button {
-    background-color: #81BF37;
-    border: none;
-    color: white;
-    width: calc(100px);
-    padding: 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: calc(8px + 1vmin);
-  }
-  input {
-    padding: 15px 32px;
-    margin: 5px;
-    width: 100%;
-  }
-  tr {
-    height: 65px;
-  }  
-  .nom-container {
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    top: 23vh;
-    right: 1vw;    
-    width: 55%;
-    padding: 5px;  
-    text-align: left;
-    font-size: calc(10px + 2vmin);
-    color: white;
-    background-color: transparent;
-  }  
-  .search-container {
-    /* top and left have NO effect if position is not specified the position is static */
-    position: relative;
-    top: 23vh;
-    left: 1vw;
-    height: 100%;
-    width: 40%;
-    padding: 5px;
-    text-align: left;
-    font-size: calc(10px + 2vmin);
-    color: white;
-    background-color: transparent;    
-  }
-  .searchbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    position: relative;
-    top: 0;
-    left: 1vh;
-    right: 1vw;
-    height: 10%;
-    width: 80%;
-    text-align: center;
-    background-color: #282c34;
-  }
-  .searchbar > button {
-    background-color: purple;
-    height: 50px;
-    margin-left: 15px;
-  }
-  .input-search-results-container {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-  }
-  .searchbar-results {
-    position: fixed;
-    z-index: 200;
-    background-color: azure;
-    font-size: 18px;
-    color: black;
-    padding: 15px 32px;
-    margin: 5px;
-    margin-top: 0px;
-    top: 100px;
-    width: 36.5%;    
-  }
-  .searchbar-result-item {
-    text-align: left;
-  }
-  .banner {
-    background-color: #81BF37;
-    top: 15vh;
-    width: 100%;
-    height: 7%;
-    font-size: medium;
-    color: #606c83;
-    text-align: center;
-    margin-top: 1vh;
-  }
-  .awards-logo {
-    display: none;
-  }
+.noms-title-search-container  {
+  position: fixed;
+  background-color: black;
+  top: 0;
+  width: 100%;
+  height: 20%;
+  margin-top: 0;
+  z-index: 300;
+}
 
-  .nom-item {
-    display:block;
-  }
+.title {
+  position: fixed;
+  top: 5vh;
+  width: 100%;
+  text-align: center;
+  color: #DAB018;
+  font-variant: small-caps;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: black;
+  margin-bottom: 0;
+  z-index: 300;
+}
 
-  .poster {
-    height: 21vh;
-    width: 14vh;
-    margin: 8px;
-  }
-  .nom-button {
-    background-color: purple;
-    border: none;
-    color: white;
-    width: calc(75px);
-    padding: 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: calc(5px + 1vmin);
-  }
+h1 {
+  font-size: 58px;
+}
 
+h2 {
+  color: white;
+}
+
+button {
+  background-color: #dab019;
+  border: none;
+  color: #1b1302;
+  width: calc(100px);
+  padding: 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: calc(8px + 1vmin);
+}
+
+input {
+  padding: 15px 32px;
+  margin: 5px;
+  width: 100%;
+}
+
+
+.nom-container {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  height: 29vh;
+  padding: 5px;
+  top: 45vh;
+  text-align: left;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  /* z-index: 300; */
+  /* background-color: */
+}
+
+.search-container {
+  /* top and left have NO effect if position is not specified the position is static */
+  position: relative;
+  top: 29.5vh;
+  margin: auto;
+  height: 100%;
+  width: 55%;
+  text-align: left;
+  font-size: calc(10px + 2vmin);
+  font-weight: bolder;
+  color: white;
+  background-color: black;
+  opacity: 0.8;
+}
+
+.search-item {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  align-items: flex-start;
+}
+
+.search-item-text {
+  width: 80%;
+}
+
+.search-nom-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 20%;
+}
+
+.search-nom-button {
+  align-self: flex-start;
+}
+
+.search-poster {
+  height: 18vh;
+  width: 6vw;
+  padding-right: 5px;
+  align-self: flex-end;
+}
+
+.searchbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: fixed;
+  top: 18vh;
+  height: 10%;
+  width: 100%;
+  text-align: center;
+  background-color: black;
+  z-index: 300;
+}
+
+.searchbar>button {
+  background-color: purple;
+  height: 50px;
+  margin-left: 15px;
+  color: white;
+}
+
+.input-search-results-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.searchbar-results {
+  position: relative;
+  z-index: 200;
+  background-color: white;
+  font-size: 1.5em;
+  color: black;
+  padding: 15px 32px;
+  margin: 5px;
+  margin-top: 0px;
+  width: 93%;
+}
+
+.searchbar-result-item {
+  text-align: left;
+}
+
+.banner {
+  position: fixed;
+  background-color: #480148;
+  top: 0;
+  width: 100%;
+  height: 7%;
+  font-size: medium;
+  color: #FBCD24;
+  text-align: center;
+  margin-top: 0;
+  z-index: 400;
+}
+
+.awards-logo {
+  display: none;
+}
+
+.nom-item {
+  display: block;
+}
+
+.poster {
+  height: 21vh;
+  width: 14vh;
+}
+
+.nom-button {
+  background-color: purple;
+  border: none;
+  color: white;
+  width: calc(75px);
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: calc(5px + 1vmin);
+}
 
 /* Very Large screen  */
-@media only screen and (max-width: 1879px) {  
+
+@media only screen and (max-width: 1879px) {
   h1 {
     font-size: 48px;
-  }  
+  }
   .searchbar-results {
-    padding: 15px 30px;    
-    top: 88px;
-  }  
+    padding: 15px 30px;
+  }
 }
 
 /* large screen */
-@media only screen and (max-width: 1566px) {  
+
+@media only screen and (max-width: 1566px) {
   h1 {
     font-size: 46px;
   }
 }
 
 /* medium-large */
-@media only screen and (max-width: 1487px) {  
+
+@media only screen and (max-width: 1487px) {
   h1 {
     font-size: 36px;
   }
   .searchbar-results {
     padding: 15px 23px;
-    top: 71px;
   }
 }
 
 /* medium */
+
 @media only screen and (max-width: 1170px) {
-  .nom-container {    
-    top: 30vh;
-    font-size: calc(4px + 2vmin);
- }  
- .search-container {
+  .search-container {
     /* top and left have NO effect if position is not specified the position is static */
     top: 27vh;
   }
- .searchbar-results {
+  .searchbar-results {
     padding: 15px 20px;
-    top: 148px;
-  }  
+  }
   .poster {
     height: 18vh;
     width: 12vh;
-  }  
+  }
 }
 
 /* Medium */
+
 @media only screen and (max-width: 1033px) {
   h1 {
     font-size: 20px;
-  }     
-  .nom-container {
-    top: 20vh;
-    height: 65%;
-    width: 50%;
-    font-size: calc(3px + 2vmin);
   }
   .search-container {
     /* top and left have NO effect if position is not specified the position is static */
-    top: 14vh;    
+    top: 14vh;
     width: 45%;
     font-size: calc(1px + 2vmin);
   }
@@ -208,13 +263,11 @@ body {
     top: 57px;
     left: 8vh;
   }
-
   .searchbar-results {
     font-size: 14px;
     padding: 5px 17px;
-    top: 113px;
-  }  
-  .searchbar > label {
+  }
+  .searchbar>label {
     font-size: medium;
   }
   .banner {
@@ -232,48 +285,36 @@ body {
 }
 
 /* Medium-small */
-@media only screen and (max-width: 731px) {
 
+@media only screen and (max-width: 731px) {
   h1 {
     display: none;
   }
-  
   button {
     width: calc(70px);
-    padding: 3px;    
+    padding: 3px;
     font-size: calc(4px + 2vmin);
   }
-    
-  .nom-container {
-    position: absolute;
-    top: 30vh;
-    height: 100%;
-    width: 40%;
-  }  
   .search-container {
     /* top and left have NO effect if position is not specified the position is static */
     width: 50%;
     font-size: calc(4px + 2vmin);
   }
-
   .searchbar-results {
     font-size: 14px;
     padding: 5px 8px;
-    top: 113px;
   }
-  .searchbar > button {
+  .searchbar>button {
     background-color: purple;
     width: calc(100px);
     font-size: calc(8px + 1vh);
   }
-  .searchbar > label {
+  .searchbar>label {
     display: none;
   }
-
   .searchbar {
     width: 100%;
   }
-  
   .poster {
     height: 15vh;
     width: 10vh;
@@ -284,8 +325,7 @@ body {
     padding: 3px;
     font-size: calc(3px + 2vmin);
   }
-
-  .awards-logo {    
+  .awards-logo {
     height: 120px;
     width: 120px;
   }

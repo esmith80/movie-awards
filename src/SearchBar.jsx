@@ -1,25 +1,31 @@
 import { React, useState } from 'react';
 import SearchBarResults from './SearchBarResults'
 
-const SearchBar = ({ getMovies }) => {
+const SearchBar = ({ getMovies, setInSearchArea }) => {
 
   const [searchText, setSearchText] = useState('');
   const [showTypeAhead, setShowTypeAhead] = useState(false);
   const [inTypeAhead, setInTypeAhead] = useState(false);
 
   return (
-    <div className='searchbar'>
+    <div className='searchbar'
+      onMouseEnter={() => {
+        setInSearchArea(true);
+      }}
+      onMouseLeave={() => {
+        setInSearchArea(false);
+      }}>
       {/* <label className='searchlabel'>Find movies to nominate</label> */}
-      <div className='input-search-results-container'
+      <div
+        className='input-search-results-container'
         onBlur={() => {
-          console.log('inTypeAhead is: ', inTypeAhead)
           if (!inTypeAhead) setShowTypeAhead(false);
-          console.log('onBlur fired')
         }} // if you hideTypeAhead onBlur the instant you leave the search input field, you lose the typeahead results and so you can't click on them
         onFocus={() => {
           setShowTypeAhead(true)
-          console.log('onFocus fired');
         }}
+
+
 
       >
         <input
@@ -33,6 +39,8 @@ const SearchBar = ({ getMovies }) => {
           //TODO (only run if there is a new search term)
           onKeyUp={e => {
             if (e.key === 'Enter' && searchText.trim().length) {
+              setShowTypeAhead(false);
+              window.scrollTo(0, 0);
               getMovies(searchText + '*', 1); // number 1 has to be used because if these buttons are being hit the user needs new results - not necessarily... if they hit it twice to start then they should get 2 pages?
             }
           }}
@@ -51,7 +59,8 @@ const SearchBar = ({ getMovies }) => {
       </div>
       <button onClick={() => {
         if (searchText.trim().length) {
-          getMovies(searchText.trim() + '*', 1)
+          window.scrollTo(0, 0);
+          getMovies(searchText.trim() + '*', 1);
         }
       }}>Search</button>
     </div>

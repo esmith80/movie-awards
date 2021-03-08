@@ -26,6 +26,9 @@ function App() {
   const [lastSearchTerm, setLastSearchTerm] = useState('');
   const [nominees, setNominees] = useState(localNoms.length ? localNoms : []);
   const [searchPage, setSearchPage] = useState(1);
+  const [inSearchArea, setInSearchArea] = useState(false);
+  const [showSearchResults, setShowSearchResults] = useState(false);
+
 
 
   const nominate = (Title, Year, imdbID, Poster) => {
@@ -78,6 +81,8 @@ function App() {
   // get movies from database and set the results to searchResults
   async function getMovies(searchTerm, pageToReturn) {
     searchTerm = removeCharsAndSpaces(searchTerm, ['&', '-']);
+    setShowSearchResults(true);
+    // setInSearchArea(true);
     // the incoming pageToReturn informs us if the user has triggered a brand new search (even if the search is with the same search text as before)
     if (pageToReturn === 1) {
       setSearchPage(1);
@@ -118,59 +123,63 @@ function App() {
     }
   }
 
-
-  console.log('APP RENDER')
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Movie Awards</h1>
-        {/* TODO logo may go here at one point */}
-        {/* <img
-          className='awards-logo'
-          src="https://image.freepik.com/free-vector/popcorn-open-clapper-board-movie-reel-3d-glasses-tickets-illustration_185417-5.jpg"
-          alt="movie-awards-logo"
-        /> */}
 
+    <div className="App"
+      onClick={() => {
+        if (!inSearchArea && showSearchResults) {
+          window.scrollTo(0, 0);
+          setShowSearchResults(false);
+        }
+      }}>
+
+      <div className="noms-title-search-container">
+        <h1 className="title">Movie Awards</h1>
         <SearchBar
+          setInSearchArea={setInSearchArea}
           getMovies={getMovies}
           setMovies={setMovies}
           searchPage={searchPage}
           setSearchPage={setSearchPage} />
+      </div>
 
+      {
+        nominees.length ?
+          <NominationList
+            className='nom-container'
+            remove={remove}
+            nominees={nominees}
+          /> :
+          <div className='nom-container'></div>
+      }
 
-        {nominees.length === 5 ?
-          <Banner /> : null}
-      </header>
+      {
+        nominees.length === 5 ?
+          <Banner /> : null
+      }
 
-      {nominees.length ?
-        <NominationList
-          className='nom-container'
-          remove={remove}
-          nominees={nominees}
-        /> :
-        <div className='nom-container'>
-        </div>}
-      {movies.length ?
-        <SearchList
-          className='search-container'
-          nominate={nominate}
-          movies={movies}
-          maxNomsReached={nominees.length === 5}
-          lastSearchTerm={lastSearchTerm}
-          getMovies={getMovies}
-          handlePageChange={(p) => {
-            setSearchPage(p);
-          }}
-          searchPage={searchPage}
-        /> :
-        noResults ?
-          <div className='search-container'>
-            Sorry, we could not find '{lastSearchTerm}'
+      {
+        movies.length && showSearchResults ?
+          <SearchList
+            nominate={nominate}
+            movies={movies}
+            maxNomsReached={nominees.length === 5}
+            lastSearchTerm={lastSearchTerm}
+            getMovies={getMovies}
+            setInSearchArea={setInSearchArea}
+            handlePageChange={(p) => {
+              setSearchPage(p);
+            }}
+            searchPage={searchPage}
+          /> :
+          noResults ?
+            <div className='search-container'>
+              Sorry, we could not find '{lastSearchTerm}'
         </div> :
-          <div className='search-container'>
+            <div className='search-container'></div>
+      }
 
-          </div>}
-    </div>
+    </div >
   );
 }
 

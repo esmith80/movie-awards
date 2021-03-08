@@ -12,7 +12,6 @@ function SearchBarResults({ searchText, setSearchText, setShowTypeAhead, getMovi
   async function getTypeAheadResults(s) {
     s = removeCharsAndSpaces(s, ['&', '-']);
 
-    console.log('call API - searchText: ', searchText)
     // TODO Hide API KEY
     // the API only returns 10 results at a time
     const response = await axios.get(`https://www.omdbapi.com/?s=${s}*&type=movie&page=1&apikey=bbde90f3`);
@@ -67,7 +66,6 @@ function SearchBarResults({ searchText, setSearchText, setShowTypeAhead, getMovi
         setInTypeAhead={setInTypeAhead}
         setShowTypeAhead={setShowTypeAhead}
         getMovies={getMovies}
-        searchText={searchText}
       />
     )
   });
@@ -78,11 +76,9 @@ function SearchBarResults({ searchText, setSearchText, setShowTypeAhead, getMovi
       <div
         className='searchbar-results'
         onMouseEnter={() => {
-          console.log('onMouseEnter');
           setInTypeAhead(true);
         }}
         onMouseLeave={() => {
-          console.log('onMouseLeave');
           setInTypeAhead(false);
         }}
       >
