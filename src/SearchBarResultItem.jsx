@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SearchBarResultItem = ({ title, setSearchText, getMovies, searchText, setShowTypeAhead }) => {
+const SearchBarResultItem = ({ title, setSearchText, getMovies, setShowTypeAhead }) => {
   return (
     <div className='searchbar-result-item'
       onClick={() => {

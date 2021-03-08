@@ -26,6 +26,9 @@ function App() {
   const [lastSearchTerm, setLastSearchTerm] = useState('');
   const [nominees, setNominees] = useState(localNoms.length ? localNoms : []);
   const [searchPage, setSearchPage] = useState(1);
+  const [inSearchArea, setInSearchArea] = useState(false);
+  const [showSearchResults, setShowSearchResults] = useState(false);
+
 
 
   const nominate = (Title, Year, imdbID, Poster) => {
@@ -78,6 +81,8 @@ function App() {
   // get movies from database and set the results to searchResults
   async function getMovies(searchTerm, pageToReturn) {
     searchTerm = removeCharsAndSpaces(searchTerm, ['&', '-']);
+    setShowSearchResults(true);
+    // setInSearchArea(true);
     // the incoming pageToReturn informs us if the user has triggered a brand new search (even if the search is with the same search text as before)
     if (pageToReturn === 1) {
       setSearchPage(1);
@@ -87,7 +92,6 @@ function App() {
       // the API only returns 10 results at a time
       const response = await axios.get(`https://www.omdbapi.com/?s=${searchTerm}&type=movie&page=${pageToReturn}&apikey=bbde90f3`);
       let searchResults = response.data.Search;
-      console.log(searchResults);
       // TODO use the result count? total amount of results are known for a search term on the first query
       // const resultCount = response.data.totalResults;
 
@@ -119,15 +123,20 @@ function App() {
     }
   }
 
-
-  console.log('APP RENDER')
   return (
 
-    <div className="App">
+    <div className="App"
+      onClick={() => {
+        if (!inSearchArea && showSearchResults) {
+          window.scrollTo(0, 0);
+          setShowSearchResults(false);
+        }
+      }}>
 
       <div className="noms-title-search-container">
         <h1 className="title">Movie Awards</h1>
         <SearchBar
+          setInSearchArea={setInSearchArea}
           getMovies={getMovies}
           setMovies={setMovies}
           searchPage={searchPage}
@@ -150,13 +159,14 @@ function App() {
       }
 
       {
-        movies.length ?
+        movies.length && showSearchResults ?
           <SearchList
             nominate={nominate}
             movies={movies}
             maxNomsReached={nominees.length === 5}
             lastSearchTerm={lastSearchTerm}
             getMovies={getMovies}
+            setInSearchArea={setInSearchArea}
             handlePageChange={(p) => {
               setSearchPage(p);
             }}

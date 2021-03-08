@@ -1,25 +1,28 @@
 import { React, useState } from 'react';
 import SearchBarResults from './SearchBarResults'
 
-const SearchBar = ({ getMovies }) => {
+const SearchBar = ({ getMovies, setInSearchArea }) => {
 
   const [searchText, setSearchText] = useState('');
   const [showTypeAhead, setShowTypeAhead] = useState(false);
   const [inTypeAhead, setInTypeAhead] = useState(false);
 
   return (
-    <div className='searchbar'>
+    <div className='searchbar'
+      onMouseEnter={() => {
+        setInSearchArea(true);
+      }}
+      onMouseLeave={() => {
+        setInSearchArea(false);
+      }}>
       {/* <label className='searchlabel'>Find movies to nominate</label> */}
       <div
         className='input-search-results-container'
         onBlur={() => {
-          console.log('inTypeAhead is: ', inTypeAhead)
           if (!inTypeAhead) setShowTypeAhead(false);
-          console.log('onBlur fired')
         }} // if you hideTypeAhead onBlur the instant you leave the search input field, you lose the typeahead results and so you can't click on them
         onFocus={() => {
           setShowTypeAhead(true)
-          console.log('onFocus fired');
         }}
 
 

@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { SearchListItem } from './SearchListItem';
 
-function SearchList({ nominate, movies, maxNomsReached, lastSearchTerm, getMovies, handlePageChange, searchPage }) {
+function SearchList({ nominate, movies, maxNomsReached, lastSearchTerm, getMovies, handlePageChange, searchPage, setInSearchArea }) {
+
 
   let scrolling = false;
   let scrollLoop;
@@ -57,10 +58,16 @@ function SearchList({ nominate, movies, maxNomsReached, lastSearchTerm, getMovie
         />);
     }
   }
-  console.log('SEARCH LIST RENDER')
 
   return (
-    <div className='search-container'>
+    <div className='search-container'
+      onMouseEnter={() => {
+        setInSearchArea(true);
+      }}
+      onMouseLeave={() => {
+        setInSearchArea(false);
+      }}
+    >
 
       {searchListItems}
 
