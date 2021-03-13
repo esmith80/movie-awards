@@ -29,8 +29,6 @@ A user can search for movies by the **title** of the movie. _A minimum of 3 char
 
 >:information_source:&nbsp; If there are no results you will see '**no results for [_your search text_]**' displayed in the Typeahead Results area.
 
->:information_source:&nbsp; To remove the search text, click the **X** on the right side of the input field.
-
 ---
 ### Browse Search Results
 
