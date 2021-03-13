@@ -1,4 +1,5 @@
-# Movie Awards
+![Movie Awards Logo](https://github.com/esmith80/movie-awards/blob/user-guide/public/favicon.png)
+# Movie Awards 
 This guide is for users. After completing this guide, you will know how to:
 * Access the application
 * Search for movies
@@ -33,9 +34,9 @@ A user can search for movies by the **title** of the movie. _A minimum of 3 char
 ---
 ### Browse Search Results
 
-Each listing in the search results area displays a movie title, year of release, a movie's poster and the `Nominate` button. A user can scroll to the bottom of the page to see all the results. New results are automatically added to the bottom of the search area as the user scrolls.
+Each listing in the search results area displays a movie title, year of release, poster, and `Nominate` button. New results are automatically added to the bottom of the search area as the user scrolls downward.
 
->:information_source:&nbsp; If you click outside the search area, the search results will disappear. To see the same search results, initiate another search by clicking the `Search` button.
+>:information_source:&nbsp; If you click outside the search area, the search results will disappear. To see those results again, initiate another search with the same search text.
 
 ---
 ### Adding and removing movies from the Nominations list
@@ -44,8 +45,9 @@ Each listing in the search results area displays a movie title, year of release,
 
 To nominate a movie:
 1. Click the `Nominate` button on the right side of the search listing.
-2. The movie poster is displayed in the `Nominations` area. 
->:information_source: You may only nominate five (5) movies. If you have reached the maximum amount of nominations, a banner is displayed at the top of the screen.
+2. The movie poster is displayed in the `Nominations` area and that search listing will show a nomination icon 🏆 to indicate it has been nominated.
 
->:information_source:&nbsp; To remove a movie from the nominations area, click the purple **X** icon in the corner of the nominated movie's poster.
+To remove a movie from the nominations list:
+1. Click the purple **X** icon in the corner of the nominated movie's poster.
 
+>:information_source:&nbsp; You may nominate a maximum of five (5) movies. The application automatically saves the nominations and preserves them if you navigate away from the page or close your browser. The list of nominations is associated with your device, and so accessing the site on a different device provides a seperate list of nominations.
