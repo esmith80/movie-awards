@@ -1,3 +1,5 @@
+<div style="background-color: purple; color: yellow;">
+
 # Movie Awards
 This guide is for users. After completing this guide, you will know how to:
 * Access the application
@@ -10,7 +12,9 @@ This guide is for users. After completing this guide, you will know how to:
 1. Open a browser (Chrome, Safari, or Firefox).
 2. Type https://esmith.github.io/movie-awards into the address bar and press the `Enter` key.
 3. The application is displayed in your browser.
-4. Set your browser window to the full width of your screen for optimal viewing. (_The application is not presently supported at small screen sizes._)
+
+:warning:Set your browser window to the full width of your screen for optimal viewing. (_The application is not presently supported at small screen sizes._)
+
 ---
 ### Search for movies
 A user can search for movies by the **title** of the movie. _A minimum of 3 characters is required to initiate a search._
@@ -35,3 +39,5 @@ To clear the search term from the search input field, use the :information_sourc
 Each listing in the search results area displays a movie title, year of release, and the movie's poster. A user can scroll to the bottom of the page to see all the results. New results are automatically added to the bottom of the search area as the user scrolls.
 
 &#6552010; If you click outside the search area, the search results will disappear. To see the same search results, initiate another search by clicking the `Search` button.
+
+</div>
