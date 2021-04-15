@@ -99,6 +99,16 @@ input {
   align-items: flex-start;
 }
 
+.search-item:hover {
+  border-color: purple;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.search-item:hover .search-nom-button{
+  display: inline;
+}
+
 .search-item-text {
   width: 80%;
 }
@@ -112,6 +122,7 @@ input {
 
 .search-nom-button {
   align-self: flex-start;
+  display: none;
 }
 
 .search-poster {
