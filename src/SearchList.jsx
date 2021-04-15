@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { SearchListItem } from './SearchListItem';
 
-function SearchList({ nominate, movies, maxNomsReached, lastSearchTerm, getMovies, handlePageChange, searchPage, setInSearchArea }) {
+function SearchList({ nominate, remove, movies, maxNomsReached, lastSearchTerm, getMovies, handlePageChange, searchPage, setInSearchArea }) {
 
 
   let scrolling = false;
@@ -43,7 +43,7 @@ function SearchList({ nominate, movies, maxNomsReached, lastSearchTerm, getMovie
   // TODO possible refactor - why build this each time, can't we just pass down an array?
   const searchListItems = [];
   for (let i = 0; i < movies.length; i++) {
-    // make an arry of SearchListItems
+    // make an array of SearchListItems
     if (movies[i]) {
       searchListItems.push(
         <SearchListItem
@@ -53,6 +53,7 @@ function SearchList({ nominate, movies, maxNomsReached, lastSearchTerm, getMovie
           year={movies[i].Year}
           poster={movies[i].Poster}
           nominate={nominate}
+          remove={remove}
           nominee={movies[i].nominee}
           maxNomsReached={maxNomsReached}
         />);
