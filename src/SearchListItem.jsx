@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const SearchListItem = ({ id, nominate, nominee, maxNomsReached, poster, title, year }) => {
+export const SearchListItem = ({ id, nominate, remove, nominee, maxNomsReached, poster, title, year }) => {
 
   return (
     <div className='search-item'>
@@ -11,9 +11,13 @@ export const SearchListItem = ({ id, nominate, nominee, maxNomsReached, poster, 
         <img className='search-poster' src={(poster.includes('jpg')) ? poster : 'https://www.kirkstall.com/wp-content/uploads/2020/04/image-not-available-png-8.png'} alt={title} />
         <button className='search-nom-button'
           onClick={() => {
-            nominate(title, year, id, poster);
+            if(!nominee) {
+              nominate(title, year, id, poster);
+            } else {
+              remove(id);
+            }
           }}
-          disabled={nominee || maxNomsReached}>{nominee ? '🏆' : 'Nominate'}
+          disabled={!nominee && maxNomsReached}>{nominee ? 'Remove' : 'Nominate'}
         </button>
       </div>
     </div>

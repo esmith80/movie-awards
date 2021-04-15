@@ -162,6 +162,7 @@ function App() {
         movies.length && showSearchResults ?
           <SearchList
             nominate={nominate}
+            remove={remove}
             movies={movies}
             maxNomsReached={nominees.length === 5}
             lastSearchTerm={lastSearchTerm}
