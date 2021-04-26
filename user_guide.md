@@ -8,7 +8,7 @@ This guide is for users. After completing this guide, you will know how to:
 
 ### Access the application
 1. Open a browser (Chrome, Safari, or Firefox).
-2. Type https://esmith.github.io/movie-awards into the address bar and press the `Enter` key.
+2. Type [https://esmith80.github.io/movie-awards](https://esmith80.github.io/movie-awards/) into the address bar and press the `Enter` key.
 3. The application is displayed in your browser.
 
 > :warning:&nbsp; **The application is not presently supported at small screen sizes.** _Set your browser window to the full width of your screen for optimal viewing._
