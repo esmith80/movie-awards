@@ -1,4 +1,3 @@
-![Movie Awards Logo](https://github.com/esmith80/movie-awards/blob/user-guide/public/favicon.png)
 # Movie Awards 
 This guide is for users. After completing this guide, you will know how to:
 * Access the application
