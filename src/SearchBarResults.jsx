@@ -73,6 +73,7 @@ function SearchBarResults({ searchText, setSearchText, setShowTypeAhead, getMovi
 
   return (
     <>
+    
       <div
         className='searchbar-results'
         onMouseEnter={() => {
@@ -82,6 +83,11 @@ function SearchBarResults({ searchText, setSearchText, setShowTypeAhead, getMovi
           setInTypeAhead(false);
         }}
       >
+        <div className="close-control-typeahead"
+      onClick={() => {
+        setShowTypeAhead(false);
+      }}
+      >&#10006;</div>
         {results}
       </div>
     </>

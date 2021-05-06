@@ -168,6 +168,7 @@ function App() {
             lastSearchTerm={lastSearchTerm}
             getMovies={getMovies}
             setInSearchArea={setInSearchArea}
+            setShowSearchResults={setShowSearchResults}
             handlePageChange={(p) => {
               setSearchPage(p);
             }}
