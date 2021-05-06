@@ -57,7 +57,7 @@ const SearchBar = ({ getMovies, setInSearchArea }) => {
         /> : null}
 
       </div>
-      <button onClick={() => {
+      <button id="btn-search" onClick={() => {
         if (searchText.trim().length) {
           window.scrollTo(0, 0);
           getMovies(searchText.trim() + '*', 1);

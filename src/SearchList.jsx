@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { SearchListItem } from './SearchListItem';
 
-function SearchList({ nominate, remove, movies, maxNomsReached, lastSearchTerm, getMovies, handlePageChange, searchPage, setInSearchArea }) {
+function SearchList({ nominate, remove, movies, maxNomsReached, lastSearchTerm, getMovies, handlePageChange, searchPage, setInSearchArea, setShowSearchResults }) {
 
 
   let scrolling = false;
@@ -61,6 +61,7 @@ function SearchList({ nominate, remove, movies, maxNomsReached, lastSearchTerm, 
   }
 
   return (
+    
     <div className='search-container'
       onMouseEnter={() => {
         setInSearchArea(true);
@@ -69,6 +70,11 @@ function SearchList({ nominate, remove, movies, maxNomsReached, lastSearchTerm, 
         setInSearchArea(false);
       }}
     >
+      <div className="close-control"
+      onClick={() => {
+        setShowSearchResults(false);
+      }}
+      >&#10006;</div>
 
       {searchListItems}
 
