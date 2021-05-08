@@ -16,7 +16,7 @@ body {
   position: fixed;
   background-color: black;
   top: 0;
-  width: 100%;
+  width: 100%;  
   height: 20%;
   margin-top: 0;
   z-index: 300;
@@ -24,19 +24,17 @@ body {
 
 .title {
   position: fixed;
-  top: 5vh;
+  top: -8vh;
   width: 100%;
   text-align: center;
+  align-self: flex-end;
   color: #DAB018;
   font-variant: small-caps;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   background-color: black;
   margin-bottom: 0;
-  z-index: 300;
-}
-
-h1 {
-  font-size: 58px;
+  z-index: 301;
+  font-size: 8em;
 }
 
 h2 {
@@ -99,19 +97,20 @@ input {
   width: 32px; height: 32px;
   text-align: center;
   vertical-align: text-bottom;
-  right: 5px;
-  top: 138px;
-  font-size: xx-large;
+  right: 300px;
+  top: 262px;
+  font-size: 50px;
   font-family:monospace;
   font-weight: lighter;
   color:rgb(255, 255, 255);
-  z-index: 1;
+  z-index: 500;
 }
 
 .close-control-typeahead {
   position: fixed;
-  right: 15px;
-  color: orange;
+  right: 22px;
+  color: rgb(65, 65, 65);
+  font-size: large;
 }
 
 .search-item {
@@ -254,16 +253,23 @@ input {
   display: inline;
 }
 
+
 .poster {
   height: 21vh;
   width: 14vh;
   padding: 1vw;
 }
+.poster:hover {
+  height: 24vh;
+  width: 16vh;
+  transition: .25s;
+}
 
 .nom-icon {
   position: absolute;
-  right: 2vw;
-  font-size: x-large;
+  left: 42vw;
+  top: 1vh;
+  font-size: 40px;
 }
 
 .nom-remove-control {
@@ -271,6 +277,9 @@ input {
   position: absolute;
   top: 1vw;
   right: 1vw;
+  width: 25px;
+  height: 25px;
+  
 }
 
 .nom-button {
@@ -329,23 +338,30 @@ input {
     height: 18vh;
     width: 12vh;
   }
+  .poster:hover {
+    height: 21vh;
+    width: 14vh;
+    transition: .25s;
+  }
 }
 
 /* Medium */
 
 @media only screen and (max-width: 1033px) {
   h1 {
-    font-size: 20px;
+    font-size: 50px;
   }
   .search-container {
     /* top and left have NO effect if position is not specified the position is static */
-    top: 14vh;
-    width: 45%;
+    top: 20vh;
+    width: 57%;
     font-size: calc(1px + 2vmin);
   }
   .searchbar {
-    top: 57px;
-    left: 8vh;
+    top: 10vh;
+    left: -150px;
+    width: 140%;
+    
   }
   .searchbar-results {
     font-size: 14px;
@@ -368,11 +384,32 @@ input {
   }
 }
 
-/* Medium-small */
+/* I chose this size because I want to leave 5 posters on screen */
 
-@media only screen and (max-width: 731px) {
-  h1 {
-    display: none;
+@media only screen and (max-width: 651px) {
+  .poster {
+    height: 15vh;
+    width: 10vh;
+  }
+  .poster:hover {
+    height: 18vh;
+    width: 12vh;
+    transition: .25s;
+  }
+}
+
+/* small - phone */
+
+@media only screen and (max-width: 414px) {
+
+  body {
+    max-width: 414px;
+  }
+
+  .title {
+    position: fixed;
+    top: 0px;
+    font-size: 2em;
   }
   button {
     width: calc(70px);
@@ -388,16 +425,20 @@ input {
     /* top and left have NO effect if position is not specified the position is static */
     width: 95%;
     font-size: calc(4px + 2vmin);
-    margin-top: 5vh;
+    
   }
   .searchbar-results {
+    position: absolute;
     font-size: 14px;
     padding: 2px;
-    width: 185%;
-    left: -30%;
+    left: 41vw;
+    top: 5.35vh;
+
+    
   }
   .searchbar > button {
-    background-color: rgb(119, 40, 119);
+    display: none;
+    /* background-color: rgb(119, 40, 119);
     color: rgb(255, 255, 255);
     border: 1px solid rgb(29, 29, 29);
     border-radius: 3px;
@@ -407,29 +448,36 @@ input {
     top: 7px;
     float: right;
     padding: 0px;
-    height: 35px;
-  }
-
-  .searchbar > button:hover {
-    font-weight: bolder;
-    border: 2px solid goldenrod;
+    height: 35px; */
   }
 
   .searchbar > label {
     display: none;
   }
+  /* this is a div that contains the search bar */
   .searchbar {
     display: block;
     width: 100%;
+    height: 0;
+    
   }
   .input-search-results-container {
+    width: 300px;
     display: block;
   }
   #search-text {
-    position: relative;
-    width: 185%;
-    left: -30%;
-    padding: 10px;
+    position: fixed;
+    padding: 10px 5px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 2%;
+    width: 95%;
+    /* display: inline-block; */
+    /* width: 185%;
+    left: 200px;
+    padding: 4px;
+    height: 40px;
+    width: 300px; */
   }
 
   .search-item {
@@ -444,8 +492,13 @@ input {
     height: 9vh;
     width: 6vh;    
   }
-
- 
+  
+  .nom-icon {
+    position: absolute;
+    left: 62vw;
+    top: 3vh;
+    font-size: 30px;
+  }
 
   .search-nom-button, .search-remove-button, .search-nom-disabled {
     width: calc(60px);
@@ -464,4 +517,25 @@ input {
     margin-top: 0;
     height: 13%;
   }
+  
+  
+  
+}
+
+/* shoppies are best viewed in portrait mode... */
+/* apparently this media query doesn't seem to truly detect landscape...
+it seems to just see if the width is greater than the height??*/
+
+@media(orientation: landscape) { 
+  /* this class will only be added if onMobile is true (set by checking if the device has touch points) */
+.turnDeviceNotification {
+  position:fixed;
+  z-index: 9999;
+  top: 0;
+  left:0;
+  height:100%;
+  width:100%;
+  background-image:url('./turn-device.png');
+  background-size:cover;
+}
 }

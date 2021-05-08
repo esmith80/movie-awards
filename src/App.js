@@ -28,6 +28,8 @@ function App() {
   const [searchPage, setSearchPage] = useState(1);
   const [inSearchArea, setInSearchArea] = useState(false);
   const [showSearchResults, setShowSearchResults] = useState(false);
+  const [onMobile, setOnMobile] = useState(navigator.maxTouchPoints);
+  const [orientation, setOrientation] = useState('portrait');
 
 
 
@@ -124,17 +126,17 @@ function App() {
   }
 
   return (
-
     <div className="App"
-      onClick={() => {
-        if (!inSearchArea && showSearchResults) {
-          window.scrollTo(0, 0);
-          setShowSearchResults(false);
-        }
-      }}>
+    onClick={() => {
+      if (!inSearchArea && showSearchResults) {
+        window.scrollTo(0, 0);
+        setShowSearchResults(false);
+      }
+    }}>
 
+      {onMobile ? <div className="turnDeviceNotification"></div> : null}
       <div className="noms-title-search-container">
-        <h1 className="title">Movie Awards</h1>
+        <h1 className="title">Shoppies</h1>
         <SearchBar
           setInSearchArea={setInSearchArea}
           getMovies={getMovies}
