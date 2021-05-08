@@ -29,7 +29,7 @@ function App() {
   const [inSearchArea, setInSearchArea] = useState(false);
   const [showSearchResults, setShowSearchResults] = useState(false);
   const [onMobile, setOnMobile] = useState(navigator.maxTouchPoints);
-  const [orientation, setOrientation] = useState('portrait');
+  const [modalVisible, setModalVisible] = useState(false);
 
 
 
@@ -157,7 +157,8 @@ function App() {
 
       {
         nominees.length === 5 ?
-          <Banner /> : null
+          <Banner 
+          setModalVisible={setModalVisible}/> : null
       }
 
       {

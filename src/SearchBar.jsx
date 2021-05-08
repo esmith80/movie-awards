@@ -15,7 +15,6 @@ const SearchBar = ({ getMovies, setInSearchArea }) => {
       onMouseLeave={() => {
         setInSearchArea(false);
       }}>
-      {/* <label className='searchlabel'>Find movies to nominate</label> */}
       <div
         className='input-search-results-container'
         onBlur={() => {
