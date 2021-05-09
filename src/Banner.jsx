@@ -1,13 +1,13 @@
 import React from 'react';
 
-const Banner = ({setModalVisible}) => {
+const Banner = ({setShowMessage, showMessage}) => {
 
   return (
     
     <div className='banner'>
       <span 
       className="close-control-banner"
-      onClick={() => setModalVisible(false)}
+      onClick={() => setShowMessage(false)}
       >&#10006;</span>
       <h4>CONGRATULATIONS!
         <br />

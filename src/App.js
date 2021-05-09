@@ -29,7 +29,7 @@ function App() {
   const [inSearchArea, setInSearchArea] = useState(false);
   const [showSearchResults, setShowSearchResults] = useState(false);
   const [onMobile, setOnMobile] = useState(navigator.maxTouchPoints);
-  const [modalVisible, setModalVisible] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
 
 
 
@@ -41,6 +41,7 @@ function App() {
       Poster
     };
     setNominees([...nominees, nominee]);
+    if(nominees.length === 4) setShowMessage(true);
 
     localStorage.setItem(imdbID, JSON.stringify(nominee));
 
@@ -78,6 +79,7 @@ function App() {
       }
     }
     setNominees(newNomList);
+    if(nominees.length === 4) setShowMessage(true);
   }
 
   // get movies from database and set the results to searchResults
@@ -125,6 +127,8 @@ function App() {
     }
   }
 
+  
+
   return (
     <div className="App"
     onClick={() => {
@@ -137,6 +141,18 @@ function App() {
       {onMobile ? <div className="turnDeviceNotification"></div> : null}
       <div className="noms-title-search-container">
         <h1 className="title">Shoppies</h1>
+        {showSearchResults ? <div></div> : 
+          nominees.length === 5 ? 
+          <div className="instructions">
+            <h2>Here are your nominees!</h2>
+            <h3>(To change your nominees, use the remove controls.)</h3>
+          </div>
+          : 
+          <div className="instructions">
+            <h2>Choose 5 movies to nominate for a Shoppie award!</h2>
+            <h3>You have <span>{5 - nominees.length}</span> {5 - nominees.length === 1 ? "nomination" : "nominations"} left.</h3>
+          </div>
+        }
         <SearchBar
           setInSearchArea={setInSearchArea}
           getMovies={getMovies}
@@ -155,11 +171,6 @@ function App() {
           <div className='nom-container'></div>
       }
 
-      {
-        nominees.length === 5 ?
-          <Banner 
-          setModalVisible={setModalVisible}/> : null
-      }
 
       {
         movies.length && showSearchResults ?
