@@ -1,11 +1,21 @@
 import React from 'react';
 
-const Banner = () => {
+const Banner = ({setShowMessage, showMessage}) => {
 
   return (
+    
     <div className='banner'>
-      <h4>You have selected the maximum of 5 nominees. If you would like to change your nominations, use the 'Remove' button.</h4>
+      <span 
+      className="close-control-banner"
+      onClick={() => setShowMessage(false)}
+      >&#10006;</span>
+      <h4>CONGRATULATIONS!
+        <br />
+        <br />
+        You have named 5 Shoppie Nominees.</h4>
+        <h5><em>To change your selections, simply remove a nominee and search for a new one.</em></h5>
     </div>
+    
   );
 };
 

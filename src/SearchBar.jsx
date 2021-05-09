@@ -15,7 +15,6 @@ const SearchBar = ({ getMovies, setInSearchArea }) => {
       onMouseLeave={() => {
         setInSearchArea(false);
       }}>
-      {/* <label className='searchlabel'>Find movies to nominate</label> */}
       <div
         className='input-search-results-container'
         onBlur={() => {
@@ -28,6 +27,10 @@ const SearchBar = ({ getMovies, setInSearchArea }) => {
 
 
       >
+        <form action="." onSubmit={(e)=> {
+          e.preventDefault();}
+        }>
+
         <input
           placeholder='Search for a movie to nominate...'
           id='search-text'
@@ -39,14 +42,16 @@ const SearchBar = ({ getMovies, setInSearchArea }) => {
           //TODO (only run if there is a new search term)
           onKeyUp={e => {
             if (e.key === 'Enter' && searchText.trim().length) {
+              
               setShowTypeAhead(false);
               window.scrollTo(0, 0);
               getMovies(searchText + '*', 1); // number 1 has to be used because if these buttons are being hit the user needs new results - not necessarily... if they hit it twice to start then they should get 2 pages?
             }
           }}
           onChange={() => { setSearchText(document.getElementById('search-text').value) }
-          }
+        }
         />
+        </form>
         {/* TODO don't display SearchBarResults at all if nothing is typed in, or if there is a new text IS USING a ternary with null OK? */}
         {searchText.trim().length > 2 && showTypeAhead ? <SearchBarResults
           setSearchText={setSearchText}
