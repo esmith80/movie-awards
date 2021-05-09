@@ -150,7 +150,7 @@ function App() {
           nominees.length === 5 ? 
           <div className="instructions">
             <h2>Your nominees!</h2>
-            <p>To change your nominees, use the remove controls.</p>
+            <p>You may change your nominees by first removing a nominee and searching for a new movie to add.</p>
           </div>
           : 
           <div className="instructions">

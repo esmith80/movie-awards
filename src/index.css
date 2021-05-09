@@ -278,6 +278,7 @@ input {
 }
 
 .banner {
+  text-align: left;
   position: fixed;
   left: 25%;
   right: 25%;
@@ -298,13 +299,13 @@ input {
 
 .banner > ul {
   font-weight: bold;
-  /* color: gold; */
+  color: gold;
+  text-align: left;
   
 }
 
 li::marker {
   color: gold;
-  content: '⭐';
   font-size: 1.2em;
 }
 
@@ -432,6 +433,7 @@ li::marker {
   .title {
     position: fixed;
     top: 0px;
+    height: 20%;
     font-size: 4em;
   }
 
@@ -518,6 +520,12 @@ li::marker {
     font-size: small;
   }
   
+  .banner {
+    max-width: 90%;
+    width: 100%;
+    left:2vw;
+    top: 16vh;
+  }
 
  
   
