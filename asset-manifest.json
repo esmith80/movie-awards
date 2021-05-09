@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/movie-awards/static/css/main.5a000d62.chunk.css",
-    "main.js": "/movie-awards/static/js/main.7304957a.chunk.js",
-    "main.js.map": "/movie-awards/static/js/main.7304957a.chunk.js.map",
+    "main.css": "/movie-awards/static/css/main.a8132d52.chunk.css",
+    "main.js": "/movie-awards/static/js/main.b7230e68.chunk.js",
+    "main.js.map": "/movie-awards/static/js/main.b7230e68.chunk.js.map",
     "runtime-main.js": "/movie-awards/static/js/runtime-main.1a29b767.js",
     "runtime-main.js.map": "/movie-awards/static/js/runtime-main.1a29b767.js.map",
     "static/js/2.4e2f1fe3.chunk.js": "/movie-awards/static/js/2.4e2f1fe3.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.79d4e60b.chunk.js": "/movie-awards/static/js/3.79d4e60b.chunk.js",
     "static/js/3.79d4e60b.chunk.js.map": "/movie-awards/static/js/3.79d4e60b.chunk.js.map",
     "index.html": "/movie-awards/index.html",
-    "static/css/main.5a000d62.chunk.css.map": "/movie-awards/static/css/main.5a000d62.chunk.css.map",
+    "static/css/main.a8132d52.chunk.css.map": "/movie-awards/static/css/main.a8132d52.chunk.css.map",
     "static/js/2.4e2f1fe3.chunk.js.LICENSE.txt": "/movie-awards/static/js/2.4e2f1fe3.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/movie-awards/static/media/—Pngtree—golden stage podium in black_1159255.83943f63.png"
+    "static/media/index.css": "/movie-awards/static/media/turn-device.7ffe3d9a.png"
   },
   "entrypoints": [
     "static/js/runtime-main.1a29b767.js",
     "static/js/2.4e2f1fe3.chunk.js",
-    "static/css/main.5a000d62.chunk.css",
-    "static/js/main.7304957a.chunk.js"
+    "static/css/main.a8132d52.chunk.css",
+    "static/js/main.b7230e68.chunk.js"
   ]
 }
