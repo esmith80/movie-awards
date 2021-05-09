@@ -29,7 +29,7 @@ function App() {
   const [inSearchArea, setInSearchArea] = useState(false);
   const [showSearchResults, setShowSearchResults] = useState(false);
   const [onMobile, setOnMobile] = useState(navigator.maxTouchPoints);
-  const [showMessage, setShowMessage] = useState(false);
+  const [showMessage, setShowMessage] = useState(true);
 
 
 
@@ -41,7 +41,6 @@ function App() {
       Poster
     };
     setNominees([...nominees, nominee]);
-    if(nominees.length === 4) setShowMessage(true);
 
     localStorage.setItem(imdbID, JSON.stringify(nominee));
 
@@ -79,7 +78,6 @@ function App() {
       }
     }
     setNominees(newNomList);
-    if(nominees.length === 4) setShowMessage(true);
   }
 
   // get movies from database and set the results to searchResults
@@ -137,6 +135,13 @@ function App() {
         setShowSearchResults(false);
       }
     }}>
+      <div className="left-curtains" />
+      <div className="right-curtains" />
+      <div className="nominees-platform" />
+      {showMessage ? <Banner
+      setShowMessage={setShowMessage}      
+      /> : null }
+    
 
       {onMobile ? <div className="turnDeviceNotification"></div> : null}
       <div className="noms-title-search-container">
@@ -144,12 +149,12 @@ function App() {
         {showSearchResults ? <div></div> : 
           nominees.length === 5 ? 
           <div className="instructions">
-            <h2>Here are your nominees!</h2>
-            <h3>(To change your nominees, use the remove controls.)</h3>
+            <h2>Your nominees!</h2>
+            <p>To change your nominees, use the remove controls.</p>
           </div>
           : 
           <div className="instructions">
-            <h2>Choose 5 movies to nominate for a Shoppie award!</h2>
+            <p>Search above to find <strong>nominees</strong> for a Shoppie award.</p>
             <h3>You have <span>{5 - nominees.length}</span> {5 - nominees.length === 1 ? "nomination" : "nominations"} left.</h3>
           </div>
         }

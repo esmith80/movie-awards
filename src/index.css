@@ -3,18 +3,54 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: black;
-  background-image: url("./—Pngtree—golden stage podium in black_1159255.png");
-  background-size: 100% 100%;
+  background-color: rgb(27, 26, 27);
+  /* background-image: url("./—Pngtree—golden\ stage\ podium\ in\ black_1159255.png"); */
+  /* background-size: 100% 180%; */
+  background-position:center;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+.left-curtains {
+  position: fixed;
+  height: 100%;
+  width: 10%;
+  background-color:rgb(114, 23, 114);
+  border-radius: 0.75em;
+  top: 18vh;
+  left: 1vw;;
+  background-image: url("./argyle.png");
+  z-index: 999;
+}
+
+.right-curtains {
+  position: fixed;
+  height: 100%;
+  width: 10%;
+  background-color:rgb(114, 23, 114);
+  border-radius: 0.75em;
+  top: 18vh;
+  right: 1vw;
+  background-image: url("./argyle.png");
+  z-index: 999;
+}
+
+/* .nominees-platform {
+  position: fixed;
+  bottom: -3vh;
+  left: 5%;
+  background-image: url("./nominees-platform.png");
+  width: 100%;
+  height: 27%;
+  background-repeat: no-repeat;
+  /* background-position: center;
+} */
 
 /* these rules apply to all sizes unless specified */
 
 .noms-title-search-container  {
   position: fixed;
-  background-color: black;
+  background-color: rgb(27, 26, 27);
   top: 0;
   width: 100%;  
   height: 20%;
@@ -28,12 +64,14 @@ body {
   width: 100%;
   text-align: center;
   align-self: flex-end;
-  color: #DAB018;
+  color: #f7e708;
   font-variant: small-caps;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  /* background-color: black; */
+  background-color:rgb(79, 16, 79);
+  background-image: url("./argyle.png");
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
   margin-bottom: 0;
-  z-index: 301;
   font-size: 8em;
 }
 
@@ -77,7 +115,7 @@ input {
 
 .search-container {
   position: relative;
-  top: 28vh;
+  top: 29vh;
   margin: auto;
   height: 100%;
   width: 56%;
@@ -85,7 +123,7 @@ input {
   font-size: calc(10px + 2vmin);
   font-weight: bolder;
   color: white;
-  background-color: black;
+  background-color: rgb(27, 26, 27);
   opacity: 0.9;
 }
 
@@ -120,7 +158,7 @@ input {
 }
 
 .search-item:hover {
-  border: 2px dotted rgb(248, 200, 8);
+  outline: 2px dotted rgb(248, 200, 8);
   
 }
 
@@ -162,7 +200,13 @@ input {
   background-color: purple;
   text-transform: uppercase;
   font-weight: bold;
-  
+}
+
+.search-nom-button:hover {
+  outline: 1px solid rgb(216, 194, 105);
+}
+.search-remove-button:hover {
+  outline: 1px solid white;
 }
 
 .search-nom-disabled {
@@ -195,16 +239,20 @@ input {
   height: 10%;
   width: 100%;
   text-align: center;
-  background-color: black;
+  background-color: rgb(27, 26, 27);;
   z-index: 300;
 }
 
 .searchbar > button {
-  background-color: purple;
+  background-color: #711871;
   height: 50px;
   margin-left: 15px;
   margin-top: 4px;
+  font-weight: bolder;
   color: white;
+}
+.searchbar > button:hover {
+  outline: 1px solid white;
 }
 
 .input-search-results-container {
@@ -230,24 +278,43 @@ input {
 }
 
 .banner {
-  position: relative;
-  left: 32vh;  
+  position: fixed;
+  left: 25%;
+  right: 25%;
+  top: 20%;
   background-color: #480148;
-  /* height: 60%; */
-  max-width: 550px;
+  max-width: 50%;
   border: double;
-  font-size: x-large;
-  color: #FBCD24;
-  text-align: center;
+  font-size: large;
+  color: white;
   padding: 1vh;
   z-index: 400;
+  line-height: 1.5;
 }
+
+.banner > h4 {
+  color:rgb(248, 200, 8);
+}
+
+.banner > ul {
+  font-weight: bold;
+  /* color: gold; */
+  
+}
+
+li::marker {
+  color: gold;
+  content: '⭐';
+  font-size: 1.2em;
+}
+
 
 .close-control-banner {
   position: absolute;
-  top: -5vh;
-  left: 71vw;
+  right: 1vw;
+  top: 0;
   font-size: 2.5em;
+  z-index: 1000;
 
 }
 
@@ -267,11 +334,17 @@ input {
 }
 
 .instructions {
-  color: #DAB018;
-  opacity: 0.8;
+  color: #f7e708;
   position: relative;
-  top: 27vh;
-  
+  top: 25vh;
+  font-size: 1.5em;
+  width: 80%;
+  padding: .25em;
+  left: 10%;  
+}
+
+.instructions > p {
+  color: white;
 }
 
 
@@ -317,6 +390,12 @@ input {
     font-size: 1em;
   }
 
+  .left-curtains,
+  .right-curtains {
+    width: 5%;
+    opacity: 0.7;
+  }
+
   
   .awards-logo {
     display: inline;
@@ -333,6 +412,12 @@ input {
 
 @media only screen and (max-width: 651px) {
 
+  .title {
+    font-size: 6em;
+    position: fixed;
+    top: 0;
+  }
+
   .search-container {
     width: 75%;
   }
@@ -347,8 +432,14 @@ input {
   .title {
     position: fixed;
     top: 0px;
-    font-size: 2em;
+    font-size: 4em;
   }
+
+  .left-curtains,
+  .right-curtains {
+    display: none;
+  }
+
   button {
     width: calc(70px);
     padding: 3px;
@@ -422,6 +513,11 @@ input {
     position: absolute;
     top: 6vh;
   }
+
+  .instructions > p {
+    font-size: small;
+  }
+  
 
  
   
