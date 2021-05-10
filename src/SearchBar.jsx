@@ -4,8 +4,8 @@ import SearchBarResults from './SearchBarResults'
 const SearchBar = ({ getMovies, setInSearchArea }) => {
 
   const [searchText, setSearchText] = useState('');
-  const [inTypeAhead, setInTypeAhead] = useState(false);
   const [showTypeAhead, setShowTypeAhead] = useState(false);
+  const [inTypeAhead, setInTypeAhead] = useState(false);
 
   return (
     <div className='searchbar'
@@ -44,7 +44,8 @@ const SearchBar = ({ getMovies, setInSearchArea }) => {
             onKeyUp={e => {
               if (e.key === 'Enter' && searchText.trim().length) {
 
-                setShowTypeAhead(false);
+                
+                document.getElementById("search-text").blur();
                 window.scrollTo(0, 0);
                 getMovies(searchText + '*', 1); // number 1 has to be used because if these buttons are being hit the user needs new results - not necessarily... if they hit it twice to start then they should get 2 pages?
               }
