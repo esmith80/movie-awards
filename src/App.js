@@ -30,7 +30,7 @@ function App() {
   const [showSearchResults, setShowSearchResults] = useState(false);
   const [onMobile, setOnMobile] = useState(navigator.maxTouchPoints);
   const [showMessage, setShowMessage] = useState(true);
-  const [showTypeAhead, setShowTypeAhead] = useState(false);
+  
 
   const nominate = (Title, Year, imdbID, Poster) => {
     const nominee = {
@@ -148,8 +148,7 @@ function App() {
           setMovies={setMovies}
           searchPage={searchPage}
           setSearchPage={setSearchPage}
-          showTypeAhead={showTypeAhead}
-          setShowTypeAhead={setShowTypeAhead} />
+          />
       </div>
           {showSearchResults ? <div></div> :
             nominees.length === 5 ?

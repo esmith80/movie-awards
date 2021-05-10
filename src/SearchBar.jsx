@@ -1,10 +1,11 @@
 import { React, useState } from 'react';
 import SearchBarResults from './SearchBarResults'
 
-const SearchBar = ({ getMovies, setInSearchArea, showTypeAhead, setShowTypeAhead }) => {
+const SearchBar = ({ getMovies, setInSearchArea }) => {
 
   const [searchText, setSearchText] = useState('');
   const [inTypeAhead, setInTypeAhead] = useState(false);
+  const [showTypeAhead, setShowTypeAhead] = useState(false);
 
   return (
     <div className='searchbar'

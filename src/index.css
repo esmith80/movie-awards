@@ -241,15 +241,14 @@ input {
 
 /* this is the container for type-ahead results */
 .searchbar-results {
-  position: relative;
+  position: absolute;
   z-index: 200;
   background-color: white;
   font-size: 1.5em;
   color: black;
   padding: 1vh 1.75vw;
-  left: 0.25vw;
-  top: 0px;
-  width: 93%;
+  width: 46%;
+  margin-left: .25em;
 }
 
 .searchbar-result-item {
