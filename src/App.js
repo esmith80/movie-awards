@@ -140,7 +140,7 @@ function App() {
       /> : null}
 
 
-      {onMobile ? <div className="turnDeviceNotification"></div> : null}
+      {/* {onMobile ? <div className="turnDeviceNotification"></div> : null} */}
       <div className="noms-title-search-container">
         <h1 className="title">Shoppies</h1>
         {showSearchResults ? <div></div> :
