@@ -146,6 +146,7 @@ input {
   padding: 1vw;
   align-items: flex-start;
   position: relative;
+  margin-top: 1vh;
 }
 
 .search-item:hover {
