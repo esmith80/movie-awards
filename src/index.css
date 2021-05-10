@@ -399,13 +399,18 @@ li::marker {
   }
 
   .search-container {
-    width: 75%;
+    width: 80%;
+  }
+  
+  .left-curtains,
+  .right-curtains {
+    display: none;
   }
 }
 
 /* small - phone */
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 500px) {
   .title {
     position: fixed;
     top: 0px;
@@ -416,10 +421,7 @@ li::marker {
     position: fixed;
   }
 
-  .left-curtains,
-  .right-curtains {
-    display: none;
-  }
+  
 
   button {
     width: calc(70px);
@@ -475,7 +477,7 @@ li::marker {
   }
 
   .search-item {
-    height: 75px;
+    font-size: 1.5em;
     width: 95%;
     position: relative;
     left: 1vw;
@@ -483,22 +485,26 @@ li::marker {
   }
 
   .search-poster {
-    height: 9vh;
-    width: 6vh;
+    height: 15vh;
+    width: 10vh;
   }
 
   .search-nom-button,
   .search-remove-button,
   .search-nom-disabled {
-    width: calc(64px);
-    padding: 3px;
-    font-size: calc(3px + 2vmin);
+    width: 20vw;
+    padding: 5px;
+    font-size: calc(5px + 2vmin);
     position: absolute;
-    top: 6vh;
+    top: 12vh;
   }
 
   .instructions > p {
     font-size: small;
+  }
+
+  .nom-container {
+    top: 50vh
   }
 
   .banner {
