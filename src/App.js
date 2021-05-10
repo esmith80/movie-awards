@@ -84,7 +84,6 @@ function App() {
   async function getMovies(searchTerm, pageToReturn) {
     searchTerm = removeCharsAndSpaces(searchTerm, ['&', '-']);
     setShowSearchResults(true);
-    // setInSearchArea(true);
     // the incoming pageToReturn informs us if the user has triggered a brand new search (even if the search is with the same search text as before)
     if (pageToReturn === 1) {
       setSearchPage(1);
@@ -125,38 +124,36 @@ function App() {
     }
   }
 
-  
-
   return (
     <div className="App"
-    onClick={() => {
-      if (!inSearchArea && showSearchResults) {
-        window.scrollTo(0, 0);
-        setShowSearchResults(false);
-      }
-    }}>
+      onClick={() => {
+        if (!inSearchArea && showSearchResults) {
+          window.scrollTo(0, 0);
+          setShowSearchResults(false);
+        }
+      }}>
       <div className="left-curtains" />
       <div className="right-curtains" />
       <div className="nominees-platform" />
       {showMessage ? <Banner
-      setShowMessage={setShowMessage}      
-      /> : null }
-    
+        setShowMessage={setShowMessage}
+      /> : null}
+
 
       {onMobile ? <div className="turnDeviceNotification"></div> : null}
       <div className="noms-title-search-container">
         <h1 className="title">Shoppies</h1>
-        {showSearchResults ? <div></div> : 
-          nominees.length === 5 ? 
-          <div className="instructions">
-            <h2>Your nominees!</h2>
-            <p>You may change your nominees by first removing a nominee and searching for a new movie to add.</p>
-          </div>
-          : 
-          <div className="instructions">
-            <p>Search above to find <strong>nominees</strong> for a Shoppie award.</p>
-            <h3>You have <span>{5 - nominees.length}</span> {5 - nominees.length === 1 ? "nomination" : "nominations"} left.</h3>
-          </div>
+        {showSearchResults ? <div></div> :
+          nominees.length === 5 ?
+            <div className="instructions">
+              <h2>Your nominees!</h2>
+              <p>You may change your nominees by first removing a nominee and searching for a new movie to add.</p>
+            </div>
+            :
+            <div className="instructions">
+              <p>Search above to find <strong>nominees</strong> for a Shoppie award.</p>
+              <h3>You have <span>{5 - nominees.length}</span> {5 - nominees.length === 1 ? "nomination" : "nominations"} left.</h3>
+            </div>
         }
         <SearchBar
           setInSearchArea={setInSearchArea}

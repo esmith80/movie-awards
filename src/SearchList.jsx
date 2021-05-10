@@ -23,7 +23,6 @@ function SearchList({ nominate, remove, movies, maxNomsReached, lastSearchTerm, 
         // lastOffPagePx condition is so event only triggers when scrolling down
         if (offPagePxBelow < 10 && offPagePxBelow <= lastOffPagePx) {
           getMovies(lastSearchTerm + '*', searchPage + 1);
-          // TODO reset search page if movie results
           handlePageChange(searchPage + 1);
         }
       }
@@ -61,7 +60,7 @@ function SearchList({ nominate, remove, movies, maxNomsReached, lastSearchTerm, 
   }
 
   return (
-    
+
     <div className='search-container'
       onMouseEnter={() => {
         setInSearchArea(true);
@@ -71,9 +70,9 @@ function SearchList({ nominate, remove, movies, maxNomsReached, lastSearchTerm, 
       }}
     >
       <div className="close-control"
-      onClick={() => {
-        setShowSearchResults(false);
-      }}
+        onClick={() => {
+          setShowSearchResults(false);
+        }}
       >&#10006;</div>
 
       {searchListItems}

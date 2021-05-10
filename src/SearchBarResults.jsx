@@ -8,7 +8,6 @@ function SearchBarResults({ searchText, setSearchText, setShowTypeAhead, getMovi
 
   const [typeAheadResults, setTypeAheadResults] = useState([]);
 
-
   async function getTypeAheadResults(s) {
     s = removeCharsAndSpaces(s, ['&', '-']);
 
@@ -29,6 +28,7 @@ function SearchBarResults({ searchText, setSearchText, setShowTypeAhead, getMovi
   let runNewTypeAhead = false;
   let typeAheadTimeOut;
 
+  // todo needs to be changed to follow react's useeffect rules (see console errors in dev tools)
   useEffect(() => {
     const handleTextChange = (s) => {
       runNewTypeAhead = true;
@@ -42,12 +42,6 @@ function SearchBarResults({ searchText, setSearchText, setShowTypeAhead, getMovi
           getTypeAheadResults(s);
         }
       }, 200);
-      // TODO adjust this test code which only allows additional search if entire text is deleted
-      // search only runs again if the search terms is deleted entirely before something new is
-      // TODO need conditions to check 
-      // 1) when to run first search 
-      // 2) when to rerun search 
-      // 3) variable to track if current searchText returns a result
     };
     // code to run when the prop searchText changes
     handleTextChange(searchText);
@@ -73,7 +67,7 @@ function SearchBarResults({ searchText, setSearchText, setShowTypeAhead, getMovi
 
   return (
     <>
-    
+
       <div
         className='searchbar-results'
         onMouseEnter={() => {
@@ -84,10 +78,10 @@ function SearchBarResults({ searchText, setSearchText, setShowTypeAhead, getMovi
         }}
       >
         <div className="close-control-typeahead"
-      onClick={() => {
-        setShowTypeAhead(false);
-      }}
-      >&#10006;</div>
+          onClick={() => {
+            setShowTypeAhead(false);
+          }}
+        >&#10006;</div>
         {results}
       </div>
     </>

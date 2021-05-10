@@ -1,12 +1,12 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    "sans-serif";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(27, 26, 27);
-  /* background-image: url("./—Pngtree—golden\ stage\ podium\ in\ black_1159255.png"); */
-  /* background-size: 100% 180%; */
-  background-position:center;
+  background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -15,10 +15,10 @@ body {
   position: fixed;
   height: 100%;
   width: 10%;
-  background-color:rgb(114, 23, 114);
+  background-color: rgb(114, 23, 114);
   border-radius: 0.75em;
   top: 18vh;
-  left: 1vw;;
+  left: 1vw;
   background-image: url("./argyle.png");
   z-index: 999;
 }
@@ -27,7 +27,7 @@ body {
   position: fixed;
   height: 100%;
   width: 10%;
-  background-color:rgb(114, 23, 114);
+  background-color: rgb(114, 23, 114);
   border-radius: 0.75em;
   top: 18vh;
   right: 1vw;
@@ -35,24 +35,13 @@ body {
   z-index: 999;
 }
 
-/* .nominees-platform {
-  position: fixed;
-  bottom: -3vh;
-  left: 5%;
-  background-image: url("./nominees-platform.png");
-  width: 100%;
-  height: 27%;
-  background-repeat: no-repeat;
-  /* background-position: center;
-} */
-
 /* these rules apply to all sizes unless specified */
 
-.noms-title-search-container  {
+.noms-title-search-container {
   position: fixed;
   background-color: rgb(27, 26, 27);
   top: 0;
-  width: 100%;  
+  width: 100%;
   height: 20%;
   margin-top: 0;
   z-index: 300;
@@ -66,8 +55,8 @@ body {
   align-self: flex-end;
   color: #f7e708;
   font-variant: small-caps;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  background-color:rgb(79, 16, 79);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-color: rgb(79, 16, 79);
   background-image: url("./argyle.png");
   border-bottom-left-radius: 0.5em;
   border-bottom-right-radius: 0.5em;
@@ -96,7 +85,6 @@ input {
   margin: 5px;
   width: 100%;
 }
-
 
 .nom-container {
   position: fixed;
@@ -129,15 +117,16 @@ input {
 
 .close-control {
   position: fixed;
-  width: 1vw; height: 1vw;
+  width: 1vw;
+  height: 1vw;
   text-align: center;
   vertical-align: text-bottom;
   left: 75vw;
-  
+
   font-size: 50px;
-  font-family:monospace;
+  font-family: monospace;
   font-weight: lighter;
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
   z-index: 500;
   user-select: none;
 }
@@ -159,27 +148,17 @@ input {
 
 .search-item:hover {
   outline: 2px dotted rgb(248, 200, 8);
-  
 }
 
 .search-item:hover .search-nom-button,
 .search-item:hover .search-remove-button,
-.search-item:hover .search-nom-disabled
-{
+.search-item:hover .search-nom-disabled {
   display: inline-block;
 }
-
 
 .search-item-text {
   width: 80%;
 }
-/* this is a div that wraps around the search poster and nom icon  */
-/* .search-nom-button-container { */
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* justify-content: space-between; */
-  /* width: 20%; */
-/* } */
 
 .search-nom-button {
   align-self: flex-start;
@@ -188,7 +167,6 @@ input {
   top: 13vh;
   text-transform: uppercase;
   font-weight: bold;
-  
 }
 
 .search-remove-button {
@@ -216,7 +194,6 @@ input {
   top: 13vh;
   text-transform: uppercase;
   font-weight: bold;
-  
 }
 
 .disabled-text {
@@ -239,7 +216,7 @@ input {
   height: 10%;
   width: 100%;
   text-align: center;
-  background-color: rgb(27, 26, 27);;
+  background-color: rgb(27, 26, 27);
   z-index: 300;
 }
 
@@ -256,7 +233,7 @@ input {
 }
 
 .input-search-results-container {
-  display: relative;  
+  display: relative;
   width: 50%;
 }
 
@@ -279,7 +256,7 @@ input {
 
 .banner {
   text-align: left;
-  position: fixed;
+  position: absolute;
   left: 25%;
   right: 25%;
   top: 20%;
@@ -294,14 +271,13 @@ input {
 }
 
 .banner > h4 {
-  color:rgb(248, 200, 8);
+  color: rgb(248, 200, 8);
 }
 
 .banner > ul {
   font-weight: bold;
   color: gold;
   text-align: left;
-  
 }
 
 li::marker {
@@ -309,14 +285,12 @@ li::marker {
   font-size: 1.2em;
 }
 
-
 .close-control-banner {
   position: absolute;
   right: 1vw;
   top: 0;
   font-size: 2.5em;
   z-index: 1000;
-
 }
 
 .nom-item {
@@ -327,7 +301,7 @@ li::marker {
 .nom-item:hover .poster {
   height: 24vh;
   width: 16vh;
-  transition: .25s;
+  transition: 0.25s;
 }
 
 .nom-item:hover .nom-remove-control {
@@ -340,21 +314,19 @@ li::marker {
   top: 25vh;
   font-size: 1.5em;
   width: 80%;
-  padding: .25em;
-  left: 10%;  
+  padding: 0.25em;
+  left: 10%;
 }
 
 .instructions > p {
   color: white;
 }
 
-
 .poster {
   height: 21vh;
   width: 14vh;
   padding: 1vw;
 }
-
 
 .nom-remove-control {
   display: none;
@@ -363,7 +335,6 @@ li::marker {
   right: 1vw;
   width: 35px;
   height: 35px;
-  
 }
 
 .nom-button {
@@ -378,11 +349,9 @@ li::marker {
   font-size: calc(5px + 1vmin);
 }
 
-
-/* Medium */
+/* Medium screen size */
 
 @media only screen and (max-width: 1033px) {
- 
   .search-container {
     width: 65%;
   }
@@ -397,7 +366,6 @@ li::marker {
     opacity: 0.7;
   }
 
-  
   .awards-logo {
     display: inline;
     position: absolute;
@@ -412,7 +380,6 @@ li::marker {
 /* I chose this size because I want to leave 5 posters on screen */
 
 @media only screen and (max-width: 651px) {
-
   .title {
     font-size: 6em;
     position: fixed;
@@ -422,14 +389,11 @@ li::marker {
   .search-container {
     width: 75%;
   }
-  
-  
 }
 
 /* small - phone */
 
 @media only screen and (max-width: 414px) {
-
   .title {
     position: fixed;
     top: 0px;
@@ -454,14 +418,14 @@ li::marker {
 
   .search-container {
     width: 95%;
-    font-size: calc(4px + 2vmin);    
+    font-size: calc(4px + 2vmin);
   }
   .searchbar-results {
     position: absolute;
     font-size: 14px;
     padding: 2px;
-    left:2.5vw;   
-    top: 5.4vh;    
+    left: 2.5vw;
+    top: 5.4vh;
   }
   .close-control-typeahead {
     left: 89vw;
@@ -480,12 +444,8 @@ li::marker {
     display: block;
     width: 100%;
     height: 0;
-    
   }
-  /* .input-search-results-container {
-    width: 300px;
-    display: block;
-  } */
+
   #search-text {
     position: fixed;
     padding: 10px 5px;
@@ -496,19 +456,21 @@ li::marker {
   }
 
   .search-item {
-    height:75px;
+    height: 75px;
     width: 95%;
     position: relative;
     left: 1vw;
     right: 1vw;
   }
 
-  .search-poster {    
+  .search-poster {
     height: 9vh;
-    width: 6vh;    
+    width: 6vh;
   }
 
-  .search-nom-button, .search-remove-button, .search-nom-disabled {
+  .search-nom-button,
+  .search-remove-button,
+  .search-nom-disabled {
     width: calc(64px);
     padding: 3px;
     font-size: calc(3px + 2vmin);
@@ -519,34 +481,28 @@ li::marker {
   .instructions > p {
     font-size: small;
   }
-  
+
   .banner {
     max-width: 90%;
     width: 100%;
-    left:2vw;
+    left: 2vw;
     top: 16vh;
   }
-
- 
-  
-  
-  
 }
 
 /* shoppies are best viewed in portrait mode... */
-/* apparently this media query doesn't seem to truly detect landscape...
-it seems to just see if the width is greater than the height??*/
+/* TODO apparently this media query doesn't seem to truly detect landscape... it seems to just see if the width is greater than the height??*/
 
-@media(orientation: landscape) { 
+@media (orientation: landscape) {
   /* this class will only be added if onMobile is true (set by checking if the device has touch points) */
-.turnDeviceNotification {
-  position:fixed;
-  z-index: 9999;
-  top: 0;
-  left:0;
-  height:100%;
-  width:100%;
-  background-image:url('./turn-device.png');
-  background-size:cover;
-}
+  .turnDeviceNotification {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("./turn-device.png");
+    background-size: cover;
+  }
 }
