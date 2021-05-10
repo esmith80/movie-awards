@@ -314,7 +314,7 @@ li::marker {
   display: flex;
   justify-content: center;
   position: fixed;
-  top: 33vh;
+  top: 34vh;
   margin-left: 5%;
   width: 90%;
   font-size: 1.5em;
@@ -436,11 +436,11 @@ li::marker {
     font-size: calc(4px + 2vmin);
   }
   .searchbar-results {
-    position: absolute;
+    width: 94%;
     font-size: 14px;
     padding: 2px;
-    left: 2.5vw;
-    top: 5.4vh;
+    left: 1vw;
+    top: 5.7vh;
   }
   .close-control-typeahead {
     left: 89vw;
