@@ -30,8 +30,7 @@ function App() {
   const [showSearchResults, setShowSearchResults] = useState(false);
   const [onMobile, setOnMobile] = useState(navigator.maxTouchPoints);
   const [showMessage, setShowMessage] = useState(true);
-
-
+  const [showTypeAhead, setShowTypeAhead] = useState(false);
 
   const nominate = (Title, Year, imdbID, Poster) => {
     const nominee = {
@@ -134,7 +133,7 @@ function App() {
       }}>
       <div className="left-curtains" />
       <div className="right-curtains" />
-      <div className="nominees-platform" />
+
       {showMessage ? <Banner
         setShowMessage={setShowMessage}
       /> : null}
@@ -143,43 +142,40 @@ function App() {
       {/* {onMobile ? <div className="turnDeviceNotification"></div> : null} */}
       <div className="noms-title-search-container">
         <h1 className="title">Shoppies</h1>
-        {showSearchResults ? <div></div> :
-          nominees.length === 5 ?
-            <div className="instructions">
-              <h2>Your nominees!</h2>
-              <p>You may change your nominees by first removing a nominee and searching for a new movie to add.</p>
-            </div>
-            :
-            <div className="instructions">
-              <p>Search above to find <strong>nominees</strong> for a Shoppie award.</p>
-              <h3>You have <span>{5 - nominees.length}</span> {5 - nominees.length === 1 ? "nomination" : "nominations"} left.</h3>
-            </div>
-        }
         <SearchBar
           setInSearchArea={setInSearchArea}
           getMovies={getMovies}
           setMovies={setMovies}
           searchPage={searchPage}
-          setSearchPage={setSearchPage} />
+          setSearchPage={setSearchPage}
+          showTypeAhead={showTypeAhead}
+          setShowTypeAhead={setShowTypeAhead} />
       </div>
+          {showSearchResults ? <div></div> :
+            nominees.length === 5 ?
+            <div className="instructions-container">
+              <div className="instructions">
+                <h2>Your nominees!</h2>
+                <p>To choose a different movie, first remove one below.</p>
+              </div>
+              </div>
+              :
+              <div className="instructions-container">
+              <div className="instructions">
+                <p>Search above to find <strong>nominees</strong> for a Shoppie award.</p>
+                <h3>You have <span>{5 - nominees.length}</span> {5 - nominees.length === 1 ? "nomination" : "nominations"} left.</h3>
+              </div>
+              </div>
+          }
 
-      {
-        nominees.length ?
-          <NominationList
-            className='nom-container'
-            remove={remove}
-            nominees={nominees}
-          /> :
-          <div className='nom-container'></div>
-      }
 
 
       {
         movies.length && showSearchResults ?
-          <SearchList
-            nominate={nominate}
-            remove={remove}
-            movies={movies}
+        <SearchList
+        nominate={nominate}
+        remove={remove}
+        movies={movies}
             maxNomsReached={nominees.length === 5}
             lastSearchTerm={lastSearchTerm}
             getMovies={getMovies}
@@ -191,11 +187,20 @@ function App() {
             searchPage={searchPage}
           /> :
           noResults ?
-            <div className='search-container'>
+          <div className='search-container'>
               Sorry, we could not find '{lastSearchTerm}'
         </div> :
             <div className='search-container'></div>
-      }
+          }
+          {
+            nominees.length ?
+              <NominationList
+                className='nom-container'
+                remove={remove}
+                nominees={nominees}
+              /> :
+              <div className='nom-container'></div>
+          }
 
     </div >
   );

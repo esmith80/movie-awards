@@ -38,7 +38,7 @@ body {
 /* these rules apply to all sizes unless specified */
 
 .noms-title-search-container {
-  position: fixed;
+  position: sticky;
   background-color: rgb(27, 26, 27);
   top: 0;
   width: 100%;
@@ -48,7 +48,7 @@ body {
 }
 
 .title {
-  position: fixed;
+  position: sticky;
   top: -8vh;
   width: 100%;
   text-align: center;
@@ -61,6 +61,7 @@ body {
   border-bottom-left-radius: 0.5em;
   border-bottom-right-radius: 0.5em;
   margin-bottom: 0;
+  margin-top: 0;
   font-size: 8em;
 }
 
@@ -95,14 +96,15 @@ input {
   width: 100%;
   height: 29vh;
   padding: 5px;
-  top: 45vh;
+  bottom: 16vh;
   text-align: left;
   font-size: calc(10px + 2vmin);
   color: white;
+  z-index: -1;
 }
 
 .search-container {
-  position: relative;
+  position: sticky;
   top: 29vh;
   margin: auto;
   height: 100%;
@@ -211,7 +213,7 @@ input {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  position: fixed;
+  position: sticky;
   top: 18vh;
   height: 10%;
   width: 100%;
@@ -308,15 +310,24 @@ li::marker {
   display: inline;
 }
 
-.instructions {
-  color: #f7e708;
-  position: relative;
-  top: 25vh;
+.instructions-container {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 30vh;
+  margin-left: 5%;
+  width: 90%;
   font-size: 1.5em;
-  width: 80%;
-  padding: 0.25em;
-  left: 10%;
+  
+  color:#f7e708;
+
 }
+/* 
+.instructions {
+
+  position: absolute;
+  
+} */
 
 .instructions > p {
   color: white;
@@ -382,7 +393,7 @@ li::marker {
 @media only screen and (max-width: 651px) {
   .title {
     font-size: 6em;
-    position: fixed;
+    position: sticky;
     top: 0;
   }
 
@@ -399,6 +410,9 @@ li::marker {
     top: 0px;
     height: 20%;
     font-size: 4em;
+  }
+  .searchbar {
+    position: fixed;
   }
 
   .left-curtains,
@@ -444,6 +458,10 @@ li::marker {
     display: block;
     width: 100%;
     height: 0;
+  }
+
+  .search-container {
+    position: relative;
   }
 
   #search-text {
