@@ -155,7 +155,7 @@ function App() {
             nominees.length === 5 ?
             <div className="instructions-container">
               <div className="instructions">
-                <h2>Your nominees!</h2>
+                <h3>Your nominees!</h3>
                 <p>To choose a different movie, first remove one below.</p>
               </div>
               </div>
