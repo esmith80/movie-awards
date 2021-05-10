@@ -16,3 +16,5 @@ Functionality:
 
 Under construction:
 - More info in nominations area (picture in search, short synopsis in nominations area)
+
+Read the [user guide](user_guide.md) for information on how to use the app.
