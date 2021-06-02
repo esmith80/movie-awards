@@ -62,7 +62,7 @@ body {
   border-bottom-right-radius: 0.5em;
   margin-bottom: 0;
   margin-top: 0;
-  font-size: 8em;
+  font-size: 6em;
 }
 
 h2 {
@@ -515,7 +515,7 @@ li::marker {
   }
 }
 
-/* shoppies are best viewed in portrait mode... */
+/* Movie Awards is best viewed in portrait mode... */
 /* TODO apparently this media query doesn't seem to truly detect landscape... it seems to just see if the width is greater than the height??*/
 
 @media (orientation: landscape) {

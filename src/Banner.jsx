@@ -6,14 +6,14 @@ const Banner = ({ setShowMessage }) => {
 
     <div className='banner'>
 
-      <h4>Hello, Shopify hiring team!</h4>
+      <h4>Welcome to Movie Awards!</h4>
       <span
         className="close-control-banner"
         onClick={() => setShowMessage(false)}
       >&#10006;</span>
-      <p>This site fulfills the base requirements of the Shopify front-end take-home assignment. It also has the following features:</p>
+      <p>This site allows a user to search for movies to nominate for awards. It also has the following features:</p>
       <ul>
-        <li>nominations are saved in local storage</li>
+        <li>nominations are automatically saved in local storage</li>
         <li>clickable type-ahead search results</li>
         <li>infinite scroll of main search results</li>
         <li>starts-with search (default behaviour)</li>

@@ -28,8 +28,7 @@ function App() {
   const [searchPage, setSearchPage] = useState(1);
   const [inSearchArea, setInSearchArea] = useState(false);
   const [showSearchResults, setShowSearchResults] = useState(false);
-  const [onMobile, setOnMobile] = useState(navigator.maxTouchPoints);
-  const [showMessage, setShowMessage] = useState(true);
+  // const [showMessage, setShowMessage] = useState(true);
   
 
   const nominate = (Title, Year, imdbID, Poster) => {
@@ -134,14 +133,15 @@ function App() {
       <div className="left-curtains" />
       <div className="right-curtains" />
 
-      {showMessage ? <Banner
+// todo commented out; un-comment if you want an overlay that is displayed when the site loads initally
+      {/* {showMessage ? <Banner
         setShowMessage={setShowMessage}
-      /> : null}
+      /> : null} */}
 
 
       {/* {onMobile ? <div className="turnDeviceNotification"></div> : null} */}
       <div className="noms-title-search-container">
-        <h1 className="title">Shoppies</h1>
+        <h1 className="title">Movie Awards</h1>
         <SearchBar
           setInSearchArea={setInSearchArea}
           getMovies={getMovies}
@@ -161,7 +161,7 @@ function App() {
               :
               <div className="instructions-container">
               <div className="instructions">
-                <p>Search above to find <strong>nominees</strong> for a Shoppie award.</p>
+                <p>Search above to find <strong>nominees</strong> for an award.</p>
                 <h3>You have <span>{5 - nominees.length}</span> {5 - nominees.length === 1 ? "nomination" : "nominations"} left.</h3>
               </div>
               </div>
