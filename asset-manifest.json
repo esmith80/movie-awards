@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/movie-awards/static/css/main.478d3535.chunk.css",
-    "main.js": "/movie-awards/static/js/main.0b4b5619.chunk.js",
-    "main.js.map": "/movie-awards/static/js/main.0b4b5619.chunk.js.map",
+    "main.css": "/movie-awards/static/css/main.3169c7b9.chunk.css",
+    "main.js": "/movie-awards/static/js/main.e8461456.chunk.js",
+    "main.js.map": "/movie-awards/static/js/main.e8461456.chunk.js.map",
     "runtime-main.js": "/movie-awards/static/js/runtime-main.1a29b767.js",
     "runtime-main.js.map": "/movie-awards/static/js/runtime-main.1a29b767.js.map",
     "static/js/2.4e2f1fe3.chunk.js": "/movie-awards/static/js/2.4e2f1fe3.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.79d4e60b.chunk.js": "/movie-awards/static/js/3.79d4e60b.chunk.js",
     "static/js/3.79d4e60b.chunk.js.map": "/movie-awards/static/js/3.79d4e60b.chunk.js.map",
     "index.html": "/movie-awards/index.html",
-    "static/css/main.478d3535.chunk.css.map": "/movie-awards/static/css/main.478d3535.chunk.css.map",
+    "static/css/main.3169c7b9.chunk.css.map": "/movie-awards/static/css/main.3169c7b9.chunk.css.map",
     "static/js/2.4e2f1fe3.chunk.js.LICENSE.txt": "/movie-awards/static/js/2.4e2f1fe3.chunk.js.LICENSE.txt",
     "static/media/index.css": "/movie-awards/static/media/turn-device.7ffe3d9a.png"
   },
   "entrypoints": [
     "static/js/runtime-main.1a29b767.js",
     "static/js/2.4e2f1fe3.chunk.js",
-    "static/css/main.478d3535.chunk.css",
-    "static/js/main.0b4b5619.chunk.js"
+    "static/css/main.3169c7b9.chunk.css",
+    "static/js/main.e8461456.chunk.js"
   ]
 }
