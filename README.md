@@ -1,6 +1,6 @@
 **Author: Edward Smith**
 
-This project is based on a ficticious movie awards show called The Shoppies. This site allows a user to nominate up to 5 movies for an award. 
+This project is based on a ficticious movie awards show. This site allows a user to nominate up to 5 movies for an award. 
 
 The app is live here: https://esmith80.github.io/movie-awards/
 
